@@ -1,6 +1,6 @@
 export const URL = "http://localhost:8100/clients/";
 
-export const NAV_LINKS = {
+export const NAV_LINKS_TITLES = {
   home: "Home",
   clients: "Clients",
   actions: "Actions",
@@ -9,6 +9,16 @@ export const NAV_LINKS = {
   login: "Login",
   register: "Register"
 };
+
+export const NAV_LINKS = [
+  "home",
+  "clients",
+  "actions",
+  "analytics",
+  "logout",
+  "login",
+  "register"
+];
 
 export const CLIENTS_HEADERS = {
   name: "name",

@@ -11,6 +11,7 @@ import { COLORS } from "./utils/constants";
 import Landing from "./components/general/Landing";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
+import Navbar from "./components/general/Navbar";
 // import Clients from "./components/clients/Clients.js";
 // import Actions from "./components/actions/Actions.js";
 // import Analytics from "./components/analytics/Analytics";
@@ -39,16 +40,21 @@ function App() {
           />
         </div>
       ) : (
-        <Router>
-          <Routes>
-            <Route path="/" element={<Landing />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/login" element={<Login />} />
-            {/*   <Route path="/clients" exact component={Clients} />
+        <div className="app">
+          <Router>
+            <div className="general">
+              <Navbar />
+            </div>
+            <Routes>
+              <Route path="/" element={<Landing />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/login" element={<Login />} />
+              {/*   <Route path="/clients" exact component={Clients} />
               <Route path="/actions" exact component={Actions} />
               <Route path="/analytics" exact component={Analytics} /> */}
-          </Routes>
-        </Router>
+            </Routes>
+          </Router>
+        </div>
       )}
     </Fragment>
   );

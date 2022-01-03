@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import { NAV_LINKS } from "../../utils/constants";
+import { NAV_LINKS_TITLES, NAV_LINKS } from "../../utils/constants";
 import "../../styles/general/navbar.css";
 
 const Navbar = () => {
@@ -11,21 +11,17 @@ const Navbar = () => {
 
   return (
     <div id="navbar-container">
-      <Link to="/" className={isLinkActive("/", pathname)}>
-        {NAV_LINKS["home"]}
-      </Link>
-      <Link to="/clients" className={isLinkActive("/clients", pathname)}>
-        {NAV_LINKS["clients"]}
-      </Link>
-      <Link to="/actions" className={isLinkActive("/actions", pathname)}>
-        {NAV_LINKS["actions"]}
-      </Link>
-      <Link to="/analytics" className={isLinkActive("/analytics", pathname)}>
-        {NAV_LINKS["analytics"]}
-      </Link>
-      <Link to="/logout" className={isLinkActive("/logout", pathname)}>
-        {NAV_LINKS["logout"]}
-      </Link>
+      {NAV_LINKS.map((linkPath, i) => {
+        return (
+          <Link
+            key={i}
+            to={linkPath === "home" ? "/" : `/${linkPath}`}
+            className={isLinkActive(linkPath, pathname)}
+          >
+            {NAV_LINKS_TITLES[linkPath]}
+          </Link>
+        );
+      })}
     </div>
   );
 };
