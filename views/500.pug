@@ -1,0 +1,21 @@
+doctype html
+html(lang="en")
+    head 
+        meta(charset="utf-8")
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+        link(rel='preconnect' href='https://fonts.gstatic.com' type="text/css")
+        link(rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Fredoka+One' type="text/css")
+        link(rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400' type="text/css")
+        style
+            include 500.css
+        title= CRM-React-500-error
+    body
+        div#errorContainer
+            div.internalError
+                h1.mainHeader 500 error
+                include ./assets/blue-screen.svg
+                h2.subHeader Sorry, it's us, not you :(
+                p.info It's always time for a coffee break.
+                    br 
+                    | We should be back by the time you finish your coffee.
+                        

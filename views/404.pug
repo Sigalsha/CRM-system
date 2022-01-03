@@ -1,0 +1,22 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="utf-8")
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+        link(rel='preconnect' href='https://fonts.gstatic.com' type="text/css")
+        link(rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Fredoka+One' type="text/css")
+        link(rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400' type="text/css")
+        style
+            include 404.css
+        title= CRM-React-404-error
+    body
+        div#notFoundContainer
+            div.notFound
+                h1.mainHeader 404
+                h2.subHeader Oops, The Page you are looking for can't be found!
+                |
+                |
+                a(href="/")
+                    i.far.fa-angle-left(aria-hidden='true') 
+                    span.arrow Homepage
+            

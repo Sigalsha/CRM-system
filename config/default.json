@@ -1,0 +1,5 @@
+{
+    "ATLAS_URI": "mongodb+srv://vi:CcEgM8T9CZ651yxT@crm.j4qzu.mongodb.net/crm-react?retryWrites=true&w=majority",
+    "PORT": "8100",
+    "jwtSecret": "crm_myJwtSecret"
+}
