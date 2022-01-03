@@ -1,0 +1,15 @@
+.category-header {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
+
+.select-category {
+  margin-left: 40px;
+  border-color: lightgray;
+  border-style: solid;
+  border-width: 0px 0px 1px 0px;
+  text-align: center;
+  background-color: transparent;
+  width: 150px;
+}

@@ -1,0 +1,29 @@
+.row-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  text-align: left;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1%;
+  border-style: solid;
+  border-width: 0px 0px 2px 0px;
+  border-color: lightgrey;
+}
+
+.row-container:hover {
+  border: 2px solid lightgrey;
+  cursor: pointer;
+}
+
+.rowItem {
+  flex: 1;
+  font-size: 0.95em;
+}
+
+@media screen and (max-width: 400px) {
+  .row-container {
+    font-size: 9px;
+    padding: 1% 0;
+  }
+}

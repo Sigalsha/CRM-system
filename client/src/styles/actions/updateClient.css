@@ -1,0 +1,50 @@
+.update-client-container {
+  width: 90%;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  text-align: left;
+  font-size: 0.9em;
+  margin: 1% 1% 1% 2%;
+  padding: 1%;
+}
+
+.light-btn {
+  width: 25%;
+  margin-left: 10%;
+  margin-top: 1%;
+  text-transform: uppercase;
+  color: #f7ce3e;
+  font-weight: bold;
+}
+
+.light-btn:hover {
+  cursor: pointer;
+}
+
+.empty-div {
+  width: 25%;
+  margin-left: 5%;
+}
+
+@media screen and (min-width: 1023px) {
+  .update-client-container {
+    width: 70%;
+    margin: 0.5% 1% 0.5% 2%;
+    padding-top: 0;
+  }
+
+  .empty-div {
+    margin-left: 1%;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .update-client-container {
+    width: 100%;
+  }
+
+  .empty-div {
+    width: 30%;
+  }
+}

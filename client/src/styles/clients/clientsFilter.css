@@ -1,0 +1,51 @@
+.clients-filter-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  margin: 0 10px;
+  width: 200px;
+}
+
+@media screen and (max-width: 700px) {
+  .clients-filter-wrapper {
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+
+  .filter-group {
+    width: 95%;
+  }
+
+  .text-row {
+    margin-left: 10px;
+    width: 100%;
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .clients-filter-wrapper {
+    align-items: baseline;
+    flex-flow: column;
+  }
+
+  .filter-group {
+    width: 95%;
+  }
+
+  label {
+    font-size: 12px;
+  }
+
+  .text-row {
+    margin-left: 10px;
+    width: 100%;
+  }
+}

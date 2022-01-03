@@ -1,0 +1,19 @@
+.pies-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column wrap;
+  margin-top: 20px;
+}
+
+.pie-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+}
+
+.pie-header {
+  text-align: center;
+  margin-right: 20px;
+  font-size: 14px;
+}

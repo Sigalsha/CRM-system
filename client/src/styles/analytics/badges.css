@@ -1,0 +1,198 @@
+.badges-wrapper {
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  flex-flow: row wrap;
+  padding: 10px;
+  margin: 10px;
+}
+
+.badge {
+  text-align: center;
+  vertical-align: middle;
+  margin-top: 10px;
+  width: 20%;
+  height: 200px;
+  border: 1px solid transparent;
+  border-radius: 15%;
+}
+
+.badge:nth-child(odd) {
+  background-color: rgba(255, 136, 75, 0.85);
+}
+
+.badge:nth-child(even) {
+  background-color: rgba(247, 206, 62, 0.85);
+}
+
+.badge-icon {
+  font-size: 50px;
+  margin-top: 20px;
+}
+
+.badge-header {
+  font-size: 14px;
+  margin: 15px 5px 10px 5px;
+  letter-spacing: 1.2;
+  font-weight: 550;
+  text-transform: uppercase;
+  white-space: normal;
+  line-height: 1.5;
+}
+
+.tooltip-hover .badge-tooltip {
+  visibility: hidden;
+  width: 120px;
+  background-color: lightgray;
+  color: black;
+  text-align: center;
+  text-transform: none;
+  font-weight: normal;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip-hover:hover .badge-tooltip {
+  visibility: hidden;
+}
+
+.badge-desc {
+  font-size: 11px;
+  text-align: center;
+  margin: 5px 10px;
+  font-weight: 400;
+  white-space: normal;
+  line-height: 1.5;
+  height: 30px;
+}
+
+.badge-result {
+  line-height: 1.5;
+  font-size: 24px;
+  font-weight: 550;
+  margin-top: 0;
+}
+
+@media screen and (min-width: 1023px) {
+  .badge-icon {
+    margin-top: 15px;
+  }
+
+  .badge-header {
+    font-size: 16px;
+  }
+
+  .badge-desc {
+    font-size: 12px;
+    height: 25px;
+  }
+}
+
+@media screen and (max-width: 880px) {
+  .badge {
+    width: 40%;
+    margin: 20px;
+  }
+
+  .badge-header {
+    margin: 10px 5px;
+    font-size: 16px;
+  }
+
+  .badge-desc {
+    font-size: 12px;
+  }
+
+  .badge-result {
+    font-size: 30px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .badge-icon {
+    font-size: 50px;
+    margin-top: 15px;
+  }
+
+  .badge-header {
+    margin-top: 15px;
+  }
+
+  .badge-desc {
+    height: 20px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .badge-icon {
+    font-size: 40px;
+    margin-top: 10px;
+  }
+
+  .badge-header {
+    font-size: 14px;
+    margin-top: 10px;
+  }
+
+  .badge-desc {
+    height: 30px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .badge {
+    width: 45%;
+  }
+
+  .badge-icon {
+    font-size: 50px;
+  }
+
+  .badge-header {
+    margin-top: 20px;
+  }
+
+  .tooltip-hover {
+    cursor: pointer;
+  }
+
+  .tooltip-hover .badge-tooltip {
+    width: 80px;
+    margin-right: 40px;
+    font-size: 11px;
+    margin-top: 20px;
+  }
+
+  .tooltip-hover:hover .badge-tooltip {
+    visibility: visible;
+  }
+
+  .badge-desc {
+    visibility: hidden;
+    height: 10px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .badge-header {
+    margin-top: 15px;
+    font-size: 13px;
+  }
+
+  .tooltip-hover .badge-tooltip {
+    width: 100px;
+    margin-left: 10px;
+    padding: 5px;
+    font-size: 12px;
+  }
+
+  .badge-desc {
+    height: 0;
+  }
+
+  .badge-result {
+    font-size: 24px;
+  }
+}
