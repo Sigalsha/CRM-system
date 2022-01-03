@@ -3,16 +3,17 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Loader from "react-loader-spinner";
 import clientsData from "./data.json";
 // import { Provider } from "react-redux";
-import { COLORS } from "./utils/consts";
+import { COLORS } from "./utils/constants";
 // import store from "./store";
 // import { loadUser } from "./actions/authActions";
 // import { getClients } from "./actions/clientsActions";
 // import Navbar from "./components/general/Navbar.js";
 import Landing from "./components/general/Landing";
+import Register from "./components/auth/Register";
+import Login from "./components/auth/Login";
 // import Clients from "./components/clients/Clients.js";
 // import Actions from "./components/actions/Actions.js";
 // import Analytics from "./components/analytics/Analytics";
-// import SignIn from "./components/auth/SignIn";
 import "./App.css";
 
 function App() {
@@ -41,6 +42,8 @@ function App() {
         <Router>
           <Routes>
             <Route path="/" element={<Landing />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/login" element={<Login />} />
             {/*   <Route path="/clients" exact component={Clients} />
               <Route path="/actions" exact component={Actions} />
               <Route path="/analytics" exact component={Analytics} /> */}

@@ -7,7 +7,7 @@ export const NAV_LINKS = {
   analytics: "Analytics",
   logout: "Logout",
   login: "Login",
-  register: "Sign In"
+  register: "Register"
 };
 
 export const CLIENTS_HEADERS = {

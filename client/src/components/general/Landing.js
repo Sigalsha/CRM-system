@@ -1,6 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { NAV_LINKS } from "../../utils/consts";
+import { NAV_LINKS } from "../../utils/constants";
+import LinkContainer from "../general/LinkContainer";
 // import { clearErrors } from "../../actions/errorActions";
 import "../../styles/general/landing.css";
 
@@ -18,14 +18,6 @@ const Landing = () => {
         <LinkContainer path={"/login"} text={NAV_LINKS["login"]} />
       </div>
     </div>
-  );
-};
-
-const LinkContainer = ({ path, text }) => {
-  return (
-    <Link to={path} className="link-square">
-      <span className="single-link">{text}</span>
-    </Link>
   );
 };
 
