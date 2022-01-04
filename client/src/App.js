@@ -13,7 +13,7 @@ import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import Navbar from "./components/general/Navbar";
 // import Clients from "./components/clients/Clients.js";
-// import Actions from "./components/actions/Actions.js";
+import Actions from "./components/actions/Actions.js";
 // import Analytics from "./components/analytics/Analytics";
 import "./App.css";
 
@@ -50,6 +50,7 @@ function App() {
               <Route path="/" element={<Landing />} />
               <Route path="/register" element={<Register />} />
               <Route path="/login" element={<Login />} />
+              <Route path="/actions" element={<Actions />} />
               {/*   <Route path="/clients" exact component={Clients} />
               <Route path="/actions" exact component={Actions} />
               <Route path="/analytics" exact component={Analytics} /> */}

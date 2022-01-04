@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import Loader from "react-loader-spinner";
 import axios from "axios";
 import utils from "../../utils/utils";
@@ -9,16 +9,17 @@ import {
   ACTION_HEADERS
 } from "../../utils/constants";
 import "../../styles/actions/actions.css";
-import clientsData from "./data.json";
+import clientsData from "../../data.json";
 import ClientInput from "./ClientInput";
 import UpdateClient from "./UpdateClient.js";
-import AddClient from "./AddClient.js";
+import AddClient from "./AddClient";
 
 const Actions = () => {
   const [loading, setLoading] = useState(true);
   const [clients, setClients] = useState([]);
   const [owners, setOwners] = useState([]);
   const [currentClient, setCurrentClient] = useState("");
+  const [emailType, setEmailType] = useState(["A", "B", "C", "D"]);
 
   useEffect(() => {
     // change it to getClientsFromServer
@@ -47,7 +48,7 @@ const Actions = () => {
     }
   };
 
-  updateClient = (updatedClientData) => {
+  const updateClient = (updatedClientData) => {
     const updatedClient = {
       emailType: updatedClientData.emailType
         ? updatedClientData.emailType
@@ -64,7 +65,7 @@ const Actions = () => {
     setCurrentClient("");
   };
 
-  addNewClient = (newClient) => {
+  const addNewClient = (newClient) => {
     // TODO - implement it
   };
 
@@ -87,14 +88,14 @@ const Actions = () => {
           <div className="actions-child">
             <ClientInput
               clients={clients}
-              getCurrentClient={this.getCurrentClient}
+              getCurrentClient={getCurrentClient}
             />
           </div>
           <div className="actions-child">
             <UpdateClient
               owners={owners}
               emailTypes={emailType}
-              updateClient={this.updateClient}
+              updateClient={updateClient}
               currentClient={currentClient}
             />
           </div>
@@ -103,7 +104,7 @@ const Actions = () => {
             <ActionHeader text={ACTION_HEADERS["main"]["addClient"]} />
           </div>
           <div className="actions-child">
-            <AddClient addNewClient={this.addNewClient} owners={owners} />
+            <AddClient addNewClient={addNewClient} owners={owners} />
           </div>
         </div>
       )}

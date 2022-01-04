@@ -9,10 +9,11 @@ import SubHeader from "../general/SubHeader";
 import Datalist from "./Datalist";
 import "../../styles/actions/updateClient.css";
 
-const UpdateClient = ({ owners, emailTypes, currentClient, updateClient }) => {
-  const [alert, setAlert] = useState(false);
-  const [owners, setOwners] = useState(owners);
-  const [emailTypes, setEmailTypes] = useState(emailTypes);
+const UpdateClient = (props) => {
+  const [owners, setOwners] = useState(props.owners);
+  const [owner, setOwner] = useState("");
+  const [emailType, setEmailType] = useState("");
+  const [emailTypes, setEmailTypes] = useState(props.emailTypes);
   const [alert, setAlert] = useState(false);
   const [alertText, setAlertText] = useState("");
 
@@ -35,6 +36,7 @@ const UpdateClient = ({ owners, emailTypes, currentClient, updateClient }) => {
   };
 
   const changeOwner = () => {
+    const { currentClient, updateClient } = props;
     if (!currentClient) {
       setAlertText(ACTIONS_ALERTS["update"]["currentClient"]);
       setAlert(true);
@@ -52,6 +54,7 @@ const UpdateClient = ({ owners, emailTypes, currentClient, updateClient }) => {
   };
 
   const changeEmailType = () => {
+    const { currentClient, updateClient } = props;
     if (!currentClient) {
       setAlertText(ACTIONS_ALERTS["update"]["currentClient"]);
       setAlert(true);
@@ -68,6 +71,7 @@ const UpdateClient = ({ owners, emailTypes, currentClient, updateClient }) => {
   };
 
   const declareSold = () => {
+    const { currentClient, updateClient } = props;
     if (currentClient && currentClient.sold) {
       setAlertText(ACTIONS_ALERTS["update"]["declareSale"]);
       setAlert(true);
@@ -123,6 +127,14 @@ const UpdateClient = ({ owners, emailTypes, currentClient, updateClient }) => {
         onClick={declareSold}
         text={ACTIONS_BUTTONS["update"]["declare"]}
       />
+    </div>
+  );
+};
+
+const UpdateButton = ({ onClick, text }) => {
+  return (
+    <div className="light-btn" onClick={onClick}>
+      {text}
     </div>
   );
 };
