@@ -40,7 +40,7 @@ class Utils {
   };
 
   getSales = (clientsToFilter, isSold) => {
-    clientsToFilter.filter((c) => c.sold === isSold);
+    return clientsToFilter.filter((c) => c.sold === isSold);
   };
 
   getSalesByProperty = (key, clientsToFilter) => {
@@ -48,7 +48,6 @@ class Utils {
   };
 
   countSalesByKey = (sales) => {
-    debugger;
     return sales.reduce((a, c) => {
       a[c] = (a[c] || 0) + 1;
       return a;

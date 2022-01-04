@@ -14,12 +14,13 @@ import Login from "./components/auth/Login";
 import Navbar from "./components/general/Navbar";
 // import Clients from "./components/clients/Clients.js";
 import Actions from "./components/actions/Actions.js";
-// import Analytics from "./components/analytics/Analytics";
+import Analytics from "./components/analytics/Analytics";
 import "./App.css";
 
 function App() {
   const [loading, setLoading] = useState(true);
   const [clients, setClients] = useState([]);
+  const [hasError, setHasError] = useState(false);
 
   useEffect(() => {
     // change it to server and auth redux
@@ -27,10 +28,11 @@ function App() {
       setLoading(false);
       setClients(clientsData);
     }, 1000);
-  });
+  }, []);
 
   return (
     <Fragment>
+      {hasError && <p>Something went wrong.</p>}
       {loading ? (
         <div id="general-loader">
           <Loader
@@ -51,9 +53,8 @@ function App() {
               <Route path="/register" element={<Register />} />
               <Route path="/login" element={<Login />} />
               <Route path="/actions" element={<Actions />} />
-              {/*   <Route path="/clients" exact component={Clients} />
-              <Route path="/actions" exact component={Actions} />
-              <Route path="/analytics" exact component={Analytics} /> */}
+              {/* <Route path="/clients" component={Clients} /> */}
+              <Route path="/analytics" element={<Analytics />} />
             </Routes>
           </Router>
         </div>

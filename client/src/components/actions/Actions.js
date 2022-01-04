@@ -22,6 +22,14 @@ const Actions = () => {
   const [emailType, setEmailType] = useState(["A", "B", "C", "D"]);
 
   useEffect(() => {
+    // change it to server and auth redux
+    setTimeout(() => {
+      setLoading(false);
+      setClients(clientsData);
+    }, 1000);
+  }, []);
+
+  useEffect(() => {
     // change it to getClientsFromServer
     setTimeout(() => {
       setLoading(false);
@@ -33,7 +41,25 @@ const Actions = () => {
       );
       setCurrentClient("");
     }, 1000);
-  });
+  }, []);
+
+  /*     useEffect(() => {
+      const fetchData = async () => {
+        setLoading(true);
+        setHasError(false);
+        try {
+          const res = await axios.get(URL);
+          const { data } = res.data;
+          console.log("res from clients backend: ", data);
+          setClients(data);
+        } catch (err) {
+          setHasError(true);
+          console.log(err);
+        }
+        setLoading(false);
+      };
+      fetchData();
+    }, [setClients]); */
 
   // TODO - implement sendUpdatedClient to server and back
 
@@ -66,6 +92,7 @@ const Actions = () => {
   };
 
   const addNewClient = (newClient) => {
+    console.log(clients);
     // TODO - implement it
   };
 
