@@ -22,6 +22,7 @@ function App() {
   const [clients, setClients] = useState([]);
 
   useEffect(() => {
+    // change it to server and auth redux
     setTimeout(() => {
       setLoading(false);
       setClients(clientsData);
