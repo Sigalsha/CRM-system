@@ -31,7 +31,7 @@ const SalesByMonth = ({ sales }) => {
       <LineChart
         width={400}
         height={300}
-        data={getSalesByMonth}
+        data={getSalesByMonth()}
         margin={{ top: 20, bottom: 5, right: 5, left: 5 }}
         fontSize={12}
       >

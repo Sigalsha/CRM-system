@@ -115,9 +115,6 @@ const Analytics = () => {
       ) : (
         <div id="analytics-container">
           <Badges badges={getBadges()} />
-          {/*     {clients.map((c, i) => {
-            return <div key={i}>{c.name}</div>;
-          })} */}
           <div className="charts-container">
             <TopEmployees
               owners={utils.countSalesByKey(
@@ -125,7 +122,7 @@ const Analytics = () => {
               )}
               getOwners={getSalesByClientsCategory}
             />
-            <SalesByMonth sales={getSalesOf2018} />
+            <SalesByMonth sales={getSalesOf2018()} />
             <SalesByCategory
               clients={clients}
               owners={utils.countSalesByKey(

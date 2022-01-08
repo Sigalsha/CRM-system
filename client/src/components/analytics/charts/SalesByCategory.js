@@ -82,7 +82,7 @@ const SalesByCategory = (props) => {
       <AreaChart
         width={400}
         height={300}
-        data={generateCategoryData}
+        data={generateCategoryData()}
         margin={{ top: 20, bottom: 5, right: 5, left: 5 }}
         fontSize={12}
       >
@@ -99,8 +99,8 @@ const SalesByCategory = (props) => {
         <Area
           type="monotone"
           dataKey="sales"
-          stroke={generateAreaColor}
-          fill={generateAreaColor}
+          stroke={generateAreaColor()}
+          fill={generateAreaColor()}
           fillOpacity={0.8}
         />
       </AreaChart>

@@ -37,7 +37,7 @@ const ClientAcquisition = ({ sales, salesOf2018, years }) => {
   const getLast6MonthsOf2018 = () => {
     let lastHalfYear = 0;
     for (let i = 5; i < 12; i++) {
-      lastHalfYear += utils.getSalesByMonth(salesOf2018, i);
+      lastHalfYear += utils.getSalesByMonth(salesOf2018(), i);
     }
     return lastHalfYear;
   };
@@ -49,7 +49,7 @@ const ClientAcquisition = ({ sales, salesOf2018, years }) => {
     const data = [
       {
         name: "last month of 2018",
-        value: utils.getSalesByMonth(salesOf2018, 11)
+        value: utils.getSalesByMonth(salesOf2018(), 11)
       },
       { name: "last 6 months of 2018", value: getLast6MonthsOf2018() },
       { name: "before 2018", value: before2018().length }
@@ -98,11 +98,11 @@ const ClientAcquisition = ({ sales, salesOf2018, years }) => {
       <h5 className="chart-header">Client Acquisition</h5>
       <div className="pie-wrapper">
         <div>
-          {generatePie(getSalesDataByYears(), renderCustomizedLabel())}
+          {generatePie(getSalesDataByYears, renderCustomizedLabel)}
           <p className="pie-header">Sales by Year</p>
         </div>
         <div>
-          {generatePie(getSalesData())}
+          {generatePie(getSalesData)}
           <p className="pie-header">Sales comparison</p>
         </div>
       </div>
