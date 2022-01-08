@@ -21,13 +21,13 @@ const Actions = () => {
   const [currentClient, setCurrentClient] = useState("");
   const [emailType, setEmailType] = useState(["A", "B", "C", "D"]);
 
-  useEffect(() => {
+  /*   useEffect(() => {
     // change it to server and auth redux
     setTimeout(() => {
       setLoading(false);
       setClients(clientsData);
     }, 1000);
-  }, []);
+  }, []); */
 
   useEffect(() => {
     // change it to getClientsFromServer
