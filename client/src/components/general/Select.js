@@ -4,7 +4,7 @@ const Select = ({
   placeholder,
   onChange,
   name,
-  optionList,
+  optionlist,
   value,
   defaultValue
 }) => {
@@ -15,10 +15,10 @@ const Select = ({
       value={value}
       onChange={onChange}
       placeholder={placeholder}
-      optionList={optionList}
+      optionlist={optionlist}
     >
       <option defaultValue={defaultValue}>{defaultValue}</option>
-      {optionList.map((option, i) => {
+      {optionlist.map((option, i) => {
         return (
           <option key={i} value={option}>
             {option}

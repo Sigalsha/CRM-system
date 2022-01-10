@@ -7,10 +7,10 @@ import { URL, COLORS } from "../../utils/constants";
 /* import { connect } from "react-redux"; */
 // import { getClients } from "../../actions/clientsActions";
 import "../../styles/clients/clients.css";
-// import ColumnsHeader from "./ColumnsHeader";
+import ColumnsHeader from "./ColumnsHeader";
 import ClientsFilter from "./ClientsFilter";
 // import ClientsPagination from "./ClientsPagination";
-// import ClientRow from "./ClientRow";
+import ClientRow from "./ClientRow";
 // import EditClientPopUp from "./EditClientPopUp";
 
 const itemsPerPage = 20;
@@ -29,28 +29,41 @@ const Clients = () => {
   const [isPageReset, setIsPageReset] = useState(false);
 
   useEffect(() => {
-    // change it to getClientsFromServer
-    setTimeout(() => {
+    const fetchData = async () => {
+      setLoading(true);
+      // setHasError(false);
+      try {
+        const res = await axios.get(URL);
+        const { data } = res.data;
+        // console.log("res from clients backend: ", data);
+        setClients(data);
+      } catch (err) {
+        // setHasError(true);
+        console.log(err);
+      }
       setLoading(false);
-      setClients(clientsData);
-      updateClientsDisplay();
-    }, 1000);
+    };
+    fetchData();
+    updateClientsDisplay();
   }, []);
 
   const updateClientsDisplay = () => {
     let filtered = [];
 
     if (Object.entries(currentFilters).length === 0) {
-      setClientsToDisplay([...clients]);
-      setPageCount(this.updatePageCount([...clients]));
-      setCurrentClients([...clients].slice(0, itemsPerPage));
+      setClientsToDisplay(clients);
+      setPageCount(updatePageCount(clients));
+      setCurrentClients(clients.slice(0, itemsPerPage));
+      return;
     } else {
-      filtered = this.filterByProperty();
+      filtered = filterByProperty();
     }
 
     setClientsToDisplay(filtered);
-    setPageCount(this.updatePageCount(filtered));
+    setPageCount(updatePageCount(filtered));
     setCurrentClients(filtered.slice(0, itemsPerPage));
+    console.log(currentClients);
+
     setIsPageReset(true);
     setPageLimit(20);
   };
@@ -161,6 +174,27 @@ const Clients = () => {
     return clientsToDisplay.slice(pageIndex - itemsPerPage, pageIndex);
   };
 
+  const updatePageCount = (clients) => {
+    if (Math.ceil(clients.length / itemsPerPage) <= 1) {
+      return 1;
+    } else {
+      return Math.ceil(clients.length / itemsPerPage);
+    }
+  };
+
+  const filterByProperty = () => {
+    let filteredClients = [...clients];
+
+    for (let key in currentFilters) {
+      if (currentFilters[key] !== "") {
+        filteredClients = filteredClients.filter(
+          (client) => client[key] === currentFilters[key]
+        );
+      }
+    }
+    return filteredClients;
+  };
+
   return (
     <Fragment>
       {loading ? (
@@ -182,7 +216,7 @@ const Clients = () => {
             />
           </div>
           <div className="clients-child">
-            {/*          <ClientsPagination
+            {/*         <ClientsPagination
               updateDisplayByPage={updateDisplayByPage}
               pageLimit={pageLimit}
               pageCount={pageCount}
@@ -192,12 +226,11 @@ const Clients = () => {
           </div>
           <div className="clients-child">
             <table>
-              {/*       <ColumnsHeader />
+              <ColumnsHeader />
               <ClientRow
-                submitInputChange={submitInputChange}
                 clients={currentClients}
                 toggleEditClient={toggleEditClient}
-              /> */}
+              />
             </table>
             {/*      {showPopup && (
               <EditClientPopUp

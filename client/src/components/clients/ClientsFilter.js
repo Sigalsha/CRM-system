@@ -1,31 +1,56 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import utils from "../../utils/utils";
 import { EMAIL_TYPES, IS_SOLD, CLIENTS_HEADERS } from "../../utils/constants";
 import "../../styles/clients/clientsFilter.css";
 import Select from "../general/Select";
 
 const ClientsFilter = ({ clients, selectValue, updateSelectedFilter }) => {
-  const [owners, setOwners] = useState(
-    utils.reduceDuplications(
-      utils.getClientProperty(CLIENTS_HEADERS["owner"], clients)
-    )
-  );
-  const [names, setNames] = useState(
-    utils.getClientProperty(CLIENTS_HEADERS["name"], clients)
-  );
-  const [countries, setCountries] = useState(
-    utils.reduceDuplications(
-      utils.getClientProperty(CLIENTS_HEADERS["country"], clients)
-    )
-  );
+  const [owners, setOwners] = useState([]);
+  const [names, setNames] = useState([]);
+  const [countries, setCountries] = useState([]);
   const [owner, setOwner] = useState("");
   const [sold, setSold] = useState("");
   const [name, setName] = useState("");
   const [country, setCountry] = useState("");
   const [emailType, setEmailType] = useState("");
 
+  useEffect(() => {
+    // change it to getClientsFromServer
+
+    setCountries(
+      utils.reduceDuplications(
+        utils.getClientProperty(CLIENTS_HEADERS["country"], clients)
+      )
+    );
+    setNames(utils.getClientProperty(CLIENTS_HEADERS["name"], clients));
+    setOwners(
+      utils.reduceDuplications(
+        utils.getClientProperty(CLIENTS_HEADERS["owner"], clients)
+      )
+    );
+  }, [clients]);
+
   const handleChange = (event) => {
+    const {
+      target: { value, name }
+    } = event;
+    console.log(name, value);
+
     updateSelectedFilter(event);
+    switch (name) {
+      case "name":
+        return setName(value);
+      case "country":
+        return setCountry(value);
+      case "emailType":
+        return setEmailType(value);
+      case "sold":
+        return setSold(value);
+      case "owner":
+        return setOwner(value);
+      default:
+        return;
+    }
     // TODO - fix it
     // setState({ [event.target.name]: event.target.value });
   };
@@ -35,7 +60,7 @@ const ClientsFilter = ({ clients, selectValue, updateSelectedFilter }) => {
       <Filter
         labelName="Name"
         placeholder="Name"
-        optionList={names}
+        optionlist={names}
         value={name}
         onChange={handleChange}
         name="name"
@@ -44,7 +69,7 @@ const ClientsFilter = ({ clients, selectValue, updateSelectedFilter }) => {
       <Filter
         labelName="Country"
         placeholder="Country"
-        optionList={countries}
+        optionlist={countries}
         value={country}
         onChange={handleChange}
         name="country"
@@ -52,7 +77,7 @@ const ClientsFilter = ({ clients, selectValue, updateSelectedFilter }) => {
       <Filter
         labelName="Email Type"
         placeholder="Email Type"
-        optionList={EMAIL_TYPES}
+        optionlist={EMAIL_TYPES}
         onChange={handleChange}
         value={emailType}
         name="emailType"
@@ -60,7 +85,7 @@ const ClientsFilter = ({ clients, selectValue, updateSelectedFilter }) => {
       <Filter
         labelName="Sold"
         placeholder="Sold"
-        optionList={IS_SOLD}
+        optionlist={IS_SOLD}
         onChange={handleChange}
         value={sold}
         name="sold"
@@ -68,7 +93,7 @@ const ClientsFilter = ({ clients, selectValue, updateSelectedFilter }) => {
       <Filter
         labelName="Owner"
         placeholder="Owner"
-        optionList={owners}
+        optionlist={owners}
         value={owner}
         name="owner"
         onChange={handleChange}
@@ -79,7 +104,7 @@ const ClientsFilter = ({ clients, selectValue, updateSelectedFilter }) => {
 
 const Filter = ({
   labelName,
-  optionList,
+  optionlist,
   placeholder,
   onChange,
   value,
@@ -89,7 +114,7 @@ const Filter = ({
     <div className="filter-group">
       <label>{labelName}: </label>
       <Select
-        optionList={optionList}
+        optionlist={optionlist}
         placeholder={placeholder}
         onChange={onChange}
         value={value}
