@@ -11,7 +11,7 @@ import ColumnsHeader from "./ColumnsHeader";
 import ClientsFilter from "./ClientsFilter";
 // import ClientsPagination from "./ClientsPagination";
 import ClientRow from "./ClientRow";
-// import EditClientPopUp from "./EditClientPopUp";
+import EditClientPopUp from "./EditClientPopUp";
 
 const itemsPerPage = 20;
 
@@ -36,12 +36,12 @@ const Clients = () => {
         const res = await axios.get(URL);
         const { data } = res.data;
         // console.log("res from clients backend: ", data);
+        setLoading(false);
         setClients(data);
       } catch (err) {
         // setHasError(true);
         console.log(err);
       }
-      setLoading(false);
     };
     fetchData();
     updateClientsDisplay();
@@ -62,7 +62,7 @@ const Clients = () => {
     setClientsToDisplay(filtered);
     setPageCount(updatePageCount(filtered));
     setCurrentClients(filtered.slice(0, itemsPerPage));
-    console.log(currentClients);
+    /* console.log(currentClients); */
 
     setIsPageReset(true);
     setPageLimit(20);
@@ -87,6 +87,7 @@ const Clients = () => {
         filters[name] = value;
       }
     }
+    console.log(filters);
 
     setCurrentFilters({ ...currentFilters, ...filters });
     updateClientsDisplay();
@@ -227,18 +228,26 @@ const Clients = () => {
           <div className="clients-child">
             <table>
               <ColumnsHeader />
-              <ClientRow
-                clients={currentClients}
-                toggleEditClient={toggleEditClient}
-              />
+              {clients && (
+                <ClientRow
+                  clients={clients}
+                  toggleEditClient={toggleEditClient}
+                />
+              )}
+              {/*      {currentClients && (
+                <ClientRow
+                  clients={currentClients}
+                  toggleEditClient={toggleEditClient}
+                />
+              )} */}
             </table>
-            {/*      {showPopup && (
+            {showPopup && (
               <EditClientPopUp
                 clientToEdit={clientToEdit}
                 toggleEditClient={toggleEditClient}
                 submitInputChange={submitInputChange}
               />
-            )} */}
+            )}
           </div>
         </div>
       )}

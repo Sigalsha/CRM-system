@@ -20,9 +20,6 @@ const AddClient = (props) => {
   const [alertText, setAlertText] = useState("");
 
   // TODO - implement it
-  const handleInputChange = (event) => {
-    console.log(event.target);
-  };
   /*       handleInputChange = (event) => {
         const {
           target: { value, name }
@@ -93,24 +90,24 @@ const AddClient = (props) => {
       <InputClientWrapper
         inputType={firstName}
         inputTypeString="firstName"
-        handleInputChange={handleInputChange}
+        handleInputChange={(e) => setFirstName(e.target.value)}
       />
       <InputClientWrapper
         inputType={surname}
         inputTypeString="surname"
-        handleInputChange={handleInputChange}
+        handleInputChange={(e) => setSurname(e.target.value)}
       />
       <InputClientWrapper
         inputType={country}
         inputTypeString="country"
-        handleInputChange={handleInputChange}
+        handleInputChange={(e) => setCountry(e.target.value)}
       />
       <InputClientWrapper
         inputTypeString="owner"
         mapList={owners}
         id={owners}
         list={owners}
-        handleInputChange={handleInputChange}
+        handleInputChange={(e) => setOwner(e.target.value)}
       />
       <AddNewClientBtn
         onClick={handleAddClient}

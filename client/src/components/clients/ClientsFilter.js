@@ -31,25 +31,26 @@ const ClientsFilter = ({ clients, selectValue, updateSelectedFilter }) => {
   }, [clients]);
 
   const handleChange = (event) => {
-    const {
-      target: { value, name }
-    } = event;
-    console.log(name, value);
-
     updateSelectedFilter(event);
+    const {
+      target: { name, value }
+    } = event;
     switch (name) {
       case "name":
-        return setName(value);
+        setName(value);
+        break;
       case "country":
-        return setCountry(value);
+        setCountry(value);
+        break;
       case "emailType":
-        return setEmailType(value);
-      case "sold":
-        return setSold(value);
+        setEmailType(value);
+        break;
       case "owner":
-        return setOwner(value);
-      default:
-        return;
+        setOwner(value);
+        break;
+      case "sold":
+        setSold(value);
+        break;
     }
     // TODO - fix it
     // setState({ [event.target.name]: event.target.value });
