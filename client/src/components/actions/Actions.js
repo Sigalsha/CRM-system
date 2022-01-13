@@ -19,17 +19,36 @@ const Actions = () => {
   const [clients, setClients] = useState([]);
   const [owners, setOwners] = useState([]);
   const [currentClient, setCurrentClient] = useState("");
+  const [updatedClient, setUpdatedClient] = useState("");
   const [emailType, setEmailType] = useState(["A", "B", "C", "D"]);
 
-  /*   useEffect(() => {
-    // change it to server and auth redux
-    setTimeout(() => {
-      setLoading(false);
-      setClients(clientsData);
-    }, 1000);
-  }, []); */
-
   useEffect(() => {
+    const fetchData = async () => {
+      setLoading(true);
+      // setHasError(false);
+      try {
+        const res = await axios.get(URL);
+        const { data } = res.data;
+        // console.log("res from clients backend: ", data);
+        setClients(data);
+        setOwners(
+          utils.reduceDuplications(
+            utils.getClientProperty(CLIENTS_HEADERS["owner"], data)
+          )
+        );
+        setCurrentClient("");
+      } catch (err) {
+        // setHasError(true);
+        console.log(err);
+      }
+    };
+    fetchData();
+    setLoading(false);
+  }, [setClients, updatedClient]);
+
+  useEffect(() => {}, [setCurrentClient]);
+
+  /*   useEffect(() => {
     // change it to getClientsFromServer
     setTimeout(() => {
       setLoading(false);
@@ -41,30 +60,13 @@ const Actions = () => {
       );
       setCurrentClient("");
     }, 1000);
-  }, []);
-
-  /*     useEffect(() => {
-      const fetchData = async () => {
-        setLoading(true);
-        setHasError(false);
-        try {
-          const res = await axios.get(URL);
-          const { data } = res.data;
-          console.log("res from clients backend: ", data);
-          setClients(data);
-        } catch (err) {
-          setHasError(true);
-          console.log(err);
-        }
-        setLoading(false);
-      };
-      fetchData();
-    }, [setClients]); */
+  }, []); */
 
   // TODO - implement sendUpdatedClient to server and back
 
   const getCurrentClient = (event) => {
     const { value } = event.target;
+    debugger;
     let chosenClient = clients.filter((c) => value === c.name);
 
     if (chosenClient.length && chosenClient[0] !== currentClient) {
@@ -87,7 +89,20 @@ const Actions = () => {
         : currentClient.owner
     };
 
+    axios
+      .put(`${URL}${currentClient._id}`, {
+        ...currentClient,
+        ...updatedClient
+      })
+      .then((res) => {
+        console.log("res from update client (put) backend ", res);
+      })
+      .catch((err) =>
+        console.log("err from update client (put) backend ", err)
+      );
+
     // TODO - implement the rest with axios and redux
+    setUpdatedClient(updatedClient);
     setCurrentClient("");
   };
 

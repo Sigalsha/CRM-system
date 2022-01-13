@@ -12,6 +12,8 @@ import ClientsFilter from "./ClientsFilter";
 // import ClientsPagination from "./ClientsPagination";
 import ClientRow from "./ClientRow";
 import EditClientPopUp from "./EditClientPopUp";
+import UpdateClient from "../actions/UpdateClient";
+import ClientData from "./ClientData";
 
 const itemsPerPage = 20;
 
@@ -27,6 +29,7 @@ const Clients = () => {
   const [currentClients, setCurrentClients] = useState([]);
   const [currentFilters, setCurrentFilters] = useState({});
   const [isPageReset, setIsPageReset] = useState(false);
+  const [updatedClient, setUpdatedClient] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -36,7 +39,6 @@ const Clients = () => {
         const res = await axios.get(URL);
         const { data } = res.data;
         // console.log("res from clients backend: ", data);
-        setLoading(false);
         setClients(data);
       } catch (err) {
         // setHasError(true);
@@ -45,9 +47,22 @@ const Clients = () => {
     };
     fetchData();
     updateClientsDisplay();
-  }, []);
+
+    setLoading(false);
+  }, [updatedClient, setClients, setCurrentClients]);
+
+  /*   useEffect(() => {
+    updateClientsDisplay();
+  }, []); */
+
+  const isCurrentClients = () => {
+    console.log(currentClients);
+
+    return currentClients ? currentClients : clients.slice(0, itemsPerPage);
+  };
 
   const updateClientsDisplay = () => {
+    // debugger;
     let filtered = [];
 
     if (Object.entries(currentFilters).length === 0) {
@@ -57,6 +72,7 @@ const Clients = () => {
       return;
     } else {
       filtered = filterByProperty();
+      console.log(filtered);
     }
 
     setClientsToDisplay(filtered);
@@ -90,6 +106,8 @@ const Clients = () => {
     console.log(filters);
 
     setCurrentFilters({ ...currentFilters, ...filters });
+    console.log(currentFilters);
+
     updateClientsDisplay();
   };
 
@@ -134,6 +152,7 @@ const Clients = () => {
       .put(`${URL}${clientToEdit.id}`, updatedClient)
       .then((res) => {
         console.log("res from update client (put) backend ", res);
+        setUpdatedClient(updatedClient);
       })
       .catch((err) =>
         console.log("err from update client (put) backend ", err)
@@ -148,9 +167,6 @@ const Clients = () => {
       sold: false,
       emailType: null
     });
-
-    // TODO - make it work with useEffect
-    // getClientsFromServer();
   };
 
   const toggleEditClient = (client = null) => {
@@ -198,7 +214,7 @@ const Clients = () => {
 
   return (
     <Fragment>
-      {loading ? (
+      {loading || !clients || !currentClients ? (
         <div id="loader-position">
           <Loader
             type="Puff"
@@ -226,21 +242,12 @@ const Clients = () => {
             /> */}
           </div>
           <div className="clients-child">
-            <table>
-              <ColumnsHeader />
-              {clients && (
-                <ClientRow
-                  clients={clients}
-                  toggleEditClient={toggleEditClient}
-                />
-              )}
-              {/*      {currentClients && (
-                <ClientRow
-                  clients={currentClients}
-                  toggleEditClient={toggleEditClient}
-                />
-              )} */}
-            </table>
+            <ClientRow
+              clients={clients}
+              toggleEditClient={toggleEditClient}
+              itemsPerPage={itemsPerPage}
+            />
+
             {showPopup && (
               <EditClientPopUp
                 clientToEdit={clientToEdit}
