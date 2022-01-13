@@ -2,31 +2,18 @@ import React, { useState, useEffect } from "react";
 import {
   ACTIONS_ALERTS,
   ACTION_HEADERS,
-  ACTIONS_BUTTONS,
-  CLIENTS_HEADERS
+  ACTIONS_BUTTONS
 } from "../../utils/constants";
 import Alert from "../general/Alert";
 import SubHeader from "../general/SubHeader";
 import Datalist from "./Datalist";
 import "../../styles/actions/updateClient.css";
-import utils from "../../utils/utils";
 
-const UpdateClient = (props) => {
-  const [owners, setOwners] = useState(props.owners);
+const UpdateClient = ({ currentClient, updateClient, emailTypes, owners }) => {
   const [owner, setOwner] = useState("");
   const [emailType, setEmailType] = useState("");
-  const [emailTypes, setEmailTypes] = useState(props.emailTypes);
   const [alert, setAlert] = useState(false);
   const [alertText, setAlertText] = useState("");
-
-  /*   const [inputValues, setInputValues] = useState({
-    owner: "",
-    emailType: ""
-  }); */
-
-  /*   useEffect(() => {
-    setInputValues({ ...inputValues, name: props.currentClient.name });
-  }, [props.currentClient]); */
 
   const toggleAlert = () => setAlert(!alert);
 
@@ -36,14 +23,7 @@ const UpdateClient = (props) => {
     );
   };
 
-  /*   const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setInputValues({ ...inputValues, [name]: value });
-  }; */
-
   const changeOwner = () => {
-    const { currentClient, updateClient } = props;
-
     if (!currentClient) {
       setAlertText(ACTIONS_ALERTS["update"]["currentClient"]);
       setAlert(true);
@@ -54,7 +34,6 @@ const UpdateClient = (props) => {
     if (!owner) {
       setAlertText(ACTIONS_ALERTS["update"]["owner"]);
       setAlert(true);
-      console.log("current client", currentClient);
       return;
     }
     updateClient({ id: currentClient._id, owner });
@@ -62,8 +41,6 @@ const UpdateClient = (props) => {
   };
 
   const changeEmailType = () => {
-    debugger;
-    const { currentClient, updateClient } = props;
     if (!currentClient) {
       setAlertText(ACTIONS_ALERTS["update"]["currentClient"]);
       setAlert(true);
@@ -81,8 +58,6 @@ const UpdateClient = (props) => {
   };
 
   const declareSold = () => {
-    debugger;
-    const { currentClient, updateClient } = props;
     if (currentClient && currentClient.sold) {
       setAlertText(ACTIONS_ALERTS["update"]["declareSale"]);
       setAlert(true);
@@ -105,10 +80,10 @@ const UpdateClient = (props) => {
       {alert && <Alert text={alertText} toggleAlert={toggleAlert} />}
       <SubHeader text={ACTION_HEADERS["update"]["transferOwnership"]} />
       <Datalist
-        list={props.owners}
+        list={owners}
         placeholder="Owner"
-        id={props.owners}
-        mapList={props.owners}
+        id={owners}
+        mapList={owners}
         name="owner"
         onChange={(e) => setOwner(e.target.value)}
         // check what is for
@@ -152,3 +127,17 @@ const UpdateButton = ({ onClick, text }) => {
 };
 
 export default UpdateClient;
+
+/*   const [inputValues, setInputValues] = useState({
+    owner: "",
+    emailType: ""
+  }); */
+
+/*   useEffect(() => {
+    setInputValues({ ...inputValues, name: props.currentClient.name });
+  }, [props.currentClient]); */
+
+/*   const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setInputValues({ ...inputValues, [name]: value });
+  }; */

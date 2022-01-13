@@ -18,8 +18,9 @@ const Actions = () => {
   const [loading, setLoading] = useState(true);
   const [clients, setClients] = useState([]);
   const [owners, setOwners] = useState([]);
-  const [currentClient, setCurrentClient] = useState("");
-  const [updatedClient, setUpdatedClient] = useState("");
+  const [currentClient, setCurrentClient] = useState({});
+  const [updatedClient, setUpdatedClient] = useState({});
+  const [newClient, setNewClient] = useState({});
   const [emailType, setEmailType] = useState(["A", "B", "C", "D"]);
 
   useEffect(() => {
@@ -37,6 +38,7 @@ const Actions = () => {
           )
         );
         setCurrentClient("");
+        console.log("useEffect of setClients/updatedClient");
       } catch (err) {
         // setHasError(true);
         console.log(err);
@@ -44,9 +46,11 @@ const Actions = () => {
     };
     fetchData();
     setLoading(false);
-  }, [setClients, updatedClient]);
+  }, [setClients, updatedClient, newClient]);
 
-  useEffect(() => {}, [setCurrentClient]);
+  useEffect(() => {
+    console.log("useEffect of setCurrentClient");
+  }, [setCurrentClient]);
 
   /*   useEffect(() => {
     // change it to getClientsFromServer
@@ -66,7 +70,7 @@ const Actions = () => {
 
   const getCurrentClient = (event) => {
     const { value } = event.target;
-    debugger;
+
     let chosenClient = clients.filter((c) => value === c.name);
 
     if (chosenClient.length && chosenClient[0] !== currentClient) {
@@ -107,7 +111,17 @@ const Actions = () => {
   };
 
   const addNewClient = (newClient) => {
-    console.log(clients);
+    axios
+      .post(`${URL}add`, newClient)
+      .then((res) => {
+        console.log("res from add new client (post) backend ", res);
+      })
+      .catch((err) => {
+        console.log("err from add new client (post) backend ", err);
+      });
+
+    setNewClient(newClient);
+    //should get the client from the server with an Id, then update it in the state?
     // TODO - implement it
   };
 

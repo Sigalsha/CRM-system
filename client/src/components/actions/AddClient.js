@@ -10,8 +10,7 @@ import Datalist from "./Datalist";
 import SubHeader from "../general/SubHeader";
 import "../../styles/actions/addClient.css";
 
-const AddClient = (props) => {
-  const [owners, setOwners] = useState(props.owners);
+const AddClient = ({ owners, addNewClient }) => {
   const [firstName, setFirstName] = useState("");
   const [surname, setSurname] = useState("");
   const [country, setCountry] = useState("");
@@ -76,7 +75,7 @@ const AddClient = (props) => {
       alert("please add all the client's details!");
     }
 
-    props.addNewClient(newClient);
+    addNewClient(newClient);
     setFirstName("");
     setSurname("");
     setCountry("");
