@@ -1,6 +1,5 @@
 import React, { Fragment, useState, useEffect } from "react";
 import Loader from "react-loader-spinner";
-import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import {
   getClients,
@@ -27,7 +26,6 @@ const Actions = () => {
   const [updatedClient, setUpdatedClient] = useState({});
   const [newClient, setNewClient] = useState({});
   const [emailType, setEmailType] = useState(["A", "B", "C", "D"]);
-
   const dispatch = useDispatch();
 
   useEffect(() => {

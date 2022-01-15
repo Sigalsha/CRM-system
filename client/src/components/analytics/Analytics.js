@@ -1,12 +1,17 @@
 import React, { useState, Fragment, useEffect } from "react";
 import Loader from "react-loader-spinner";
-import axios from "axios";
+import { useSelector, useDispatch } from "react-redux";
 import {
   faUsers,
   faEnvelope,
   faUserPlus,
   faGlobeAmericas
 } from "@fortawesome/free-solid-svg-icons";
+import {
+  getClients,
+  updateClient,
+  addClient
+} from "../../actions/clientsActions";
 import utils from "../../utils/utils";
 import clientsData from "../../data.json";
 import { URL, COLORS } from "../../utils/constants";
@@ -19,26 +24,25 @@ import Badges from "./Badges";
 
 const Analytics = () => {
   const [loading, setLoading] = useState(true);
-  const [clients, setClients] = useState([]);
+  const clients = useSelector((state) => state.clients.clients);
   const [hasError, setHasError] = useState(false);
+  const dispatch = useDispatch();
 
-  useEffect(async () => {
-    const fetchData = async () => {
+  useEffect(() => {
+    const fetchData = () => {
       setLoading(true);
       setHasError(false);
       try {
-        const res = await axios.get(URL);
-        const { data } = res.data;
-        console.log("res from clients backend: ", data);
-        setClients(data);
+        dispatch(getClients());
+        console.log("useEffect of getClient in Analytics");
       } catch (err) {
         setHasError(true);
         console.log(err);
       }
-      setLoading(false);
     };
     fetchData();
-  }, []);
+    setLoading(false);
+  }, [getClients]);
 
   const getBadges = () => {
     console.log(clients);

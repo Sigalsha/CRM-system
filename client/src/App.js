@@ -18,20 +18,20 @@ import Analytics from "./components/analytics/Analytics";
 import "./App.css";
 
 function App() {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [clients, setClients] = useState([]);
   const [hasError, setHasError] = useState(false);
 
   /*   useEffect(() => {
     store.dispatch(loadUser());
   }, []); */
-  useEffect(() => {
+  /*   useEffect(() => {
     // change it to server and auth redux
     setTimeout(() => {
       setLoading(false);
       setClients(clientsData);
     }, 1000);
-  }, []);
+  }, []); */
 
   return (
     <Fragment>
