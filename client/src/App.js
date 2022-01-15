@@ -1,11 +1,11 @@
 import React, { useState, useEffect, Fragment } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import store from "./store";
 import Loader from "react-loader-spinner";
 import clientsData from "./data.json";
 // import { Provider } from "react-redux";
 import { COLORS } from "./utils/constants";
-// import store from "./store";
-// import { loadUser } from "./actions/authActions";
+import { loadUser } from "./actions/authActions";
 // import { getClients } from "./actions/clientsActions";
 // import Navbar from "./components/general/Navbar.js";
 import Landing from "./components/general/Landing";
@@ -22,6 +22,9 @@ function App() {
   const [clients, setClients] = useState([]);
   const [hasError, setHasError] = useState(false);
 
+  /*   useEffect(() => {
+    store.dispatch(loadUser());
+  }, []); */
   useEffect(() => {
     // change it to server and auth redux
     setTimeout(() => {

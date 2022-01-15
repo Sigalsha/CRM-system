@@ -1,17 +1,48 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowCircleLeft } from "@fortawesome/free-solid-svg-icons";
 import { faArrowCircleRight } from "@fortawesome/free-solid-svg-icons";
 import "../../styles/clients/clientsPagination.css";
 
 const ClientsPagination = ({
-  pageCount,
-  pageLimit,
   updateDisplayByPage,
+  pageLimit,
+  pageCount,
   isPageReset,
-  currentClients
+  clients
 }) => {
   const [currentPage, setCurrentPage] = useState(1);
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [isPageReset]);
+
+  /*   componentDidUpdate(prevProps) {
+    if (
+      props.isPageReset &&
+      props.isPageReset !== prevProps.isPageReset
+    ) {
+      setState({ currentPage: 1 });
+    }
+  } */
+
+  const previousDisplay = (pageNum) => {
+    updateDisplayByPage(-1, pageNum);
+    setCurrentPage(pageNum);
+  };
+
+  const nextDisplay = (pageNum) => {
+    updateDisplayByPage(1, pageNum);
+    setCurrentPage(pageNum);
+  };
+
+  const handleSinglePageClick = (number) => {
+    if (currentPage > number) {
+      previousDisplay(number);
+    } else if (currentPage < number) {
+      nextDisplay(number);
+    }
+  };
 
   return (
     <div className="clients-pagination-wrapper">
@@ -20,22 +51,20 @@ const ClientsPagination = ({
             ${currentPage === 1 ? "page-cursor-not-allowed" : "page-cursor"}
           `}
         onClick={() =>
-          this.previousDisplay(currentPage > 1 ? currentPage - 1 : currentPage)
+          previousDisplay(currentPage > 1 ? currentPage - 1 : currentPage)
         }
       >
         <FontAwesomeIcon icon={faArrowCircleLeft} style={{ marginRight: 5 }} />
         previous
       </span>
       <PageNumbers
-        pageCount={this.props.pageCount}
-        pageLimit={this.props.pageLimit}
-        handleSinglePageClick={this.handleSinglePageClick}
+        pageCount={pageCount}
+        pageLimit={pageLimit}
+        handleSinglePageClick={handleSinglePageClick}
       />
       <span
         onClick={() =>
-          this.nextDisplay(
-            currentPage < pageCount ? currentPage + 1 : currentPage
-          )
+          nextDisplay(currentPage < pageCount ? currentPage + 1 : currentPage)
         }
         className={`page-arrow
             ${
@@ -49,6 +78,46 @@ const ClientsPagination = ({
         <FontAwesomeIcon icon={faArrowCircleRight} style={{ marginLeft: 5 }} />
       </span>
     </div>
+  );
+};
+
+const PageNumbers = ({ pageCount, handleSinglePageClick, pageLimit }) => {
+  const pageNumbers = [];
+  for (let i = 1; i <= Math.ceil(pageCount); i++) {
+    pageNumbers.push(i);
+  }
+
+  const handlePageClick = (e) => {
+    handleSinglePageClick(Number(e.target.id));
+  };
+
+  return (
+    <ul className="page-numbers">
+      {pageNumbers.map((num) => {
+        return (
+          <li
+            key={num}
+            id={num}
+            className={`page-number
+              ${
+                Math.ceil(pageLimit / 20) === num
+                  ? "current-page-number"
+                  : "not-current-page"
+              }
+              ${
+                num > Math.ceil(pageLimit / 20) + 10 ||
+                num < Math.ceil(pageLimit / 20) - 10
+                  ? "page-not-in-range"
+                  : ""
+              }
+            `}
+            onClick={handlePageClick}
+          >
+            {num}
+          </li>
+        );
+      })}
+    </ul>
   );
 };
 export default ClientsPagination;

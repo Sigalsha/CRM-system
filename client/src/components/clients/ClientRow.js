@@ -2,14 +2,22 @@ import React, { useEffect, useState } from "react";
 import ClientData from "./ClientData";
 import ColumnsHeader from "./ColumnsHeader";
 
-const ClientRow = ({ clients, toggleEditClient, itemsPerPage }) => {
-  const [updatedClients, setUpdatedClients] = useState(clients);
+const ClientRow = ({
+  clients,
+  clientsToDisplay,
+  toggleEditClient,
+  itemsPerPage
+}) => {
+  const [updatedClients, setUpdatedClients] = useState(
+    clientsToDisplay || clients
+  );
 
   useEffect(() => {
-    console.log(clients);
+    console.log(clientsToDisplay || clients);
 
-    setUpdatedClients(clients.slice(0, itemsPerPage));
-  }, [clients]);
+    // setUpdatedClients((clientsToDisplay || clients).slice(0, itemsPerPage));
+    setUpdatedClients(clientsToDisplay || clients);
+  }, [clients, clientsToDisplay]);
 
   return (
     <table>

@@ -9,7 +9,7 @@ import SubHeader from "../general/SubHeader";
 import Datalist from "./Datalist";
 import "../../styles/actions/updateClient.css";
 
-const UpdateClient = ({ currentClient, updateClient, emailTypes, owners }) => {
+const UpdateClient = ({ currentClient, changeClient, emailTypes, owners }) => {
   const [owner, setOwner] = useState("");
   const [emailType, setEmailType] = useState("");
   const [alert, setAlert] = useState(false);
@@ -36,7 +36,7 @@ const UpdateClient = ({ currentClient, updateClient, emailTypes, owners }) => {
       setAlert(true);
       return;
     }
-    updateClient({ id: currentClient._id, owner });
+    changeClient({ owner });
     resetInputs();
   };
 
@@ -53,7 +53,7 @@ const UpdateClient = ({ currentClient, updateClient, emailTypes, owners }) => {
       return;
     }
 
-    updateClient({ id: currentClient._id, emailType });
+    changeClient({ emailType });
     resetInputs();
   };
 
@@ -70,7 +70,7 @@ const UpdateClient = ({ currentClient, updateClient, emailTypes, owners }) => {
         resetInputs();
         return;
       }
-      updateClient({ id: currentClient._id, sold: true });
+      changeClient({ sold: true });
       resetInputs();
     }
   };

@@ -5,30 +5,17 @@ import SubHeader from "../general/SubHeader";
 import Datalist from "./Datalist";
 import "../../styles/actions/clientInput.css";
 
-// clients, getCurrentClient, currentClient
 const ClientInput = (props) => {
   const [clients, setClients] = useState(props.clients);
-  const [currentClient, setCurrentClient] = useState(props.currentClient || "");
 
   // check if working
   useEffect(() => {
     setClients(props.clients);
   }, [props.clients]);
-  /*     static getDerivedStateFromProps(props, state) {
-    if (props.clients !== state.clients) {
-      return { clients: props.clients };
-    }
-
-    // Return null if the state hasn't changed
-    return null;
-} */
 
   const handleChange = (event) => {
     const { value } = event.target;
-    if (value !== currentClient) {
-      setCurrentClient(value);
-      props.getCurrentClient(event);
-    }
+    props.getCurrentClient(event);
   };
 
   return (

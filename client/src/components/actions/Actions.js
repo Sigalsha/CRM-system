@@ -1,6 +1,12 @@
 import React, { Fragment, useState, useEffect } from "react";
 import Loader from "react-loader-spinner";
 import axios from "axios";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  getClients,
+  updateClient,
+  addClient
+} from "../../actions/clientsActions";
 import utils from "../../utils/utils";
 import {
   URL,
@@ -9,35 +15,27 @@ import {
   ACTION_HEADERS
 } from "../../utils/constants";
 import "../../styles/actions/actions.css";
-import clientsData from "../../data.json";
 import ClientInput from "./ClientInput";
 import UpdateClient from "./UpdateClient.js";
 import AddClient from "./AddClient";
 
 const Actions = () => {
   const [loading, setLoading] = useState(true);
-  const [clients, setClients] = useState([]);
+  const clients = useSelector((state) => state.clients.clients);
   const [owners, setOwners] = useState([]);
   const [currentClient, setCurrentClient] = useState({});
   const [updatedClient, setUpdatedClient] = useState({});
   const [newClient, setNewClient] = useState({});
   const [emailType, setEmailType] = useState(["A", "B", "C", "D"]);
 
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchData = () => {
       setLoading(true);
       // setHasError(false);
       try {
-        const res = await axios.get(URL);
-        const { data } = res.data;
-        // console.log("res from clients backend: ", data);
-        setClients(data);
-        setOwners(
-          utils.reduceDuplications(
-            utils.getClientProperty(CLIENTS_HEADERS["owner"], data)
-          )
-        );
-        setCurrentClient("");
+        dispatch(getClients());
         console.log("useEffect of setClients/updatedClient");
       } catch (err) {
         // setHasError(true);
@@ -46,11 +44,7 @@ const Actions = () => {
     };
     fetchData();
     setLoading(false);
-  }, [setClients, updatedClient, newClient]);
-
-  useEffect(() => {
-    console.log("useEffect of setCurrentClient");
-  }, [setCurrentClient]);
+  }, [updatedClient, newClient, getClients, updateClient]);
 
   /*   useEffect(() => {
     // change it to getClientsFromServer
@@ -80,7 +74,7 @@ const Actions = () => {
     }
   };
 
-  const updateClient = (updatedClientData) => {
+  const changeClient = (updatedClientData) => {
     const updatedClient = {
       emailType: updatedClientData.emailType
         ? updatedClientData.emailType
@@ -93,36 +87,17 @@ const Actions = () => {
         : currentClient.owner
     };
 
-    axios
-      .put(`${URL}${currentClient._id}`, {
-        ...currentClient,
-        ...updatedClient
-      })
-      .then((res) => {
-        console.log("res from update client (put) backend ", res);
-      })
-      .catch((err) =>
-        console.log("err from update client (put) backend ", err)
-      );
+    dispatch(
+      updateClient(currentClient._id, { ...currentClient, ...updatedClient })
+    );
 
-    // TODO - implement the rest with axios and redux
     setUpdatedClient(updatedClient);
     setCurrentClient("");
   };
 
   const addNewClient = (newClient) => {
-    axios
-      .post(`${URL}add`, newClient)
-      .then((res) => {
-        console.log("res from add new client (post) backend ", res);
-      })
-      .catch((err) => {
-        console.log("err from add new client (post) backend ", err);
-      });
-
+    dispatch(addClient(newClient));
     setNewClient(newClient);
-    //should get the client from the server with an Id, then update it in the state?
-    // TODO - implement it
   };
 
   return (
@@ -149,9 +124,11 @@ const Actions = () => {
           </div>
           <div className="actions-child">
             <UpdateClient
-              owners={owners}
+              owners={utils.reduceDuplications(
+                utils.getClientProperty(CLIENTS_HEADERS["owner"], clients)
+              )}
               emailTypes={emailType}
-              updateClient={updateClient}
+              changeClient={changeClient}
               currentClient={currentClient}
             />
           </div>
@@ -160,7 +137,12 @@ const Actions = () => {
             <ActionHeader text={ACTION_HEADERS["main"]["addClient"]} />
           </div>
           <div className="actions-child">
-            <AddClient addNewClient={addNewClient} owners={owners} />
+            <AddClient
+              addNewClient={addNewClient}
+              owners={utils.reduceDuplications(
+                utils.getClientProperty(CLIENTS_HEADERS["owner"], clients)
+              )}
+            />
           </div>
         </div>
       )}
@@ -171,75 +153,3 @@ const Actions = () => {
 const ActionHeader = ({ text }) => <h1 className="actions-header">{text}</h1>;
 
 export default Actions;
-
-// TODO - implement it with hooks and redux
-/*  getClientsFromServer() {
-    axios
-      .get(URL)
-      .then((res) => {
-        console.log("res from clients backend: ", res.data.data);
-        if (res.data.data.length) {
-          const { data } = res.data;
-          this.setState({
-            loading: false,
-            clients: data,
-            owners: utils.reduceDuplications(
-              utils.getClientProperty(CLIENTS_HEADERS["owner"], data)
-            ),
-            currentClient: "",
-          });
-        }
-      })
-      .catch((err) => {
-        console.log("err from clients backend: ", err);
-      });
-  }*/
-
-/*updateClient = (updatedClientData) => {
-  const { currentClient } = this.state;
-
-  const updatedClient = {
-    emailType: updatedClientData.emailType
-      ? updatedClientData.emailType
-      : currentClient.emailType,
-    sold: updatedClientData.sold ? updatedClientData.sold : currentClient.sold,
-    owner: updatedClientData.owner
-      ? updatedClientData.owner
-      : currentClient.owner
-  };
-
-  axios
-    .put(`${URL}${currentClient._id}`, {
-      ...currentClient,
-      ...updatedClient
-    })
-    .then((res) => {
-      console.log("res from update client (put) backend ", res);
-    })
-    .catch((err) => console.log("err from update client (put) backend ", err));
-
-  this.setState({ currentClient: "" }, this.getClientsFromServer);
-
-  // this.sendUpdatedClient(client, updatedClient)
-};*/
-
-/*addNewClient = (newClient) => {
-   const { clients } = this.state;
-   axios
-     .post(`${URL}add`, newClient)
-     .then((res) => {
-       console.log("res from add new client (post) backend ", res);
-     })
-     .catch((err) => {
-       console.log("err from add new client (post) backend ", err);
-     });
-
-   this.setState(
-     {
-       clients: [...clients, newClient]
-     },
-     this.getClientsFromServer
-   );
-   //should get the client from the server with an Id, then update it in the state?
-   //Or get all the clients including the new client
- };*/

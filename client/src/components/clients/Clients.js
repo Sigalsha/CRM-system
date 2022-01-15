@@ -9,7 +9,7 @@ import { URL, COLORS } from "../../utils/constants";
 import "../../styles/clients/clients.css";
 import ColumnsHeader from "./ColumnsHeader";
 import ClientsFilter from "./ClientsFilter";
-// import ClientsPagination from "./ClientsPagination";
+import ClientsPagination from "./ClientsPagination";
 import ClientRow from "./ClientRow";
 import EditClientPopUp from "./EditClientPopUp";
 import UpdateClient from "../actions/UpdateClient";
@@ -39,6 +39,7 @@ const Clients = () => {
         const res = await axios.get(URL);
         const { data } = res.data;
         // console.log("res from clients backend: ", data);
+        console.log("useEffect of fetchData");
         setClients(data);
       } catch (err) {
         // setHasError(true);
@@ -51,9 +52,11 @@ const Clients = () => {
     setLoading(false);
   }, [updatedClient, setClients, setCurrentClients]);
 
-  /*   useEffect(() => {
+  useEffect(() => {
+    console.log("useEffect of filter/pagination/updateClient");
+
     updateClientsDisplay();
-  }, []); */
+  }, [updatedClient, currentFilters]); //pagination
 
   const isCurrentClients = () => {
     console.log(currentClients);
@@ -62,11 +65,11 @@ const Clients = () => {
   };
 
   const updateClientsDisplay = () => {
-    // debugger;
     let filtered = [];
 
     if (Object.entries(currentFilters).length === 0) {
-      setClientsToDisplay(clients);
+      // setClientsToDisplay(clients);
+      setClientsToDisplay(clients.slice(0, itemsPerPage));
       setPageCount(updatePageCount(clients));
       setCurrentClients(clients.slice(0, itemsPerPage));
       return;
@@ -75,7 +78,8 @@ const Clients = () => {
       console.log(filtered);
     }
 
-    setClientsToDisplay(filtered);
+    // setClientsToDisplay(filtered);
+    setClientsToDisplay(filtered.slice(0, itemsPerPage));
     setPageCount(updatePageCount(filtered));
     setCurrentClients(filtered.slice(0, itemsPerPage));
     /* console.log(currentClients); */
@@ -108,7 +112,7 @@ const Clients = () => {
     setCurrentFilters({ ...currentFilters, ...filters });
     console.log(currentFilters);
 
-    updateClientsDisplay();
+    // updateClientsDisplay();
   };
 
   const updateDisplayByPage = (pageDirection, pageNum) => {
@@ -191,11 +195,11 @@ const Clients = () => {
     return clientsToDisplay.slice(pageIndex - itemsPerPage, pageIndex);
   };
 
-  const updatePageCount = (clients) => {
-    if (Math.ceil(clients.length / itemsPerPage) <= 1) {
+  const updatePageCount = (clientsLength) => {
+    if (Math.ceil(clientsLength / itemsPerPage) <= 1) {
       return 1;
     } else {
-      return Math.ceil(clients.length / itemsPerPage);
+      return Math.ceil(clientsLength / itemsPerPage);
     }
   };
 
@@ -233,17 +237,17 @@ const Clients = () => {
             />
           </div>
           <div className="clients-child">
-            {/*         <ClientsPagination
+            <ClientsPagination
               updateDisplayByPage={updateDisplayByPage}
               pageLimit={pageLimit}
               pageCount={pageCount}
               isPageReset={isPageReset}
-              clients={currentClients}
-            /> */}
+            />
           </div>
           <div className="clients-child">
             <ClientRow
               clients={clients}
+              clientsToDisplay={clientsToDisplay}
               toggleEditClient={toggleEditClient}
               itemsPerPage={itemsPerPage}
             />
