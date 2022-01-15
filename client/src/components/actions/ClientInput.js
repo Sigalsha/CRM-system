@@ -22,7 +22,10 @@ const ClientInput = (props) => {
     <div className="client-input-container">
       <div className="client-input-header">
         <Required isClient="true" />
-        <SubHeader text={ACTION_HEADERS["update"]["client"]} />
+        <SubHeader
+          text={ACTION_HEADERS["update"]["client"]}
+          htmlFor="client name"
+        />
       </div>
       <Datalist
         list={clients}

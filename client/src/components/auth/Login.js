@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { AUTH_HEADERS, AUTH_BUTTONS } from "../../utils/constants";
 import InputWrapper from "../general/InputWrapper";
 
 const Login = () => {
@@ -8,24 +9,26 @@ const Login = () => {
   return (
     <div className="landing-container">
       <div className="landing-header">
-        <span>Login</span>
+        <span>{AUTH_HEADERS["login"]}</span>
       </div>
       <div className="landing-links-wrapper">
         <div>
           <InputWrapper
             inputVal={email}
             handleInputChange={(e) => setEmail(e.target.value)}
-            inputTypeString="email:"
+            inputHeader="email:"
+            inputName="email"
           />
           <InputWrapper
             inputVal={password}
             inputType="password"
             handleInputChange={(e) => setPassword(e.target.value)}
-            inputTypeString="password:"
+            inputHeader="password:"
+            inputName="password"
           />
         </div>
         <button type="submit" className="link-square">
-          Login
+          {AUTH_BUTTONS["login"]}
         </button>
       </div>
     </div>

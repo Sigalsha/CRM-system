@@ -1,8 +1,12 @@
 import React from "react";
 import "../../styles/general/subHeader.css";
 
-const SubHeader = ({ text }) => {
-  return <div className="update-header">{text}</div>;
+const SubHeader = ({ text, htmlFor }) => {
+  return (
+    <div className="update-header">
+      <label htmlFor={htmlFor}>{text}</label>
+    </div>
+  );
 };
 
 export default SubHeader;

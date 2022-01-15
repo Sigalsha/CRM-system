@@ -89,16 +89,19 @@ const AddClient = ({ owners, addNewClient }) => {
       <InputClientWrapper
         inputType={firstName}
         inputTypeString="firstName"
+        htmlFor="first name"
         handleInputChange={(e) => setFirstName(e.target.value)}
       />
       <InputClientWrapper
         inputType={surname}
         inputTypeString="surname"
+        htmlFor="surname"
         handleInputChange={(e) => setSurname(e.target.value)}
       />
       <InputClientWrapper
         inputType={country}
         inputTypeString="country"
+        htmlFor="country"
         handleInputChange={(e) => setCountry(e.target.value)}
       />
       <InputClientWrapper
@@ -106,6 +109,7 @@ const AddClient = ({ owners, addNewClient }) => {
         mapList={owners}
         id={owners}
         list={owners}
+        htmlFor="owner"
         handleInputChange={(e) => setOwner(e.target.value)}
       />
       <AddNewClientBtn
@@ -122,12 +126,16 @@ const InputClientWrapper = ({
   handleInputChange,
   mapList,
   list,
-  id
+  id,
+  htmlFor
 }) => {
   return (
     <div className="input-wrapper">
       <Required />
-      <SubHeader text={ACTION_HEADERS["add"][inputTypeString]} />
+      <SubHeader
+        text={ACTION_HEADERS["add"][inputTypeString]}
+        htmlFor={htmlFor}
+      />
       {inputTypeString !== "owner" ? (
         <Input
           name={inputTypeString}

@@ -101,3 +101,24 @@ export const COLORS = {
   backgroundGray: "#f5f5f5",
   cyan: "#00bfff"
 };
+
+export const AUTH_HEADERS = {
+  register: "Register",
+  login: "Login"
+};
+
+export const AUTH_BUTTONS = {
+  register: "sign up",
+  login: "login"
+};
+
+export const AUTH_ALERTS = {
+  register: {
+    name: "Please submit your name",
+    email: "Please submit your email",
+    password: "Please submit a password",
+    minChar: "must have 3 or more characters",
+    emailValidate: "Please submit a valid email address"
+  },
+  login: {}
+};

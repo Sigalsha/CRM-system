@@ -72,6 +72,12 @@ class Utils {
     const filteredByMonth = fixedDates.filter((d) => d.getMonth() === month);
     return filteredByMonth.length;
   };
+
+  isMinLength = (value) => {
+    const minReg = /( *?[0-9a-zA-Z] *?){3,}/;
+    return minReg.test(value);
+    // ^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$
+  };
 }
 
 let utils = new Utils();

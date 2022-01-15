@@ -78,7 +78,10 @@ const UpdateClient = ({ currentClient, changeClient, emailTypes, owners }) => {
   return (
     <div className="update-client-container">
       {alert && <Alert text={alertText} toggleAlert={toggleAlert} />}
-      <SubHeader text={ACTION_HEADERS["update"]["transferOwnership"]} />
+      <SubHeader
+        text={ACTION_HEADERS["update"]["transferOwnership"]}
+        htmlFor="owner"
+      />
       <Datalist
         list={owners}
         placeholder="Owner"
@@ -94,7 +97,10 @@ const UpdateClient = ({ currentClient, changeClient, emailTypes, owners }) => {
         text={ACTIONS_BUTTONS["update"]["transfer"]}
       />
 
-      <SubHeader text={ACTION_HEADERS["update"]["sendEmail"]} />
+      <SubHeader
+        text={ACTION_HEADERS["update"]["sendEmail"]}
+        htmlFor="email type"
+      />
       <Datalist
         list={emailTypes}
         placeholder="Email Type"
@@ -108,7 +114,10 @@ const UpdateClient = ({ currentClient, changeClient, emailTypes, owners }) => {
         text={ACTIONS_BUTTONS["update"]["send"]}
       />
 
-      <SubHeader text={ACTION_HEADERS["update"]["declareSale"]} />
+      <SubHeader
+        text={ACTION_HEADERS["update"]["declareSale"]}
+        htmlFor="is sold"
+      />
       <div className="empty-div" />
       <UpdateButton
         onClick={declareSold}

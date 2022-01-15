@@ -7,15 +7,17 @@ import "../../styles/actions/addClient.css";
 const InputWrapper = ({
   inputVal,
   inputType,
-  inputTypeString,
-  handleInputChange
+  inputHeader,
+  inputName,
+  handleInputChange,
+  htmlFor
 }) => {
   return (
     <div className="input-wrapper">
       <Required />
-      <SubHeader text={inputTypeString} />
+      <SubHeader text={inputHeader} htmlFor={htmlFor} />
       <Input
-        name={inputTypeString}
+        name={inputName}
         value={inputVal}
         onChange={handleInputChange}
         inputType={inputType}
