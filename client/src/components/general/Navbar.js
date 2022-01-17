@@ -3,7 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { NAV_LINKS_TITLES, NAV_LINKS } from "../../utils/constants";
 import { logout } from "../../actions/authActions";
-import { useAuth } from "../auth/useAuth";
+import { useAuth, useUsername } from "../auth/AuthHooks";
 import "../../styles/general/navbar.css";
 
 const Navbar = () => {
@@ -12,10 +12,9 @@ const Navbar = () => {
     return `${pathname === linkPath ? "nav-link nav-link-active" : "nav-link"}`;
   };
   const isAuthenticated = useAuth();
-  const user = useSelector((state) => state.auth.user);
+  const username = useUsername();
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  console.log(isAuthenticated, user, "from NAvbar");
 
   const logoutClicked = () => {
     dispatch(logout());
@@ -57,7 +56,9 @@ const Navbar = () => {
 
   return (
     <div id="navbar-container">
-      {isAuthenticated && <p>Welcome {user.name}</p>}
+      {isAuthenticated && username && (
+        <p style={{ color: "white" }}>hey {username}</p>
+      )}
       {isAuthenticated ? authUserLinks : guestLinks}
     </div>
   );

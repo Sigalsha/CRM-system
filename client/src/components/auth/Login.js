@@ -1,22 +1,26 @@
 import React, { useEffect, useState } from "react";
 import { connect, useDispatch, useSelector } from "react-redux";
+import { useNavigate, useLocation } from "react-router-dom";
 import { login } from "../../actions/authActions";
 import { clearErrors } from "../../actions/errorActions";
 import { AUTH_HEADERS, AUTH_BUTTONS, AUTH_ALERTS } from "../../utils/constants";
-import { useAuth } from "./useAuth";
+import { useAuth } from "./AuthHooks";
 import InputWrapper from "../general/InputWrapper";
 import Alert from "../general/Alert";
 import "../../styles/general/landing.css";
 
 const Login = () => {
   const isAuthenticated = useAuth();
-  const user = useSelector((state) => state.auth.user);
   const error = useSelector((state) => state.error.msg);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [alert, setAlert] = useState(false);
   const [alertText, setAlertText] = useState("");
   const dispatch = useDispatch();
+
+  let navigate = useNavigate();
+  let location = useLocation();
+  let from = location.state?.from?.pathname || "/";
 
   /*   console.log(error);
   console.log(isAuthenticated); */
@@ -25,11 +29,11 @@ const Login = () => {
 
   useEffect(() => {
     console.log(isAuthenticated, "from useEffect login");
-    console.log(user, "from useEffect login");
 
     if (isAuthenticated) {
       // alert("you are logged in :)");
-      setLoginMsg('you are logged in :)"');
+      // setLoginMsg('you are logged in :)"');
+      navigate(from, { replace: true });
     }
 
     if (error) {
@@ -39,7 +43,7 @@ const Login = () => {
     if (!isAuthenticated) {
       console.log("user load fail");
     }
-  }, [isAuthenticated, user, error]);
+  }, [isAuthenticated, error]);
 
   const toggleAlert = () => setAlert(!alert);
 
@@ -59,7 +63,6 @@ const Login = () => {
   };
 
   const handleSubmit = (e) => {
-    debugger;
     if (isAuthenticated) {
       console.log("you are logged in :)");
       return;

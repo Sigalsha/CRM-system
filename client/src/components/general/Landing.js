@@ -1,13 +1,13 @@
 import React, { Fragment } from "react";
 import { useSelector } from "react-redux";
 import { NAV_LINKS_TITLES, NAV_LINKS } from "../../utils/constants";
-import { useAuth } from "../auth/useAuth";
+import { useAuth, useUsername } from "../auth/AuthHooks";
 import LinkContainer from "../general/LinkContainer";
 import "../../styles/general/landing.css";
 
 const Landing = () => {
   const isAuthenticated = useAuth();
-  const user = useSelector((state) => state.auth.user);
+  const username = useUsername();
   let authUserLandingLinks = [...NAV_LINKS.authUser];
   authUserLandingLinks.shift();
   authUserLandingLinks.pop();
@@ -45,8 +45,7 @@ const Landing = () => {
       <div className="landing-header">
         <span>CRM - manage your success</span>
       </div>
-
-      {isAuthenticated && <p>Welcome {user.name}</p>}
+      <div>{isAuthenticated && <p>Welcome {username}</p>}</div>
       <div className="landing-links-wrapper">
         {isAuthenticated ? authUserLinks : guestUserLinks}
       </div>

@@ -11,7 +11,7 @@ import { COLORS } from "./utils/constants";
 import { loadUser } from "./actions/authActions";
 import Landing from "./components/general/Landing";
 import Register from "./components/auth/Register";
-import { useAuth } from "./components/auth/useAuth";
+import { useAuth } from "./components/auth/AuthHooks";
 import ProtectedRoutes from "./components/auth/ProtectedRoutes";
 import Login from "./components/auth/Login";
 import Navbar from "./components/general/Navbar";
@@ -28,17 +28,6 @@ function App() {
   // const dispatch = useDispatch();
   // const error = useSelector((state) => state.error);
   // const isAuthenticated = useSelector((state) => state.isAuthenticated);
-
-  /*   useEffect(() => {
-    store.dispatch(loadUser());
-  }, []); */
-  /*   useEffect(() => {
-    // change it to server and auth redux
-    setTimeout(() => {
-      setLoading(false);
-      setClients(clientsData);
-    }, 1000);
-  }, []); */
 
   useEffect(() => {
     store.dispatch(loadUser());
