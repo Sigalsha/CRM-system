@@ -5,18 +5,14 @@ import {
   Route,
   Navigate
 } from "react-router-dom";
-import { Provider } from "react-redux";
-import { useSelector, useDispatch } from "react-redux";
 import store from "./store";
 import Loader from "react-loader-spinner";
-import clientsData from "./data.json";
-// import { Provider } from "react-redux";
 import { COLORS } from "./utils/constants";
 import { loadUser } from "./actions/authActions";
-// import { getClients } from "./actions/clientsActions";
-// import Navbar from "./components/general/Navbar.js";
 import Landing from "./components/general/Landing";
 import Register from "./components/auth/Register";
+import { useAuth } from "./components/auth/useAuth";
+import ProtectedRoutes from "./components/auth/ProtectedRoutes";
 import Login from "./components/auth/Login";
 import Navbar from "./components/general/Navbar";
 import Clients from "./components/clients/Clients.js";
@@ -28,6 +24,7 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [clients, setClients] = useState([]);
   const [errorMsg, setError] = useState(false);
+  const isAuthenticated = useAuth();
   // const dispatch = useDispatch();
   // const error = useSelector((state) => state.error);
   // const isAuthenticated = useSelector((state) => state.isAuthenticated);
@@ -76,13 +73,15 @@ function App() {
               <Navbar />
             </div>
             <Routes>
-              <Route path="/" element={<Landing />} />
+              <Route element={<ProtectedRoutes />}>
+                <Route path="/" element={<Landing />} />
+                <Route path="/actions" element={<Actions />} />
+                <Route path="/clients" element={<Clients />} />
+                <Route path="/analytics" element={<Analytics />} />
+                <Route path="*" element={<Navigate to="/" />} />
+              </Route>
               <Route path="/register" element={<Register />} />
               <Route path="/login" element={<Login />} />
-              <Route path="/actions" element={<Actions />} />
-              <Route path="/clients" element={<Clients />} />
-              <Route path="/analytics" element={<Analytics />} />
-              <Route path="*" element={<Navigate to="/" />} />
             </Routes>
           </Router>
         </div>

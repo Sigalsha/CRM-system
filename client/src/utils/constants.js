@@ -1,3 +1,5 @@
+import e from "cors";
+
 export const URL = "http://localhost:8100/clients/";
 
 export const NAV_LINKS_TITLES = {

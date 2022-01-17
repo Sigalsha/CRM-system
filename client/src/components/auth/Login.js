@@ -1,19 +1,22 @@
 import React, { useEffect, useState } from "react";
-import { connect } from "react-redux";
+import { connect, useDispatch, useSelector } from "react-redux";
 import { login } from "../../actions/authActions";
 import { clearErrors } from "../../actions/errorActions";
 import { AUTH_HEADERS, AUTH_BUTTONS, AUTH_ALERTS } from "../../utils/constants";
+import { useAuth } from "./useAuth";
 import InputWrapper from "../general/InputWrapper";
 import Alert from "../general/Alert";
 import "../../styles/general/landing.css";
 
-const Login = ({ isAuthenticated, login, error, clearErrors, user }) => {
+const Login = () => {
+  const isAuthenticated = useAuth();
+  const user = useSelector((state) => state.auth.user);
+  const error = useSelector((state) => state.error.msg);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [alert, setAlert] = useState(false);
   const [alertText, setAlertText] = useState("");
-  // const dispatch = useDispatch();
-  // const isAuthenticated = useSelector((state) => state.isAuthenticated);
+  const dispatch = useDispatch();
 
   /*   console.log(error);
   console.log(isAuthenticated); */
@@ -56,8 +59,9 @@ const Login = ({ isAuthenticated, login, error, clearErrors, user }) => {
   };
 
   const handleSubmit = (e) => {
+    debugger;
     if (isAuthenticated) {
-      alert("you are logged in :)");
+      console.log("you are logged in :)");
       return;
     }
     e.preventDefault();
@@ -69,7 +73,7 @@ const Login = ({ isAuthenticated, login, error, clearErrors, user }) => {
       return;
     }
 
-    login({ email, password });
+    dispatch(login({ email, password }));
 
     setEmail("");
     setPassword("");
@@ -110,10 +114,4 @@ const Login = ({ isAuthenticated, login, error, clearErrors, user }) => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  isAuthenticated: state.auth.isAuthenticated,
-  user: state.auth.user,
-  error: state.error.msg
-});
-
-export default connect(mapStateToProps, { login, clearErrors })(Login);
+export default Login;

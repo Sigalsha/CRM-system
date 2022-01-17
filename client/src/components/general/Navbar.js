@@ -1,7 +1,9 @@
 import React, { Fragment } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { NAV_LINKS_TITLES, NAV_LINKS } from "../../utils/constants";
+import { logout } from "../../actions/authActions";
+import { useAuth } from "../auth/useAuth";
 import "../../styles/general/navbar.css";
 
 const Navbar = () => {
@@ -9,11 +11,18 @@ const Navbar = () => {
   const isLinkActive = (linkPath, pathname) => {
     return `${pathname === linkPath ? "nav-link nav-link-active" : "nav-link"}`;
   };
-  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+  const isAuthenticated = useAuth();
   const user = useSelector((state) => state.auth.user);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   console.log(isAuthenticated, user, "from NAvbar");
 
-  const authUserLink = (
+  const logoutClicked = () => {
+    dispatch(logout());
+    navigate("/login");
+  };
+
+  const authUserLinks = (
     <Fragment>
       {NAV_LINKS.authUser.map((linkPath, i) => {
         return (
@@ -21,6 +30,7 @@ const Navbar = () => {
             key={i}
             to={linkPath === "home" ? "/" : `/${linkPath}`}
             className={isLinkActive(linkPath, pathname)}
+            onClick={linkPath === "logout" ? logoutClicked : null}
           >
             {NAV_LINKS_TITLES[linkPath]}
           </Link>
@@ -48,7 +58,7 @@ const Navbar = () => {
   return (
     <div id="navbar-container">
       {isAuthenticated && <p>Welcome {user.name}</p>}
-      {isAuthenticated ? authUserLink : guestLinks}
+      {isAuthenticated ? authUserLinks : guestLinks}
     </div>
   );
 };
