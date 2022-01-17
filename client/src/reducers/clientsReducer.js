@@ -26,7 +26,7 @@ export default function (state = initialState, action) {
     case ADD_CLIENT:
       return {
         ...state,
-        items: [action.payload, ...state.clients]
+        clients: [action.payload, ...state.clients]
       };
     /*  case DELETE_ITEM:
       return {

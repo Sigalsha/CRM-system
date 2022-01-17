@@ -19,8 +19,14 @@ export const loadUser = () => (dispatch, getState) => {
 
   axios
     .get("/auth/user", tokenConfig(getState))
-    .then((res) => dispatch({ type: USER_LOADED, payload: res.data }))
+    .then((res) => {
+      console.log(res.data);
+
+      dispatch({ type: USER_LOADED, payload: res.data });
+    })
+
     .catch((err) => {
+      console.log("err of loadUser ", err);
       dispatch(returnErrors(err.response.data, err.response.status));
       dispatch({ type: AUTH_ERROR });
     });
@@ -60,11 +66,17 @@ export const login =
 
     // req body
     const body = JSON.stringify({ email, password });
+    console.log(body, "body");
 
     axios
       .post("/auth/login", body, config)
-      .then((res) => dispatch({ type: LOGIN_SUCCESS, payload: res.data }))
+      .then((res) => {
+        console.log(res.data);
+
+        dispatch({ type: LOGIN_SUCCESS, payload: res.data });
+      })
       .catch((err) => {
+        console.log("err of login ", err);
         dispatch(
           returnErrors(err.response.data, err.response.status, "LOGIN_FAIL")
         );

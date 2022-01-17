@@ -1,5 +1,12 @@
 import React, { useState, useEffect, Fragment } from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate
+} from "react-router-dom";
+import { Provider } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import store from "./store";
 import Loader from "react-loader-spinner";
 import clientsData from "./data.json";
@@ -20,7 +27,10 @@ import "./App.css";
 function App() {
   const [loading, setLoading] = useState(false);
   const [clients, setClients] = useState([]);
-  const [hasError, setHasError] = useState(false);
+  const [errorMsg, setError] = useState(false);
+  // const dispatch = useDispatch();
+  // const error = useSelector((state) => state.error);
+  // const isAuthenticated = useSelector((state) => state.isAuthenticated);
 
   /*   useEffect(() => {
     store.dispatch(loadUser());
@@ -33,9 +43,23 @@ function App() {
     }, 1000);
   }, []); */
 
+  useEffect(() => {
+    store.dispatch(loadUser());
+
+    /*  if (error) {
+      setError(error.msg.msg);
+      console.log(error.msg.msg);
+    }
+    if (!isAuthenticated) {
+      alert("user load fail");
+    } else {
+      alert("user is logged in");
+    } */
+  }, []);
+
   return (
     <Fragment>
-      {hasError && <p>Something went wrong.</p>}
+      {errorMsg && <p>{errorMsg}</p>}
       {loading ? (
         <div id="general-loader">
           <Loader
@@ -58,6 +82,7 @@ function App() {
               <Route path="/actions" element={<Actions />} />
               <Route path="/clients" element={<Clients />} />
               <Route path="/analytics" element={<Analytics />} />
+              <Route path="*" element={<Navigate to="/" />} />
             </Routes>
           </Router>
         </div>

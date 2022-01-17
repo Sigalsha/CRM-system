@@ -22,6 +22,14 @@ exports.loginUser = async function (req, res, next) {
 
     const token = jwt.sign({ id: user._id }, JWT_SECRET, { expiresIn: 3600 });
     if (!token) throw Error("Could not sign the token");
+    console.log("res status: ", {
+      user: {
+        id: user._id,
+        name: user.name,
+        email: user.email
+      },
+      msg: "user is logged in"
+    });
 
     res.status(200).json({
       token,
@@ -77,7 +85,10 @@ exports.addNewUser = async function (req, res, next) {
 };
 
 exports.getUserData = async function (req, res, next) {
-  const { id } = req.params;
+  console.log(req.user.id, req.params.id);
+
+  const { id } = req.user;
+
   if (!id) throw Error("no id was found on req.params");
   try {
     const user = await UserService.findUserById(id);

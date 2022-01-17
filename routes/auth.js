@@ -25,6 +25,6 @@ router.post("/register", addNewUser);
  * @desc    Get user data
  * @access  Private
  */
-router.get("/user/:id", auth, getUserData);
+router.get("/user", auth, getUserData);
 
 module.exports = router;

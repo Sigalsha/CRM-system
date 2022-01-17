@@ -10,15 +10,10 @@ export const NAV_LINKS_TITLES = {
   register: "Register"
 };
 
-export const NAV_LINKS = [
-  "home",
-  "clients",
-  "actions",
-  "analytics",
-  "logout",
-  "login",
-  "register"
-];
+export const NAV_LINKS = {
+  authUser: ["home", "clients", "actions", "analytics", "logout"],
+  guestUser: ["login", "register"]
+};
 
 export const CLIENTS_HEADERS = {
   name: "name",
@@ -120,5 +115,10 @@ export const AUTH_ALERTS = {
     minChar: "must have 3 or more characters",
     emailValidate: "Please submit a valid email address"
   },
-  login: {}
+  login: {
+    email: "Please submit your email",
+    password: "Please submit your password",
+    error: "you submitted is incorrect.",
+    fix: "Please submit the correct"
+  }
 };

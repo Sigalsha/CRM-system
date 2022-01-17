@@ -78,6 +78,11 @@ class Utils {
     return minReg.test(value);
     // ^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$
   };
+
+  isEmailValid = (email) => {
+    const emailReg = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+    return emailReg.test(email);
+  };
 }
 
 let utils = new Utils();
