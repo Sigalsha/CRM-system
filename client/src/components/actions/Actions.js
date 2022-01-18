@@ -73,6 +73,7 @@ const Actions = () => {
   };
 
   const changeClient = (updatedClientData) => {
+    debugger;
     const updatedClient = {
       emailType: updatedClientData.emailType
         ? updatedClientData.emailType

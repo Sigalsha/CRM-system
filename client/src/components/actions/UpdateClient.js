@@ -136,17 +136,3 @@ const UpdateButton = ({ onClick, text }) => {
 };
 
 export default UpdateClient;
-
-/*   const [inputValues, setInputValues] = useState({
-    owner: "",
-    emailType: ""
-  }); */
-
-/*   useEffect(() => {
-    setInputValues({ ...inputValues, name: props.currentClient.name });
-  }, [props.currentClient]); */
-
-/*   const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setInputValues({ ...inputValues, [name]: value });
-  }; */

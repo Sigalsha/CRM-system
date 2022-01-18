@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { NAV_LINKS_TITLES, NAV_LINKS } from "../../utils/constants";
 import { logout } from "../../actions/authActions";
 import { useAuth, useUsername } from "../auth/AuthHooks";

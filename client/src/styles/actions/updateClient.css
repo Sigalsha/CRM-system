@@ -1,3 +1,5 @@
+@import "../colors.css";
+
 .update-client-container {
   width: 90%;
   display: flex;
@@ -14,7 +16,7 @@
   margin-left: 10%;
   margin-top: 1%;
   text-transform: uppercase;
-  color: #f7ce3e;
+  color: var(--clr-primary-yellow);
   font-weight: bold;
 }
 

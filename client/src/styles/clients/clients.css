@@ -1,3 +1,5 @@
+@import "../colors.css";
+
 * {
   text-decoration: none;
 }
@@ -12,7 +14,7 @@
   height: 100%;
   margin-top: 10px;
   padding: 0 1%;
-  background-color: #ecf0f1;
+  background-color: var(--clr-primary-back);
 }
 
 .clients-child {

@@ -1,3 +1,5 @@
+@import "../colors.css";
+
 * {
   text-decoration: none;
 }
@@ -5,7 +7,7 @@
 .landing-container {
   min-height: 92.5vh;
   width: 100%;
-  color: black;
+  color: var(--clr-primary-text);
   display: flex;
   flex-direction: column;
   position: relative;
@@ -55,20 +57,20 @@
   flex: 1;
   padding: 3%;
   margin: 5%;
-  background-color: rgba(247, 206, 62, 0.9);
+  background-color: var(--clr-link-back);
   border-radius: 3%;
-  border: 0.25% solid black;
+  border: 0.25% solid var(--clr-border-landing);
 }
 
 .link-square:hover {
   text-decoration: none;
-  background-color: rgba(247, 206, 62, 0.5);
+  background-color: var(--clr-link-back-hover);
 }
 
 .single-link {
   text-align: center;
   line-height: 1.7em;
-  color: black;
+  color: var(--clr-primary-text);
 }
 
 @media screen and (min-width: 1023px) {

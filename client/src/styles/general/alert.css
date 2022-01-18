@@ -1,3 +1,5 @@
+@import "../colors.css";
+
 .alert-container {
   position: fixed;
   width: 100%;
@@ -7,7 +9,7 @@
   right: 0;
   bottom: 0;
   margin: auto;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: var(--clr-back-wrapper);
 }
 
 .alert-wrapper {
@@ -22,8 +24,8 @@
   font-size: 0.9em;
   text-align: left;
   letter-spacing: 0.3;
-  color: "#d9534f";
-  background-color: black;
+  color: #d9534f;
+  background-color: var(--clr-back-container);
   opacity: 0.85;
 }
 

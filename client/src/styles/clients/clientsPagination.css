@@ -1,3 +1,5 @@
+@import "../colors.css";
+
 .clients-pagination-wrapper {
   display: flex;
   justify-content: space-evenly;
@@ -32,13 +34,13 @@
 }
 
 .current-page-number {
-  color: #795548;
+  color: var(--clr-pagination-num);
   cursor: not-allowed;
   font-weight: bold;
 }
 
 .not-current-page {
-  color: black;
+  color: var(--clr-primary-text);
 }
 
 @media screen and (max-width: 1000px) {

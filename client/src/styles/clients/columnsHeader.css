@@ -1,11 +1,13 @@
+@import "../colors.css";
+
 #columns-header-container {
   width: 100%;
   display: flex;
   justify-content: space-between;
   text-align: left;
   align-items: center;
-  background-color: #f7ce3e;
-  box-shadow: 1.5px 1.5px rgba(0, 0, 0, 0.6);
+  background-color: var(--clr-primary-yellow);
+  box-shadow: 1.5px 1.5px var(--clr-box-shadow);
   padding: 10px;
 }
 

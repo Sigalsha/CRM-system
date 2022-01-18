@@ -1,3 +1,5 @@
+@import "../colors.css";
+
 .popup-wrapper {
   position: fixed;
   width: 100%;
@@ -7,7 +9,7 @@
   right: 0;
   bottom: 0;
   margin: auto;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: var(--clr-back-wrapper);
 }
 
 .popup-container {
@@ -20,9 +22,9 @@
   display: flex;
   flex-wrap: wrap;
   text-align: left;
-  background-color: black;
+  background-color: var(-clr-back-container);
   opacity: 0.87;
-  color: white;
+  color: var(--clr-secondary-text);
   font-size: 0.9em;
   letter-spacing: 0.3;
 }
@@ -41,7 +43,7 @@
   display: flex;
   line-height: 30px;
   margin-bottom: 5px;
-  background-color: transparent;
+  background-color: var(--clr-tran);
 }
 
 .popup-row span {
@@ -50,19 +52,19 @@
 
 .popup-input {
   width: 55%;
-  background-color: transparent;
+  background-color: var(--clr-tran);
   border-style: solid;
   border-width: 0px 0px 1px 0px;
-  border-color: white;
-  color: white;
+  border-color: var(--clr-border-popup);
+  color: var(--clr-secondary-text);
 }
 
 .update-btn {
   width: 95%;
   margin-top: 5%;
   margin-bottom: 2%;
-  background-color: #f7ce3e;
-  color: black;
+  background-color: var(--clr-primary-yellow);
+  color: var(--clr-primary-text);
   font-weight: bold;
   text-align: center;
   font-size: 16px;

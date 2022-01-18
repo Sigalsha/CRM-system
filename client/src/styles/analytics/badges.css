@@ -1,3 +1,5 @@
+@import "../colors.css";
+
 .badges-wrapper {
   height: 100%;
   display: flex;
@@ -13,16 +15,16 @@
   margin-top: 10px;
   width: 20%;
   height: 200px;
-  border: 1px solid transparent;
+  border: 1px solid var(--clr-tran);
   border-radius: 15%;
 }
 
 .badge:nth-child(odd) {
-  background-color: rgba(255, 136, 75, 0.85);
+  background-color: var(--clr-badges-odd);
 }
 
 .badge:nth-child(even) {
-  background-color: rgba(247, 206, 62, 0.85);
+  background-color: var(--clr-badges-even);
 }
 
 .badge-icon {
@@ -43,8 +45,8 @@
 .tooltip-hover .badge-tooltip {
   visibility: hidden;
   width: 120px;
-  background-color: lightgray;
-  color: black;
+  background-color: var(--clr-border);
+  color: var(--clr-primary-text);
   text-align: center;
   text-transform: none;
   font-weight: normal;

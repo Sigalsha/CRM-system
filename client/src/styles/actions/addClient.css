@@ -1,3 +1,5 @@
+@import "../colors.css";
+
 .add-client-container {
   width: 80%;
   margin-left: 2%;
@@ -7,7 +9,7 @@
   flex-wrap: wrap;
   text-align: left;
   font-size: 0.9em;
-  color: black;
+  color: var(--clr-primary-text);
 }
 
 .input-wrapper {
@@ -18,11 +20,11 @@
 
 .input-add-client {
   width: 40%;
-  background-color: transparent;
+  background-color: var(--clr-tran);
   border-style: solid;
   border-width: 0px 0px 1px 0px;
-  border-color: lightgray;
-  color: black;
+  border-color: var(--clr-border);
+  color: var(--clr-primary-text);
   margin-top: 1%;
 }
 
@@ -30,8 +32,8 @@
   width: 67%;
   height: 40px;
   padding-top: 10px;
-  background-color: #f7ce3e;
-  color: black;
+  background-color: var(--clr-primary-yellow);
+  color: var(--clr-primary-text);
   font-weight: bold;
   font-size: 1em;
   text-align: center;

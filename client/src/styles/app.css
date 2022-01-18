@@ -1,11 +1,44 @@
+:root {
+  /* Layouts */
+  --bp-mobile: 375px;
+  --bp-desktop: 1440px;
+
+  /* Colors */
+  --clr-back: #5c6568;
+  --clr-primary-pale: hsl(225, 100%, 94%);
+  --clr-primary-bright: hsl(245, 75%, 52%);
+  --clr-primary-hover: hsla(245, 75%, 52%, 0.5);
+  --clr-neutral-pale: rgb(245, 247, 255);
+  --clr-neutral-des: hsl(224, 23%, 55%);
+  --clr-neutral-dark: hsl(223, 47%, 23%);
+  --clr-tran: transparent;
+
+  /* Typography */
+  --fs-p: 16px;
+  --ff-primary: "Montserrat", sans-serif;
+  --fw-bold: 900;
+  --fw-medium: 700;
+  --fw-light: 500;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 * {
   text-decoration: none;
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--ff-primary);
+}
+
+body {
+  margin: 0;
 }
 
 .app {
   height: 100vh;
-  background-color: #ecf0f1;
+  background-color: var(--clr-back);
 }
 
 #general-loader {

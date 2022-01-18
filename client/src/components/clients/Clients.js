@@ -1,10 +1,9 @@
 import React, { useState, useEffect, Fragment } from "react";
 import Loader from "react-loader-spinner";
-import axios from "axios";
+import { useSelector, useDispatch } from "react-redux";
+import { getClients, updateClient } from "../../actions/clientsActions";
 // import utils from "../../utils/utils";
-import clientsData from "../../data.json";
 import { URL, COLORS } from "../../utils/constants";
-/* import { connect } from "react-redux"; */
 // import { getClients } from "../../actions/clientsActions";
 import "../../styles/clients/clients.css";
 import ColumnsHeader from "./ColumnsHeader";
@@ -18,8 +17,9 @@ import ClientData from "./ClientData";
 const itemsPerPage = 20;
 
 const Clients = () => {
+  const clients = useSelector((state) => state.clients.clients);
+  const dispatch = useDispatch();
   const [loading, setLoading] = useState(true);
-  const [clients, setClients] = useState([]);
   const [showPopup, setShowPopup] = useState(false);
   const [clientToEdit, setClientToEdit] = useState({});
   const [pageCount, setPageCount] = useState(0);
@@ -36,11 +36,11 @@ const Clients = () => {
       setLoading(true);
       // setHasError(false);
       try {
-        const res = await axios.get(URL);
-        const { data } = res.data;
-        // console.log("res from clients backend: ", data);
-        console.log("useEffect of fetchData");
-        setClients(data);
+        dispatch(getClients());
+        console.log("useEffect of Clients");
+
+        /*      const res = await axios.get(URL);
+        const { data } = res.data; */
       } catch (err) {
         // setHasError(true);
         console.log(err);
@@ -48,9 +48,8 @@ const Clients = () => {
     };
     fetchData();
     updateClientsDisplay();
-
     setLoading(false);
-  }, [updatedClient, setClients, setCurrentClients]);
+  }, [getClients, updatedClient, setCurrentClients]);
 
   useEffect(() => {
     console.log("useEffect of filter/pagination/updateClient");
@@ -151,17 +150,13 @@ const Clients = () => {
     setIsPageReset(false);
   };
 
-  const submitInputChange = (updatedClient) => {
-    axios
-      .put(`${URL}${clientToEdit.id}`, updatedClient)
-      .then((res) => {
-        console.log("res from update client (put) backend ", res);
-        setUpdatedClient(updatedClient);
-      })
-      .catch((err) =>
-        console.log("err from update client (put) backend ", err)
-      );
+  const editClientChange = (updatedClient) => {
+    debugger;
+    dispatch(
+      updateClient(clientToEdit.id, { ...clientToEdit, ...updatedClient })
+    );
 
+    setUpdatedClient(updatedClient);
     setShowPopup(!showPopup);
     setClientToEdit({
       id: null,
@@ -256,7 +251,7 @@ const Clients = () => {
               <EditClientPopUp
                 clientToEdit={clientToEdit}
                 toggleEditClient={toggleEditClient}
-                submitInputChange={submitInputChange}
+                submitInputChange={editClientChange}
               />
             )}
           </div>

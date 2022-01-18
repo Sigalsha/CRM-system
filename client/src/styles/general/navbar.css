@@ -1,3 +1,5 @@
+@import "../colors.css";
+
 * {
   text-decoration: none;
   font-family: "Montserrat", sans-serif;
@@ -17,27 +19,27 @@
 .nav-link {
   flex: 1;
   padding: 1%;
-  color: white;
+  color: var(--clr-secondary-text);
 }
 
 .nav-link:hover {
-  color: #f7ce3e;
-  background-color: rgba(169, 169, 169, 0.2);
+  color: var(--clr-primary-yellow);
+  background-color: var(--clr-nav-hover);
 }
 
 .nav-link:focus {
-  color: #f7ce3e;
-  background-color: rgba(169, 169, 169, 0.2);
+  color: var(--clr-primary-yellow);
+  background-color: var(--clr-nav-hover);
 }
 
 .nav-link:active {
-  color: #f7ce3e;
-  background-color: rgba(169, 169, 169, 0.2);
+  color: var(--clr-primary-yellow);
+  background-color: var(--clr-nav-hover);
 }
 
 .nav-link-active {
-  color: #f7ce3e;
-  background-color: rgba(169, 169, 169, 0.2);
+  color: var(--clr-primary-yellow);
+  background-color: var(--clr-nav-hover);
 }
 
 @media screen and (max-width: 400px) {

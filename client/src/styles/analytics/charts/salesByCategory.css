@@ -1,3 +1,5 @@
+@import "../../colors.css";
+
 .category-header {
   display: flex;
   flex-flow: row wrap;
@@ -6,7 +8,7 @@
 
 .select-category {
   margin-left: 40px;
-  border-color: lightgray;
+  border-color: var(--clr-border);
   border-style: solid;
   border-width: 0px 0px 1px 0px;
   text-align: center;

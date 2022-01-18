@@ -1,6 +1,8 @@
+@import "../colors.css";
+
 .datalist-wrapper {
   width: 25%;
-  border-color: lightgray;
+  border-color: var(--clr-border);
   text-align: center;
   margin-left: 5%;
   padding-bottom: 2%;
@@ -8,21 +10,21 @@
 
 .datalist-add-client {
   width: 40%;
-  background-color: transparent;
+  background-color: var(--clr-tran);
   border-style: solid;
   border-width: 0px 0px 1px 0px;
-  border-color: lightgray;
-  color: black;
+  border-color: var(--clr-border);
+  color: var(--clr-primary-text);
   margin-top: 1%;
 }
 
 .input-text {
   width: 100%;
   text-align: center;
-  background-color: transparent;
+  background-color: var(--clr-tran);
   border-style: solid;
   border-width: 0px 0px 1px 0px;
-  border-color: lightgray;
+  border-color: var(--clr-border);
 }
 
 .input-text-add-client {
