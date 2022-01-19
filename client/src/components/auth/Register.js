@@ -1,10 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { registerUser } from "../../actions/authActions";
 import { clearErrors } from "../../actions/errorActions";
-import { AUTH_ALERTS, AUTH_HEADERS, AUTH_BUTTONS } from "../../utils/constants";
+import {
+  AUTH_ALERTS,
+  AUTH_HEADERS,
+  AUTH_BUTTONS,
+  NAV_LINKS,
+  NAV_LINKS_TITLES
+} from "../../utils/constants";
 import utils from "../../utils/utils";
+import { useAuth } from "../../hooks/authHooks";
+import { useError } from "../../hooks/errorHooks";
+import LinkContainer from "../general/LinkContainer";
 import InputWrapper from "../general/InputWrapper";
 import Alert from "../general/Alert";
 import "../../styles/general/landing.css";
@@ -15,17 +24,16 @@ const Register = () => {
   const [name, setName] = useState("");
   const [alert, setAlert] = useState(false);
   const [alertText, setAlertText] = useState("");
-  const [msg, setMsg] = useState(null);
   const dispatch = useDispatch();
-  const isAuthenticated = useSelector((state) => state.isAuthenticated);
+  const isAuthenticated = useAuth();
   const navigate = useNavigate();
-  const error = useSelector((state) => state.error);
+  const error = useError();
 
   useEffect(() => {
     // Check for register error
-    if (error.id === "REGISTER_FAIL") {
+    if (error) {
       setAlert(true);
-      setAlertText(error.msg.msg);
+      setAlertText(error);
     } else {
       setAlert(false);
       setAlertText("");
@@ -35,9 +43,9 @@ const Register = () => {
     if (isAuthenticated) {
       setAlert(true);
       setAlertText("you are logged in :)");
+      dispatch(clearErrors());
+      navigate(`/${NAV_LINKS.guestUser[0]}`);
     }
-
-    console.log(isAuthenticated, "from useEffect");
   }, [error, isAuthenticated]);
 
   const validateInput = (inputValue, inputType) => {
@@ -76,7 +84,6 @@ const Register = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    debugger;
 
     if (
       !validateInput(name, "name") ||
@@ -88,7 +95,7 @@ const Register = () => {
 
     if (!checkNewUserDetails({ name, email, password })) return;
 
-    dispatch(registerUser({ name, email, password }, navigate));
+    dispatch(registerUser({ name, email, password }));
 
     setName("");
     setEmail("");
@@ -133,6 +140,13 @@ const Register = () => {
             {AUTH_BUTTONS["register"]}
           </button>
         </form>
+      </div>
+      <div className="landing-links-wrapper">
+        <p>Not your first time? </p>
+        <LinkContainer
+          path={`/${NAV_LINKS.guestUser[0]}`}
+          text={NAV_LINKS_TITLES["login"]}
+        />
       </div>
     </div>
   );

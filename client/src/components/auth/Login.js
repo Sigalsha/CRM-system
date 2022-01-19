@@ -3,15 +3,23 @@ import { connect, useDispatch, useSelector } from "react-redux";
 import { useNavigate, useLocation } from "react-router-dom";
 import { login } from "../../actions/authActions";
 import { clearErrors } from "../../actions/errorActions";
-import { AUTH_HEADERS, AUTH_BUTTONS, AUTH_ALERTS } from "../../utils/constants";
-import { useAuth } from "./AuthHooks";
+import {
+  AUTH_HEADERS,
+  AUTH_BUTTONS,
+  AUTH_ALERTS,
+  NAV_LINKS,
+  NAV_LINKS_TITLES
+} from "../../utils/constants";
+import { useAuth } from "../../hooks/authHooks";
+import { useError } from "../../hooks/errorHooks";
 import InputWrapper from "../general/InputWrapper";
 import Alert from "../general/Alert";
+import LinkContainer from "../general/LinkContainer";
 import "../../styles/general/landing.css";
 
 const Login = () => {
   const isAuthenticated = useAuth();
-  const error = useSelector((state) => state.error.msg);
+  const error = useError();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [alert, setAlert] = useState(false);
@@ -31,18 +39,13 @@ const Login = () => {
     console.log(isAuthenticated, "from useEffect login");
 
     if (isAuthenticated) {
-      // alert("you are logged in :)");
-      // setLoginMsg('you are logged in :)"');
       dispatch(clearErrors());
       navigate(from, { replace: true });
     }
 
     if (error) {
-      // setError(error.msg);
-      console.log(error);
-    }
-    if (!isAuthenticated) {
-      console.log("user load fail");
+      setAlert(true);
+      setAlertText(error);
     }
   }, [isAuthenticated, error]);
 
@@ -64,10 +67,6 @@ const Login = () => {
   };
 
   const handleSubmit = (e) => {
-    if (isAuthenticated) {
-      console.log("you are logged in :)");
-      return;
-    }
     e.preventDefault();
 
     if (
@@ -113,6 +112,13 @@ const Login = () => {
             {AUTH_BUTTONS["login"]}
           </button>
         </form>
+      </div>
+      <div className="landing-links-wrapper">
+        <p>New here? </p>
+        <LinkContainer
+          path={`/${NAV_LINKS.guestUser[1]}`}
+          text={NAV_LINKS_TITLES["register"]}
+        />
       </div>
     </div>
   );

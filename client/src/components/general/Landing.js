@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import { useSelector } from "react-redux";
 import { NAV_LINKS_TITLES, NAV_LINKS } from "../../utils/constants";
-import { useAuth, useUsername } from "../auth/AuthHooks";
+import { useAuth, useUsername } from "../../hooks/authHooks";
 import LinkContainer from "../general/LinkContainer";
 import "../../styles/general/landing.css";
 

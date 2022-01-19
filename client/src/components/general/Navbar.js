@@ -3,7 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { NAV_LINKS_TITLES, NAV_LINKS } from "../../utils/constants";
 import { logout } from "../../actions/authActions";
-import { useAuth, useUsername } from "../auth/AuthHooks";
+import { useAuth, useUsername } from "../../hooks/authHooks";
 import "../../styles/general/navbar.css";
 
 const Navbar = () => {

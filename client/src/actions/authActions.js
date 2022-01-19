@@ -13,7 +13,6 @@ import { returnErrors } from "./errorActions";
 
 // check token & load user
 export const loadUser = () => (dispatch, getState) => {
-  //debugger;
   // user loading
   dispatch({ type: USER_LOADING });
 
@@ -26,15 +25,16 @@ export const loadUser = () => (dispatch, getState) => {
     })
 
     .catch((err) => {
-      console.log("err of loadUser ", err.response);
-      dispatch(returnErrors(err.response.data, err.response.status));
+      dispatch(
+        returnErrors(err.response.data, err.response.status, "AUTH_ERROR")
+      );
       dispatch({ type: AUTH_ERROR });
     });
 };
 
 // Register user
 export const registerUser =
-  ({ name, email, password }, navigate) =>
+  ({ name, email, password }) =>
   (dispatch) => {
     // headers
     const config = {
@@ -48,7 +48,6 @@ export const registerUser =
       .post("/auth/register", body, config)
       .then((res) => {
         dispatch({ type: REGISTER_SUCCESS, payload: res.data });
-        dispatch(navigate("/login"));
       })
       .catch((err) => {
         dispatch(

@@ -11,7 +11,7 @@ import { COLORS } from "./utils/constants";
 import { loadUser } from "./actions/authActions";
 import Landing from "./components/general/Landing";
 import Register from "./components/auth/Register";
-import { useAuth } from "./components/auth/AuthHooks";
+import { useAuth } from "./hooks/authHooks";
 import ProtectedRoutes from "./components/auth/ProtectedRoutes";
 import Login from "./components/auth/Login";
 import Navbar from "./components/general/Navbar";
