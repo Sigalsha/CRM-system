@@ -1,9 +1,12 @@
+@import "../../typography.css";
+@import "../../sizes.css";
+
 .pies-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-flow: column wrap;
-  margin-top: 20px;
+  margin-top: var(--m-top-20-px);
 }
 
 .pie-wrapper {
@@ -14,6 +17,6 @@
 
 .pie-header {
   text-align: center;
-  margin-right: 20px;
-  font-size: 14px;
+  margin-right: var(--m-right-20);
+  font-size: var(--fs-px-14);
 }

@@ -44,22 +44,6 @@ const Actions = () => {
     setLoading(false);
   }, [updatedClient, newClient, getClients, updateClient]);
 
-  /*   useEffect(() => {
-    // change it to getClientsFromServer
-    setTimeout(() => {
-      setLoading(false);
-      setClients(clientsData);
-      setOwners(
-        utils.reduceDuplications(
-          utils.getClientProperty(CLIENTS_HEADERS["owner"], clientsData)
-        )
-      );
-      setCurrentClient("");
-    }, 1000);
-  }, []); */
-
-  // TODO - implement sendUpdatedClient to server and back
-
   const getCurrentClient = (event) => {
     const { value } = event.target;
 

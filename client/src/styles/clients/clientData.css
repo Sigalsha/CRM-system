@@ -1,14 +1,16 @@
 @import "../colors.css";
+@import "../typography.css";
+@import "../sizes.css";
 
 .row-container {
-  height: 100%;
-  width: 100%;
+  height: var(--h-100);
+  width: var(--w-100);
   display: flex;
   text-align: left;
   justify-content: space-around;
   align-items: center;
-  padding: 1%;
-  border-style: solid;
+  padding: var(--pd-1);
+  border-style: var(--bor-st-sol);
   border-width: 0px 0px 2px 0px;
   border-color: var(--clr-border);
 }
@@ -20,12 +22,12 @@
 
 .rowItem {
   flex: 1;
-  font-size: 0.95em;
+  font-size: var(--fs-basis-s2);
 }
 
 @media screen and (max-width: 400px) {
   .row-container {
-    font-size: 9px;
-    padding: 1% 0;
+    font-size: var(--fs-px-9);
+    padding: var(--pd-1-0);
   }
 }

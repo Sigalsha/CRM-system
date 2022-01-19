@@ -1,19 +1,29 @@
 @import "../colors.css";
+@import "../typography.css";
+@import "../sizes.css";
+
+:root {
+  --fs-badges-large: 50px;
+  --fs-badges-large-2: 40px;
+  --fs-badges-large-3: 30px;
+  --fs-badges-sm: 513px;
+  --m-top-15-px: 15px;
+}
 
 .badges-wrapper {
-  height: 100%;
+  height: var(--h-100);
   display: flex;
   justify-content: space-evenly;
   flex-flow: row wrap;
-  padding: 10px;
+  padding: var(--pd-10-px);
   margin: 10px;
 }
 
 .badge {
   text-align: center;
   vertical-align: middle;
-  margin-top: 10px;
-  width: 20%;
+  margin-top: var(--m-top-10-px);
+  width: var(--w-40);
   height: 200px;
   border: 1px solid var(--clr-tran);
   border-radius: 15%;
@@ -28,15 +38,15 @@
 }
 
 .badge-icon {
-  font-size: 50px;
-  margin-top: 20px;
+  font-size: var(--fs-badges-large);
+  margin-top: var(--m-top-20-px);
 }
 
 .badge-header {
-  font-size: 14px;
+  font-size: var(--fs-px-14);
   margin: 15px 5px 10px 5px;
   letter-spacing: 1.2;
-  font-weight: 550;
+  font-weight: var(--fw-medium);
   text-transform: uppercase;
   white-space: normal;
   line-height: 1.5;
@@ -49,7 +59,7 @@
   color: var(--clr-primary-text);
   text-align: center;
   text-transform: none;
-  font-weight: normal;
+  font-weight: var(--fw-light);
   border-radius: 6px;
   padding: 5px 0;
   position: absolute;
@@ -61,65 +71,65 @@
 }
 
 .badge-desc {
-  font-size: 11px;
+  font-size: var(--fs-px-11);
   text-align: center;
   margin: 5px 10px;
-  font-weight: 400;
+  font-weight: var(--fw-light);
   white-space: normal;
   line-height: 1.5;
-  height: 30px;
+  height: var(--h-30-px);
 }
 
 .badge-result {
   line-height: 1.5;
-  font-size: 24px;
-  font-weight: 550;
+  font-size: var(--fs-px-24);
+  font-weight: var(--fw-medium);
   margin-top: 0;
 }
 
 @media screen and (min-width: 1023px) {
   .badge-icon {
-    margin-top: 15px;
+    margin-top: var(--m-top-15-px);
   }
 
   .badge-header {
-    font-size: 16px;
+    font-size: var(--fs-basis);
   }
 
   .badge-desc {
-    font-size: 12px;
+    font-size: var(--fs-px-12);
     height: 25px;
   }
 }
 
 @media screen and (max-width: 880px) {
   .badge {
-    width: 40%;
+    width: var(--w-40);
     margin: 20px;
   }
 
   .badge-header {
     margin: 10px 5px;
-    font-size: 16px;
+    font-size: var(--fs-basis);
   }
 
   .badge-desc {
-    font-size: 12px;
+    font-size: var(--fs-px-12);
   }
 
   .badge-result {
-    font-size: 30px;
+    font-size: var(--fs-badges-large-3);
   }
 }
 
 @media screen and (max-width: 700px) {
   .badge-icon {
-    font-size: 50px;
-    margin-top: 15px;
+    font-size: var(--fs-badges-large);
+    margin-top: var(--m-top-15-px);
   }
 
   .badge-header {
-    margin-top: 15px;
+    margin-top: var(--m-top-15-px);
   }
 
   .badge-desc {
@@ -129,31 +139,31 @@
 
 @media screen and (max-width: 600px) {
   .badge-icon {
-    font-size: 40px;
-    margin-top: 10px;
+    font-size: var(--fs-badges-large-2);
+    margin-top: var(--m-top-10-px);
   }
 
   .badge-header {
-    font-size: 14px;
-    margin-top: 10px;
+    font-size: var(--fs-px-14);
+    margin-top: var(--m-top-10-px);
   }
 
   .badge-desc {
-    height: 30px;
+    height: var(--h-30-px);
   }
 }
 
 @media screen and (max-width: 500px) {
   .badge {
-    width: 45%;
+    width: var(--w-45);
   }
 
   .badge-icon {
-    font-size: 50px;
+    font-size: var(--fs-badges-large);
   }
 
   .badge-header {
-    margin-top: 20px;
+    margin-top: var(--m-top-20-px);
   }
 
   .tooltip-hover {
@@ -162,9 +172,9 @@
 
   .tooltip-hover .badge-tooltip {
     width: 80px;
-    margin-right: 40px;
-    font-size: 11px;
-    margin-top: 20px;
+    margin-right: var(--m-right-40);
+    font-size: var(--fs-px-11);
+    margin-top: var(--m-top-20-px);
   }
 
   .tooltip-hover:hover .badge-tooltip {
@@ -179,15 +189,15 @@
 
 @media screen and (max-width: 400px) {
   .badge-header {
-    margin-top: 15px;
-    font-size: 13px;
+    margin-top: var(--m-top-15-px);
+    font-size: var(--fs-badges-sm);
   }
 
   .tooltip-hover .badge-tooltip {
     width: 100px;
-    margin-left: 10px;
+    margin-left: var(--m-left-10-px);
     padding: 5px;
-    font-size: 12px;
+    font-size: var(--fs-px-12);
   }
 
   .badge-desc {
@@ -195,6 +205,6 @@
   }
 
   .badge-result {
-    font-size: 24px;
+    font-size: var(--fs-px-24);
   }
 }

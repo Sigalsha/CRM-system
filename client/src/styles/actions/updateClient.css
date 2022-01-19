@@ -1,23 +1,25 @@
 @import "../colors.css";
+@import "../typography.css";
+@import "../sizes.css";
 
 .update-client-container {
-  width: 90%;
+  width: var(--w-90);
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
   text-align: left;
-  font-size: 0.9em;
+  font-size: var(--fs-basis-s1);
   margin: 1% 1% 1% 2%;
-  padding: 1%;
+  padding: var(--pd-1);
 }
 
 .light-btn {
-  width: 25%;
+  width: var(--w-25);
   margin-left: 10%;
   margin-top: 1%;
   text-transform: uppercase;
   color: var(--clr-primary-yellow);
-  font-weight: bold;
+  font-weight: var(--fw-bold);
 }
 
 .light-btn:hover {
@@ -25,28 +27,28 @@
 }
 
 .empty-div {
-  width: 25%;
-  margin-left: 5%;
+  width: var(--w-25);
+  margin-left: var(--m-left-5);
 }
 
 @media screen and (min-width: 1023px) {
   .update-client-container {
-    width: 70%;
+    width: var(--w-70);
     margin: 0.5% 1% 0.5% 2%;
     padding-top: 0;
   }
 
   .empty-div {
-    margin-left: 1%;
+    margin-left: var(--m-left-1);
   }
 }
 
 @media screen and (max-width: 700px) {
   .update-client-container {
-    width: 100%;
+    width: var(--w-100);
   }
 
   .empty-div {
-    width: 30%;
+    width: var(--w-30);
   }
 }

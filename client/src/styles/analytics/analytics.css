@@ -1,12 +1,14 @@
 @import "../colors.css";
+@import "../typography.css";
+@import "../sizes.css";
 
 * {
   text-decoration: none;
 }
 
 #loader-position {
-  margin-left: 40%;
-  margin-top: 15%;
+  margin-left: var(--m-left-40);
+  margin-top: var(--m-top-15);
 }
 
 #analytics-container {
@@ -17,7 +19,7 @@
   display: flex;
   flex-flow: row wrap;
   justify-content: space-evenly;
-  margin-top: 40px;
+  margin-top: var(--m-top-40-px);
 }
 
 .chart-wrapper {
@@ -32,34 +34,34 @@
 
 .chart-header {
   text-transform: uppercase;
-  font-weight: bold;
+  font-weight: var(--fw-bold);
   text-align: center;
   padding-top: 5px;
 }
 
 @media screen and (max-width: 700px) {
   #loader-position {
-    margin-left: 40%;
-    margin-top: 30%;
+    margin-left: var(--m-left-40);
+    margin-top: var(--m-top-30);
   }
 }
 
 @media screen and (max-width: 600px) {
   #loader-position {
-    margin-left: 30%;
-    margin-top: 30%;
+    margin-left: var(--m-left-30);
+    margin-top: var(--m-top-30);
   }
 }
 
 @media screen and (max-width: 500px) {
   .recharts-wrapper {
-    margin-right: 40px;
+    margin-right: var(--m-right-40);
   }
 }
 
 @media screen and (max-width: 415px) {
   #loader-position {
-    margin-left: 25%;
-    margin-top: 70%;
+    margin-left: var(--m-left-25);
+    margin-top: var(--m-top-70);
   }
 }

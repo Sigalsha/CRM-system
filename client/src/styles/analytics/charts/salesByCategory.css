@@ -9,8 +9,8 @@
 .select-category {
   margin-left: 40px;
   border-color: var(--clr-border);
-  border-style: solid;
-  border-width: 0px 0px 1px 0px;
+  border-style: var(--bor-st-sol);
+  border-width: var(--bor-w-001);
   text-align: center;
   background-color: transparent;
   width: 150px;

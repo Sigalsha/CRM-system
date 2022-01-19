@@ -33,6 +33,7 @@ const Login = () => {
     if (isAuthenticated) {
       // alert("you are logged in :)");
       // setLoginMsg('you are logged in :)"');
+      dispatch(clearErrors());
       navigate(from, { replace: true });
     }
 

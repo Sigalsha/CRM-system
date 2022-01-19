@@ -1,38 +1,40 @@
 @import "../colors.css";
+@import "../typography.css";
+@import "../sizes.css";
 
 #columns-header-container {
-  width: 100%;
+  width: var(--w-100);
   display: flex;
   justify-content: space-between;
   text-align: left;
   align-items: center;
   background-color: var(--clr-primary-yellow);
   box-shadow: 1.5px 1.5px var(--clr-box-shadow);
-  padding: 10px;
+  padding: var(--pd-10-px);
 }
 
 .column-header {
   flex: 1;
-  font-size: 0.95em;
-  font-weight: bold;
+  font-size: var(--fs-basis-s2);
+  font-weight: var(--fw-bold);
   text-transform: capitalize;
 }
 
 @media screen and (max-width: 700px) {
   #columns-header-container {
     padding: 5px 2px;
-    font-size: 9px;
+    font-size: var(--fs-px-9);
     margin: 0 -1px;
   }
 
   .column-header {
-    font-size: 12px;
+    font-size: var(--fs-px-12);
   }
 }
 
 @media screen and (max-width: 600px) {
   .column-header {
-    font-size: 11px;
+    font-size: var(--fs-px-11);
   }
 
   .column-header:nth-child(n + 2) {
@@ -42,7 +44,7 @@
 
 @media screen and (max-width: 415px) {
   .column-header {
-    font-size: 9px;
+    font-size: var(--fs-px-9);
   }
 
   .column-header:nth-child(n + 2) {

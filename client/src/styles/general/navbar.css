@@ -1,14 +1,16 @@
 @import "../colors.css";
+@import "../typography.css";
+@import "../sizes.css";
 
 * {
   text-decoration: none;
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--ff-primary);
 }
 
 #navbar-container {
   height: 2%;
-  width: 100%;
-  font-size: 1em;
+  width: var(--w-100);
+  font-size: var(--fs-basis);
   padding: 0.5%;
   display: flex;
   text-align: center;
@@ -18,7 +20,7 @@
 
 .nav-link {
   flex: 1;
-  padding: 1%;
+  padding: var(--pd-1);
   color: var(--clr-secondary-text);
 }
 

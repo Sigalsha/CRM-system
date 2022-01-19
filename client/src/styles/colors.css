@@ -11,6 +11,7 @@
   --clr-primary-yellow: rgb(247, 206, 62); /*#f7ce3e*/
   --clr-border: rgb(211, 211, 211); /*lightgray*/
   --clr-tran: transparent;
+  --clr-red: rgb(255, 0, 0);
 
   --clr-link-back: rgba(247, 206, 62, 0.9);
   --clr-link-back-hover: rgba(247, 206, 62, 0.5);
@@ -29,6 +30,8 @@
   --clr-back-wrapper: rgba(0, 0, 0, 0.4);
   --clr-back-container: rgb(0, 0, 0);
   --clr-border-popup: rgb(255, 255, 255);
+  /* Alert */
+  --clr-alert: rgb(217, 83, 79); /*#d9534f*/
 
   --clr-primary-pale: hsl(225, 100%, 94%);
   --clr-primary-bright: hsl(245, 75%, 52%);
@@ -36,11 +39,4 @@
   --clr-neutral-pale: rgb(245, 247, 255);
   --clr-neutral-des: hsl(224, 23%, 55%);
   --clr-neutral-dark: hsl(223, 47%, 23%);
-
-  /* Typography */
-  --fs-p: 16px;
-  --ff-primary: "Montserrat", sans-serif;
-  --fw-bold: 900;
-  --fw-medium: 700;
-  --fw-light: 500;
 }

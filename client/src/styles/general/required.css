@@ -1,8 +1,16 @@
+@import "../colors.css";
+@import "../sizes.css";
+
+:root {
+  --fs-req-small: 0.3em;
+  --m-top-4: 4px;
+}
+
 .main {
-  font-size: 0.3em;
+  font-size: var(--fs-req-small);
   margin-right: 5px;
-  color: red;
-  margin-top: 4px;
+  color: var(--clr-red);
+  margin-top: var(--m-top-4);
 }
 
 .client-input {
@@ -21,6 +29,6 @@
 
 @media screen and (max-width: 415px) {
   .main {
-    margin-top: 4px;
+    margin-top: var(--m-top-4);
   }
 }

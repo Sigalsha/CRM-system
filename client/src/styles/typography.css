@@ -1,0 +1,20 @@
+:root {
+  /* Font-Size */
+  --fs-basis: 1em; /*16px*/
+  --fs-basis-s1: 0.9em;
+  --fs-basis-s2: 0.95em;
+  --fs-px-9: 9px;
+  --fs-px-11: 11px;
+  --fs-px-12: 12px;
+  --fs-px-14: 14px;
+  --fs-px-15: 15px;
+  --fs-px-24: 24px;
+
+  /* Font-Weight */
+  --fw-bold: 700;
+  --fw-medium: 550;
+  --fw-light: 400;
+
+  /* Font-Family */
+  --ff-primary: "Montserrat", sans-serif;
+}

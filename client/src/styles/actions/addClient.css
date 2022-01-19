@@ -1,28 +1,34 @@
 @import "../colors.css";
+@import "../typography.css";
+@import "../sizes.css";
+
+:root {
+  --fs-addC: 1.3em;
+}
 
 .add-client-container {
-  width: 80%;
+  width: var(--w-80);
   margin-left: 2%;
-  padding: 1%;
+  padding: var(--pd-1);
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
   text-align: left;
-  font-size: 0.9em;
+  font-size: var(--fs-basis-s1);
   color: var(--clr-primary-text);
 }
 
 .input-wrapper {
   display: inline-flex;
-  width: 100%;
+  width: var(--w-100);
   align-items: center;
 }
 
 .input-add-client {
-  width: 40%;
+  width: var(--w-40);
   background-color: var(--clr-tran);
   border-style: solid;
-  border-width: 0px 0px 1px 0px;
+  border-width: var(--bor-w-001);
   border-color: var(--clr-border);
   color: var(--clr-primary-text);
   margin-top: 1%;
@@ -34,8 +40,8 @@
   padding-top: 10px;
   background-color: var(--clr-primary-yellow);
   color: var(--clr-primary-text);
-  font-weight: bold;
-  font-size: 1em;
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-basis);
   text-align: center;
   margin-top: 35px;
 }
@@ -46,18 +52,18 @@
 
 @media screen and (min-width: 1023px) {
   .add-client-container {
-    width: 60%;
+    width: var(--w-60);
     padding-top: 0;
   }
 
   .add-new-client-btn {
-    margin-top: 40px;
+    margin-top: var(--m-top-40-px);
   }
 }
 
 @media screen and (max-width: 700px) {
   .add-client-container {
-    width: 80%;
+    width: var(--w-80);
   }
 
   .input-add-client {
@@ -72,16 +78,16 @@
 
 @media screen and (max-width: 415px) {
   .add-client-container {
-    margin-top: 20px;
-    width: 95%;
+    margin-top: var(--m-top-20-px);
+    width: var(--w-95);
   }
 
   .input-add-client {
-    width: 50%;
+    width: var(--w-50);
   }
 
   .add-new-client-btn {
-    font-size: 1.3em;
+    font-size: var(--fs-addC);
     height: 50px;
   }
 }

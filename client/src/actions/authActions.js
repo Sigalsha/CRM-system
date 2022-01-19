@@ -26,7 +26,7 @@ export const loadUser = () => (dispatch, getState) => {
     })
 
     .catch((err) => {
-      console.log("err of loadUser ", err);
+      console.log("err of loadUser ", err.response);
       dispatch(returnErrors(err.response.data, err.response.status));
       dispatch({ type: AUTH_ERROR });
     });
@@ -34,7 +34,7 @@ export const loadUser = () => (dispatch, getState) => {
 
 // Register user
 export const registerUser =
-  ({ name, email, password }) =>
+  ({ name, email, password }, navigate) =>
   (dispatch) => {
     // headers
     const config = {
@@ -46,7 +46,10 @@ export const registerUser =
 
     axios
       .post("/auth/register", body, config)
-      .then((res) => dispatch({ type: REGISTER_SUCCESS, payload: res.data }))
+      .then((res) => {
+        dispatch({ type: REGISTER_SUCCESS, payload: res.data });
+        dispatch(navigate("/login"));
+      })
       .catch((err) => {
         dispatch(
           returnErrors(err.response.data, err.response.status, "REGISTER_FAIL")
@@ -72,11 +75,10 @@ export const login =
       .post("/auth/login", body, config)
       .then((res) => {
         console.log(res.data);
-
         dispatch({ type: LOGIN_SUCCESS, payload: res.data });
       })
       .catch((err) => {
-        console.log("err of login ", err);
+        console.log("err of login ", err.response);
         dispatch(
           returnErrors(err.response.data, err.response.status, "LOGIN_FAIL")
         );

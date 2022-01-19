@@ -1,9 +1,15 @@
 @import "../colors.css";
+@import "../typography.css";
+@import "../sizes.css";
+
+:root {
+  --fs-alert-large: 22px;
+}
 
 .alert-container {
   position: fixed;
-  width: 100%;
-  height: 100%;
+  width: var(--w-100);
+  height: var(--h-100);
   top: 0;
   left: 0;
   right: 0;
@@ -14,27 +20,27 @@
 
 .alert-wrapper {
   position: fixed;
-  left: 50%;
-  top: 50%;
+  left: var(--m-left-50);
+  top: var(--m-top-50);
   transform: translate(-50%, -50%);
-  width: 55%;
-  padding: 2%;
+  width: var(--w-55);
+  padding: var(--pd-2);
   display: flex;
   flex-flow: column wrap;
-  font-size: 0.9em;
+  font-size: var(--fs-basis-s1);
   text-align: left;
   letter-spacing: 0.3;
-  color: #d9534f;
+  color: var(--clr-alert);
   background-color: var(--clr-back-container);
   opacity: 0.85;
 }
 
 .close-btn {
-  margin-left: auto;
-  background-color: transparent;
-  color: #d9534f;
+  margin-left: var(--m-left-au);
+  background-color: var(--clr-tran);
+  color: var(--clr-alert);
   border: none;
-  font-size: 15px;
+  font-size: var(--fs-px-15);
 }
 
 .close-btn:hover {
@@ -42,10 +48,10 @@
 }
 
 .alert-text {
-  font-size: 22px;
-  color: #d9534f;
+  font-size: var(--fs-alert-large);
+  color: var(--clr-alert);
   margin: 0 0 0 1%;
-  padding: 1%;
+  padding: var(--pd-1);
 }
 
 .alert-text span {

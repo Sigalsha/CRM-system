@@ -1,4 +1,5 @@
 @import "../colors.css";
+@import "../typography.css";
 
 .clients-pagination-wrapper {
   display: flex;
@@ -36,7 +37,7 @@
 .current-page-number {
   color: var(--clr-pagination-num);
   cursor: not-allowed;
-  font-weight: bold;
+  font-weight: var(--fw-bold);
 }
 
 .not-current-page {
@@ -51,13 +52,13 @@
 
 @media screen and (max-width: 700px) {
   .page-numbers {
-    font-size: 12px;
+    font-size: var(--fs-px-12);
   }
 }
 
 @media screen and (max-width: 415px) {
   .clients-pagination-wrapper {
-    font-size: 12px;
+    font-size: var(--fs-px-12);
     margin: 5px 10px 10px 5px;
     justify-content: space-between;
   }
@@ -68,7 +69,7 @@
 
   .current-page-number {
     color: inherit;
-    font-weight: normal;
+    font-weight: var(--fw-light);
   }
   .not-current-page {
     display: none;

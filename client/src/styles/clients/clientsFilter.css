@@ -1,9 +1,12 @@
+@import "../typography.css";
+@import "../sizes.css";
+
 .clients-filter-wrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  margin-top: 20px;
+  margin-top: var(--m-top-20-px);
 }
 
 .filter-group {
@@ -20,13 +23,13 @@
   }
 
   .filter-group {
-    width: 95%;
+    width: var(--w-95);
   }
 
   .text-row {
-    margin-left: 10px;
-    width: 100%;
-    font-size: 12px;
+    margin-left: var(--m-left-10-px);
+    width: var(--w-100);
+    font-size: var(--fs-px-12);
   }
 }
 
@@ -37,15 +40,15 @@
   }
 
   .filter-group {
-    width: 95%;
+    width: var(--w-95);
   }
 
   label {
-    font-size: 12px;
+    font-size: var(--fs-px-12);
   }
 
   .text-row {
-    margin-left: 10px;
-    width: 100%;
+    margin-left: var(--m-left-10-px);
+    width: var(--w-100);
   }
 }

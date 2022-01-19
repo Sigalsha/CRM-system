@@ -19,7 +19,6 @@ import Clients from "./components/clients/Clients.js";
 import Actions from "./components/actions/Actions.js";
 import Analytics from "./components/analytics/Analytics";
 import "./styles/app.css";
-import appStyles from "./App.modules.css";
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -48,7 +47,7 @@ function App() {
     <Fragment>
       {errorMsg && <p>{errorMsg}</p>}
       {loading ? (
-        <div id={appStyles["general-loader"]}>
+        <div id="general-loader">
           <Loader
             type="Puff"
             color={COLORS["yellow"]}

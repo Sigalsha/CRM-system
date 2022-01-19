@@ -1,0 +1,59 @@
+:root {
+  /* Width */
+  --w-100: 100%;
+  --w-95: 95%;
+  --w-90: 90%;
+  --w-80: 80%;
+  --w-70: 70%;
+  --w-60: 60%;
+  --w-50: 50%;
+  --w-45: 45%;
+  --w-40: 40%;
+  --w-35: 35%;
+  --w-30: 30%;
+  --w-25: 25%;
+  --w-20: 20%;
+
+  /* Height */
+  --h-100: 100%;
+  --h-30-px: 30px;
+
+  /* Margin */
+  /* **margin-top** */
+  --m-top-70: 70%;
+  --m-top-30: 30%;
+  --m-top-20: 20%;
+  --m-top-15: 15%;
+  --m-top-50: 50%;
+
+  --m-top-40-px: 40px;
+  --m-top-20-px: 20px;
+  --m-top-10-px: 10px;
+
+  /* **margin-left** */
+  --m-left-50: 50%;
+  --m-left-40: 40%;
+  --m-left-30: 30%;
+  --m-left-25: 25%;
+  --m-left-5: 5%;
+  --m-left-1: 1%;
+
+  --m-left-10-px: 10px;
+  --m-left-au: auto;
+
+  /* **margin-right** */
+  --m-right-20: 20px;
+  --m-right-40: 40px;
+
+  /* Padding */
+  --pd-1: 1%;
+  --pd-1-0: 1% 0;
+  --pd-2: 2%;
+  --pd-10-px: 10px;
+
+  /* Border-Width */
+  --bor-w-001: 0 0 1px 0;
+
+  /* Border-Style */
+  --bor-st-sol: solid;
+}

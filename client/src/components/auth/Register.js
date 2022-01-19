@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { registerUser } from "../../actions/authActions";
 import { clearErrors } from "../../actions/errorActions";
@@ -17,6 +18,7 @@ const Register = () => {
   const [msg, setMsg] = useState(null);
   const dispatch = useDispatch();
   const isAuthenticated = useSelector((state) => state.isAuthenticated);
+  const navigate = useNavigate();
   const error = useSelector((state) => state.error);
 
   useEffect(() => {
@@ -86,7 +88,7 @@ const Register = () => {
 
     if (!checkNewUserDetails({ name, email, password })) return;
 
-    dispatch(registerUser({ name, email, password }));
+    dispatch(registerUser({ name, email, password }, navigate));
 
     setName("");
     setEmail("");

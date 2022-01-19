@@ -1,24 +1,11 @@
+@import "./colors.css";
+@import "./typography.css";
+@import "./sizes.css";
+
 :root {
   /* Layouts */
   --bp-mobile: 375px;
   --bp-desktop: 1440px;
-
-  /* Colors */
-  --clr-back: #5c6568;
-  --clr-primary-pale: hsl(225, 100%, 94%);
-  --clr-primary-bright: hsl(245, 75%, 52%);
-  --clr-primary-hover: hsla(245, 75%, 52%, 0.5);
-  --clr-neutral-pale: rgb(245, 247, 255);
-  --clr-neutral-des: hsl(224, 23%, 55%);
-  --clr-neutral-dark: hsl(223, 47%, 23%);
-  --clr-tran: transparent;
-
-  /* Typography */
-  --fs-p: 16px;
-  --ff-primary: "Montserrat", sans-serif;
-  --fw-bold: 900;
-  --fw-medium: 700;
-  --fw-light: 500;
 }
 
 *,
@@ -42,27 +29,27 @@ body {
 }
 
 #general-loader {
-  margin-left: 40%;
-  margin-top: 20%;
+  margin-left: var(--m-left-40);
+  margin-top: var(--m-top-20);
 }
 
 @media screen and (min-width: 1023px) {
   #general-loader {
-    margin-left: 40%;
-    margin-top: 15%;
+    margin-left: var(--m-left-40);
+    margin-top: var(--m-top-15);
   }
 }
 
 @media screen and (max-width: 700px) {
   #general-loader {
-    margin-left: 30%;
-    margin-top: 30%;
+    margin-left: var(--m-left-30);
+    margin-top: var(--m-top-30);
   }
 }
 
 @media screen and (max-width: 415px) {
   #general-loader {
     margin-left: 20%;
-    margin-top: 70%;
+    margin-top: var(--m-top-70);
   }
 }
