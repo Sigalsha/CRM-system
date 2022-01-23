@@ -15,7 +15,7 @@ import { useAuth } from "./hooks/authHooks";
 import ProtectedRoutes from "./components/auth/ProtectedRoutes";
 import Login from "./components/auth/Login";
 import Navbar from "./components/general/Navbar";
-import Clients2 from "./components/clients/Clients2.js";
+import Clients from "./components/clients/Clients.js";
 import Actions from "./components/actions/Actions.js";
 import Analytics from "./components/analytics/Analytics";
 import "./styles/app.css";
@@ -65,7 +65,7 @@ function App() {
               <Route element={<ProtectedRoutes />}>
                 <Route path="/" element={<Landing />} />
                 <Route path="/actions" element={<Actions />} />
-                <Route path="/clients" element={<Clients2 />} />
+                <Route path="/clients" element={<Clients />} />
                 <Route path="/analytics" element={<Analytics />} />
                 <Route path="*" element={<Navigate to="/" />} />
               </Route>

@@ -36,10 +36,6 @@ const ClientData = ({
   };
 
   return (
-    /*         let fixedName = name.split(" ")[0];
-        let surname = name.split(" ")[1];
-        let formatFirstContact = firstContact.split("T")[0]; */
-
     <Fragment>
       <tr className="row-container" id={_id} onClick={generateClientToEdit}>
         <td className="rowItem">{formatRowItemInfo("firstName", name)}</td>

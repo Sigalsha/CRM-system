@@ -1,163 +1,127 @@
-import React, { useState, useEffect, Fragment } from "react";
+import React, { useState, useEffect } from "react";
 import Loader from "react-loader-spinner";
 import { useSelector, useDispatch } from "react-redux";
 import { getClients, updateClient } from "../../actions/clientsActions";
-// import utils from "../../utils/utils";
-import { URL, COLORS } from "../../utils/constants";
-// import { getClients } from "../../actions/clientsActions";
+import utils from "../../utils/utils";
+import { COLORS } from "../../utils/constants";
 import "../../styles/clients/clients.css";
-import ColumnsHeader from "./ColumnsHeader";
 import ClientsFilter from "./ClientsFilter";
 import ClientsPagination from "./ClientsPagination";
 import ClientRow from "./ClientRow";
 import EditClientPopUp from "./EditClientPopUp";
-import UpdateClient from "../actions/UpdateClient";
-import ClientData from "./ClientData";
+import { CLIENTS_HEADERS } from "../../utils/constants";
 
 const itemsPerPage = 20;
 
 const Clients = () => {
-  const clients = useSelector((state) => state.clients.clients);
   const dispatch = useDispatch();
-  const [loading, setLoading] = useState(true);
-  const [showPopup, setShowPopup] = useState(false);
-  const [clientToEdit, setClientToEdit] = useState({});
+  const { clients, loading } = useSelector((state) => state.clients);
+  const [owners, setOwners] = useState([]);
+  const [names, setNames] = useState([]);
+  const [countries, setCountries] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   const [pageCount, setPageCount] = useState(0);
   const [pageLimit, setPageLimit] = useState(20);
-  const [selectValue, setSelectValue] = useState("");
-  const [clientsToDisplay, setClientsToDisplay] = useState([]);
-  const [currentClients, setCurrentClients] = useState([]);
-  const [currentFilters, setCurrentFilters] = useState({});
-  /*   const [currentFilters, setCurrentFilters] = useState({
-    name: "",
-    owner: "",
-    country: "",
-    emailType: null,
-    sold: false
-  }); */
   const [isPageReset, setIsPageReset] = useState(false);
+  const [currentClients, setCurrentClients] = useState([]);
+  const [showPopup, setShowPopup] = useState(false);
+  const [clientToEdit, setClientToEdit] = useState({});
   const [updatedClient, setUpdatedClient] = useState(false);
 
   useEffect(() => {
-    const fetchData = async () => {
-      setLoading(true);
-      // setHasError(false);
-      try {
-        dispatch(getClients());
-        console.log("useEffect of Clients");
-
-        /*      const res = await axios.get(URL);
-        const { data } = res.data; */
-      } catch (err) {
-        // setHasError(true);
-        console.log(err);
-      }
-    };
-    fetchData();
-    updateClientsDisplay();
-    if (clientsToDisplay) {
-      setLoading(false);
-    }
-  }, [dispatch, updatedClient, setCurrentClients, setClientsToDisplay]);
+    dispatch(getClients());
+  }, [dispatch]);
 
   useEffect(() => {
-    console.log("useEffect of filter/pagination/updateClient");
+    try {
+      setCountries(
+        utils.reduceDuplications(
+          utils.getClientProperty(CLIENTS_HEADERS["country"], clients)
+        )
+      );
+      setNames(utils.getClientProperty(CLIENTS_HEADERS["name"], clients));
+      setOwners(
+        utils.reduceDuplications(
+          utils.getClientProperty(CLIENTS_HEADERS["owner"], clients)
+        )
+      );
 
-    updateClientsDisplay();
-  }, [updatedClient, currentFilters]); //pagination
+      setCurrentClients([...clients].slice(0, itemsPerPage));
+      setIsPageReset(true);
+      setPageLimit(20);
+      setPageCount(updatePageCount(clients.length));
 
-  const isCurrentClients = () => {
-    console.log(currentClients);
+      console.log("useEffect of Clients");
 
-    return currentClients ? currentClients : clients.slice(0, itemsPerPage);
-  };
-
-  const updateClientsDisplay = () => {
-    let filtered = [];
-    console.log("currentFilters ", currentFilters);
-
-    if (Object.entries(currentFilters).length === 0) {
-      // setClientsToDisplay(clients);
-      setClientsToDisplay(clients.slice(0, itemsPerPage));
-      setPageCount(updatePageCount(clients));
-      setCurrentClients(clients.slice(0, itemsPerPage));
-      return;
-    } else {
-      filtered = filterByProperty();
-      console.log(filtered);
-    }
-
-    // setClientsToDisplay(filtered);
-    setClientsToDisplay(filtered.slice(0, itemsPerPage));
-    setPageCount(updatePageCount(filtered));
-    setCurrentClients(filtered.slice(0, itemsPerPage));
-    /* console.log(currentClients); */
-
-    setIsPageReset(true);
-    setPageLimit(20);
-  };
-
-  const updateSelectedFilter = (e) => {
-    const { value, name } = e.target;
-    let filters = {};
-
-    if (name && value) {
-      if (value === "All") {
-        filters[name] = "";
-      } else if (name === "sold") {
-        if (value === "Sold") {
-          filters[name] = true;
-        } else {
-          filters[name] = false;
-        }
-      } else if (name === "emailType" && value === "No Type") {
-        filters[name] = null;
-      } else {
-        filters[name] = value;
+      if (
+        loading &&
+        currentClients.length > 1 &&
+        countries.length > 2 &&
+        owners.length > 2 &&
+        names.length > 2
+      ) {
+        setIsLoading(false);
       }
+    } catch (err) {
+      console.log(err);
     }
-    console.log(filters);
+  }, [clients]);
 
-    setCurrentFilters({ ...currentFilters, ...filters });
-    console.log(currentFilters);
-
-    updateClientsDisplay();
+  const updateCurrentPage = (pageIndex) => {
+    return [...clients].slice(pageIndex - itemsPerPage, pageIndex);
   };
 
-  const updateDisplayByPage = (pageDirection, pageNum) => {
+  const updatePageCount = (clientsLength) => {
+    if (Math.ceil(clientsLength / itemsPerPage) <= 1) {
+      return 1;
+    } else {
+      return Math.ceil(clientsLength / itemsPerPage);
+    }
+  };
+
+  const displayByPage = (pageDirection, pageNum) => {
     let currentPageDisplay = [];
     let currentPageLimit = pageLimit;
     let pageIndex = pageNum * itemsPerPage;
 
     // if specific page =>
+    // if prev page?
     if (pageDirection === -1) {
       if (pageNum === 1) {
-        currentPageDisplay = clientsToDisplay.slice(0, itemsPerPage);
+        currentPageDisplay = [...clients].slice(0, itemsPerPage);
         currentPageLimit = 20;
       } else {
-        currentPageDisplay = updateCurrentPageDisplay(
-          clientsToDisplay,
-          itemsPerPage,
-          pageIndex
-        );
-        currentPageLimit = currentPageLimit - itemsPerPage;
+        currentPageDisplay = updateCurrentPage(pageIndex);
+        currentPageLimit -= itemsPerPage;
       }
+
+      // if next page?
     } else {
       if (pageNum >= pageCount) {
         currentPageLimit = pageCount * itemsPerPage;
       } else {
-        currentPageLimit = currentPageLimit + itemsPerPage;
+        currentPageLimit += itemsPerPage;
       }
-      currentPageDisplay = updateCurrentPageDisplay(
-        clientsToDisplay,
-        itemsPerPage,
-        pageIndex
-      );
+      currentPageDisplay = updateCurrentPage(pageIndex);
     }
 
     setCurrentClients(currentPageDisplay);
     setPageLimit(pageIndex);
     setIsPageReset(false);
+  };
+
+  const toggleEditClient = (client = null) => {
+    setShowPopup(!showPopup);
+    setClientToEdit(
+      client && {
+        id: client.id ? client.id : "",
+        name: client.name ? client.name : "",
+        country: client.country ? client.country : "",
+        owner: client.owner ? client.owner : "",
+        emailType: client.emailType ? client.emailType : null,
+        sold: client.sold ? client.sold : false
+      }
+    );
   };
 
   const editClientChange = (updatedClient) => {
@@ -177,61 +141,9 @@ const Clients = () => {
     });
   };
 
-  const toggleEditClient = (client = null) => {
-    setShowPopup(!showPopup);
-    setClientToEdit(
-      client && {
-        id: client.id ? client.id : "",
-        name: client.name ? client.name : "",
-        country: client.country ? client.country : "",
-        owner: client.owner ? client.owner : "",
-        emailType: client.emailType ? client.emailType : null,
-        sold: client.sold ? client.sold : false
-      }
-    );
-  };
-
-  const updateCurrentPageDisplay = (
-    clientsToDisplay,
-    itemsPerPage,
-    pageIndex
-  ) => {
-    return clientsToDisplay.slice(pageIndex - itemsPerPage, pageIndex);
-  };
-
-  const updatePageCount = (clientsLength) => {
-    if (Math.ceil(clientsLength / itemsPerPage) <= 1) {
-      return 1;
-    } else {
-      return Math.ceil(clientsLength / itemsPerPage);
-    }
-  };
-
-  const filterByProperty = () => {
-    let filteredClients = [...clients];
-
-    for (let key in currentFilters) {
-      if (currentFilters[key] !== "") {
-        filteredClients = filteredClients.filter(
-          (client) => client[key] === currentFilters[key]
-        );
-      }
-    }
-    return filteredClients;
-  };
-
-  const generateClientsTable = (
-    <ClientRow
-      clients={clients}
-      clientsToDisplay={clientsToDisplay}
-      toggleEditClient={toggleEditClient}
-      itemsPerPage={itemsPerPage}
-    />
-  );
-
   return (
-    <Fragment>
-      {loading || !clients || !currentClients || !clientsToDisplay ? (
+    <>
+      {isLoading ? (
         <div id="loader-position">
           <Loader
             type="Puff"
@@ -245,20 +157,27 @@ const Clients = () => {
           <div className="clients-child">
             <ClientsFilter
               clients={clients}
-              selectValue={selectValue}
-              updateSelectedFilter={updateSelectedFilter}
+              countries={countries}
+              owners={owners}
+              names={names}
             />
           </div>
           <div className="clients-child">
             <ClientsPagination
-              updateDisplayByPage={updateDisplayByPage}
+              displayByPage={displayByPage}
               pageLimit={pageLimit}
               pageCount={pageCount}
               isPageReset={isPageReset}
             />
           </div>
           <div className="clients-child">
-            {clientsToDisplay && generateClientsTable}
+            <ClientRow
+              clients={currentClients.length ? currentClients : clients}
+              toggleEditClient={toggleEditClient}
+              itemsPerPage={itemsPerPage}
+            />
+          </div>
+          <div className="clients-child">
             {showPopup && (
               <EditClientPopUp
                 clientToEdit={clientToEdit}
@@ -269,7 +188,8 @@ const Clients = () => {
           </div>
         </div>
       )}
-    </Fragment>
+    </>
   );
 };
+
 export default Clients;
