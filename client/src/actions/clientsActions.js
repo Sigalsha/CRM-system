@@ -3,12 +3,13 @@ import {
   GET_CLIENTS,
   CLIENTS_LOADING,
   UPDATE_CLIENT,
-  ADD_CLIENT
+  ADD_CLIENT,
+  FILTER_CLIENTS
 } from "./types";
 import { returnErrors } from "./errorActions";
 import { URL } from "../utils/constants";
 
-export const getClients = () => (dispatch) => {
+export const getClients = () => async (dispatch) => {
   dispatch(setClientsLoading());
   axios
     .get(URL)
@@ -26,7 +27,26 @@ export const getClients = () => (dispatch) => {
     });
 };
 
-export const updateClient = (clientId, updatedClient) => (dispatch) => {
+export const getFilteredClients = (currentFilters) => (dispatch, getState) => {
+  try {
+    dispatch(setClientsLoading());
+    // should get clients state from reducer and filter it
+
+    const filtered = filterByProperty(currentFilters, getState);
+    console.log("filtered from clientsAction ", filtered);
+
+    dispatch({
+      type: FILTER_CLIENTS,
+      payload: filtered
+    });
+  } catch (err) {
+    // TODO - check if necessary
+    // dispatch(returnErrors(err));
+    console.log("err from clients backend: ", err);
+  }
+};
+
+export const updateClient = (clientId, updatedClient) => async (dispatch) => {
   axios
     .put(`${URL}${clientId}`, updatedClient)
     .then((res) => {
@@ -42,7 +62,7 @@ export const updateClient = (clientId, updatedClient) => (dispatch) => {
     });
 };
 
-export const addClient = (newClient) => (dispatch) => {
+export const addClient = (newClient) => async (dispatch) => {
   axios
     .post(`${URL}add`, newClient)
     .then((res) => {
@@ -62,4 +82,17 @@ export const setClientsLoading = () => {
   return {
     type: CLIENTS_LOADING
   };
+};
+
+export const filterByProperty = (currentFilters, getState) => {
+  let filteredClients = [...getState().clients.filteredClients];
+
+  for (let key in currentFilters) {
+    if (currentFilters[key] !== "") {
+      filteredClients = filteredClients.filter(
+        (client) => client[key] === currentFilters[key]
+      );
+    }
+  }
+  return filteredClients;
 };

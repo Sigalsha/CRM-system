@@ -3,17 +3,26 @@ import {
   CLIENTS_LOADING,
   LOGIN_FAIL,
   UPDATE_CLIENT,
-  ADD_CLIENT
+  ADD_CLIENT,
+  FILTER_CLIENTS
 } from "../actions/types";
 
 const initialState = {
   clients: [],
+  filteredClients: [],
   loading: false
 };
 
 export default function (state = initialState, action) {
   switch (action.type) {
     case GET_CLIENTS:
+      return {
+        ...state,
+        clients: action.payload,
+        filteredClients: action.payload,
+        loading: false
+      };
+    case FILTER_CLIENTS:
       return {
         ...state,
         clients: action.payload,
@@ -28,13 +37,6 @@ export default function (state = initialState, action) {
         ...state,
         clients: [action.payload, ...state.clients]
       };
-    /*  case DELETE_ITEM:
-      return {
-        ...state,
-        items: state.items.filter((item) => item._id !== action.payload)
-      };
-    
-      }; */
     case CLIENTS_LOADING:
       return {
         ...state,

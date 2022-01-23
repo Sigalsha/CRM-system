@@ -1,34 +1,54 @@
 import React, { useState, useEffect } from "react";
-import utils from "../../utils/utils";
+import { useDispatch } from "react-redux";
+import { getFilteredClients } from "../../actions/clientsActions";
 import { EMAIL_TYPES, IS_SOLD, CLIENTS_HEADERS } from "../../utils/constants";
 import "../../styles/clients/clientsFilter.css";
 import Select from "../general/Select";
 
-const ClientsFilter = ({ clients, selectValue, updateSelectedFilter }) => {
-  const [owners, setOwners] = useState([]);
-  const [names, setNames] = useState([]);
-  const [countries, setCountries] = useState([]);
+const ClientsFilter = ({ countries, names, owners }) => {
   const [owner, setOwner] = useState("");
   const [sold, setSold] = useState("");
   const [name, setName] = useState("");
   const [country, setCountry] = useState("");
+  // const [countries, setCountries] = useState([]);
   const [emailType, setEmailType] = useState("");
+  const [currentFilters, setCurrentFilters] = useState({
+    name: "",
+    owner: "",
+    country: "",
+    emailType: "",
+    sold: ""
+  });
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    // change it to getClientsFromServer
+    console.log("currentFilters from ClientsFilter ", currentFilters);
+    dispatch(getFilteredClients(currentFilters));
+    // currentFilters should be sent to redux searchClients
+  }, [currentFilters, dispatch]);
 
-    setCountries(
-      utils.reduceDuplications(
-        utils.getClientProperty(CLIENTS_HEADERS["country"], clients)
-      )
-    );
-    setNames(utils.getClientProperty(CLIENTS_HEADERS["name"], clients));
-    setOwners(
-      utils.reduceDuplications(
-        utils.getClientProperty(CLIENTS_HEADERS["owner"], clients)
-      )
-    );
-  }, [clients]);
+  const updateSelectedFilter = (e) => {
+    const { value, name } = e.target;
+    let filters = {};
+
+    if (name && value) {
+      if (value === "All") {
+        filters[name] = "";
+      } else if (name === "sold") {
+        if (value === "Sold") {
+          filters[name] = true;
+        } else {
+          filters[name] = false;
+        }
+      } else if (name === "emailType" && value === "No Type") {
+        filters[name] = null;
+      } else {
+        filters[name] = value;
+      }
+    }
+
+    setCurrentFilters({ ...currentFilters, ...filters });
+  };
 
   const handleChange = (event) => {
     updateSelectedFilter(event);
@@ -41,6 +61,8 @@ const ClientsFilter = ({ clients, selectValue, updateSelectedFilter }) => {
         break;
       case "country":
         setCountry(value);
+        console.log(countries);
+
         break;
       case "emailType":
         setEmailType(value);
@@ -58,43 +80,43 @@ const ClientsFilter = ({ clients, selectValue, updateSelectedFilter }) => {
 
   return (
     <div className="clients-filter-wrapper">
-      <Filter
+      <Select
         labelName="Name"
         placeholder="Name"
-        optionlist={names}
+        optionlistProp={names}
         value={name}
         onChange={handleChange}
         name="name"
         isFilterSelect
       />
-      <Filter
+      <Select
         labelName="Country"
         placeholder="Country"
-        optionlist={countries}
+        optionlistProp={countries}
         value={country}
         onChange={handleChange}
         name="country"
       />
-      <Filter
+      <Select
         labelName="Email Type"
         placeholder="Email Type"
-        optionlist={EMAIL_TYPES}
+        optionlistProp={EMAIL_TYPES}
         onChange={handleChange}
         value={emailType}
         name="emailType"
       />
-      <Filter
+      <Select
         labelName="Sold"
         placeholder="Sold"
-        optionlist={IS_SOLD}
+        optionlistProp={IS_SOLD}
         onChange={handleChange}
         value={sold}
         name="sold"
       />
-      <Filter
+      <Select
         labelName="Owner"
         placeholder="Owner"
-        optionlist={owners}
+        optionlistProp={owners}
         value={owner}
         name="owner"
         onChange={handleChange}
@@ -103,7 +125,7 @@ const ClientsFilter = ({ clients, selectValue, updateSelectedFilter }) => {
   );
 };
 
-const Filter = ({
+/* const Filter = ({
   labelName,
   optionlist,
   placeholder,
@@ -111,6 +133,8 @@ const Filter = ({
   value,
   name
 }) => {
+  console.log(optionlist);
+
   return (
     <div className="filter-group">
       <label>{labelName}: </label>
@@ -124,6 +148,6 @@ const Filter = ({
       />
     </div>
   );
-};
+}; */
 
 export default ClientsFilter;

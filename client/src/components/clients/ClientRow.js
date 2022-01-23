@@ -8,22 +8,18 @@ const ClientRow = ({
   toggleEditClient,
   itemsPerPage
 }) => {
-  const [updatedClients, setUpdatedClients] = useState(
-    clientsToDisplay || clients
-  );
+  const [updatedClients, setUpdatedClients] = useState(clientsToDisplay);
 
-  useEffect(() => {
-    console.log(clientsToDisplay || clients);
-
-    // setUpdatedClients((clientsToDisplay || clients).slice(0, itemsPerPage));
-    setUpdatedClients(clientsToDisplay || clients);
-  }, [clients, clientsToDisplay]);
+  /*   useEffect(() => {
+    console.log("clientsToDisplay from ClientRow ", clientsToDisplay);
+    setUpdatedClients(clientsToDisplay);
+  }, [clientsToDisplay, clients]); */
 
   return (
     <table>
       <ColumnsHeader />
       <tbody>
-        {updatedClients.map((c) => {
+        {clients.map((c) => {
           // console.log(c.name);
           return (
             <ClientData

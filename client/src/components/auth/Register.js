@@ -43,6 +43,7 @@ const Register = () => {
     if (isAuthenticated) {
       setAlert(true);
       setAlertText("you are logged in :)");
+
       dispatch(clearErrors());
       navigate(`/${NAV_LINKS.guestUser[0]}`);
     }

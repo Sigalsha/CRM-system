@@ -5,6 +5,11 @@ export const useAuth = () => {
   return isAuthenticated;
 };
 
+export const useLogged = () => {
+  return useSelector((state) => state.auth.isLogged);
+  //return isLogged;
+};
+
 export const useUsername = () => {
   const user = useSelector((state) => state.auth.user);
   if (user && user.name) return user.name;

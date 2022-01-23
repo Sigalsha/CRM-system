@@ -28,6 +28,13 @@ const Clients = () => {
   const [clientsToDisplay, setClientsToDisplay] = useState([]);
   const [currentClients, setCurrentClients] = useState([]);
   const [currentFilters, setCurrentFilters] = useState({});
+  /*   const [currentFilters, setCurrentFilters] = useState({
+    name: "",
+    owner: "",
+    country: "",
+    emailType: null,
+    sold: false
+  }); */
   const [isPageReset, setIsPageReset] = useState(false);
   const [updatedClient, setUpdatedClient] = useState(false);
 
@@ -48,8 +55,10 @@ const Clients = () => {
     };
     fetchData();
     updateClientsDisplay();
-    setLoading(false);
-  }, [getClients, updatedClient, setCurrentClients]);
+    if (clientsToDisplay) {
+      setLoading(false);
+    }
+  }, [dispatch, updatedClient, setCurrentClients, setClientsToDisplay]);
 
   useEffect(() => {
     console.log("useEffect of filter/pagination/updateClient");
@@ -65,6 +74,7 @@ const Clients = () => {
 
   const updateClientsDisplay = () => {
     let filtered = [];
+    console.log("currentFilters ", currentFilters);
 
     if (Object.entries(currentFilters).length === 0) {
       // setClientsToDisplay(clients);
@@ -111,7 +121,7 @@ const Clients = () => {
     setCurrentFilters({ ...currentFilters, ...filters });
     console.log(currentFilters);
 
-    // updateClientsDisplay();
+    updateClientsDisplay();
   };
 
   const updateDisplayByPage = (pageDirection, pageNum) => {
@@ -151,7 +161,6 @@ const Clients = () => {
   };
 
   const editClientChange = (updatedClient) => {
-    debugger;
     dispatch(
       updateClient(clientToEdit.id, { ...clientToEdit, ...updatedClient })
     );
@@ -211,9 +220,18 @@ const Clients = () => {
     return filteredClients;
   };
 
+  const generateClientsTable = (
+    <ClientRow
+      clients={clients}
+      clientsToDisplay={clientsToDisplay}
+      toggleEditClient={toggleEditClient}
+      itemsPerPage={itemsPerPage}
+    />
+  );
+
   return (
     <Fragment>
-      {loading || !clients || !currentClients ? (
+      {loading || !clients || !currentClients || !clientsToDisplay ? (
         <div id="loader-position">
           <Loader
             type="Puff"
@@ -240,13 +258,7 @@ const Clients = () => {
             />
           </div>
           <div className="clients-child">
-            <ClientRow
-              clients={clients}
-              clientsToDisplay={clientsToDisplay}
-              toggleEditClient={toggleEditClient}
-              itemsPerPage={itemsPerPage}
-            />
-
+            {clientsToDisplay && generateClientsTable}
             {showPopup && (
               <EditClientPopUp
                 clientToEdit={clientToEdit}

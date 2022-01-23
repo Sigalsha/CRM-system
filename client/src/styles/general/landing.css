@@ -53,6 +53,13 @@
   margin: 100px 50px 0 50px;
 }
 
+.landing-sub-header {
+  text-align: center;
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-landing-small-2);
+  z-index: 2;
+}
+
 .landing-links-wrapper {
   width: var(--w-100);
   display: flex;
@@ -93,7 +100,6 @@
 @media screen and (max-width: 880px) {
   .landing-header {
     font-size: var(--fs-landing-2);
-    height: 0;
     margin: 100px 25px 0 25px;
   }
 

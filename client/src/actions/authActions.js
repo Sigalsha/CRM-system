@@ -68,12 +68,11 @@ export const login =
 
     // req body
     const body = JSON.stringify({ email, password });
-    console.log(body, "body");
 
     axios
       .post("/auth/login", body, config)
       .then((res) => {
-        console.log(res.data);
+        console.log(res.data, "login action");
         dispatch({ type: LOGIN_SUCCESS, payload: res.data });
       })
       .catch((err) => {

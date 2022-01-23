@@ -9,6 +9,7 @@ export const REGISTER_FAIL = "REGISTER_FAIL";
 export const GET_ERRORS = "GET_ERRORS";
 export const CLEAR_ERRORS = "CLEAR_ERRORS";
 export const GET_CLIENTS = "GET_CLIENTS";
+export const FILTER_CLIENTS = "FILTER_CLIENTS";
 export const CLIENTS_LOADING = "CLIENTS_LOADING";
 export const UPDATE_CLIENT = "UPDATE_CLIENT";
 export const ADD_CLIENT = "ADD_CLIENT";

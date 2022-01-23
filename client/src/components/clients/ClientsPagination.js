@@ -5,7 +5,7 @@ import { faArrowCircleRight } from "@fortawesome/free-solid-svg-icons";
 import "../../styles/clients/clientsPagination.css";
 
 const ClientsPagination = ({
-  updateDisplayByPage,
+  displayByPage,
   pageLimit,
   pageCount,
   isPageReset,
@@ -27,12 +27,12 @@ const ClientsPagination = ({
   } */
 
   const previousDisplay = (pageNum) => {
-    updateDisplayByPage(-1, pageNum);
+    displayByPage(-1, pageNum);
     setCurrentPage(pageNum);
   };
 
   const nextDisplay = (pageNum) => {
-    updateDisplayByPage(1, pageNum);
+    displayByPage(1, pageNum);
     setCurrentPage(pageNum);
   };
 

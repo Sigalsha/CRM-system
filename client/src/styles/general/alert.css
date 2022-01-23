@@ -51,9 +51,10 @@
   font-size: var(--fs-alert-large);
   color: var(--clr-alert);
   margin: 0 0 0 1%;
+  text-align: center;
   padding: var(--pd-1);
 }
 
 .alert-text span {
-  margin-left: 5px;
+  padding-left: 10px;
 }

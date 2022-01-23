@@ -45,7 +45,9 @@ const Landing = () => {
       <div className="landing-header">
         <span>CRM - manage your success</span>
       </div>
-      <div>{isAuthenticated && <p>Welcome {username}</p>}</div>
+      {isAuthenticated && (
+        <div className="landing-sub-header">Welcome {username}</div>
+      )}
       <div className="landing-links-wrapper">
         {isAuthenticated ? authUserLinks : guestUserLinks}
       </div>

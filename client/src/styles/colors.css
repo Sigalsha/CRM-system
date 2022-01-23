@@ -32,6 +32,7 @@
   --clr-border-popup: rgb(255, 255, 255);
   /* Alert */
   --clr-alert: rgb(217, 83, 79); /*#d9534f*/
+  --clr-alert-success: rgb(173, 234, 171);
 
   --clr-primary-pale: hsl(225, 100%, 94%);
   --clr-primary-bright: hsl(245, 75%, 52%);

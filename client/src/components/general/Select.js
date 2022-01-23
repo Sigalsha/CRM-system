@@ -1,31 +1,46 @@
+import { useState, useEffect } from "react";
 import "../../styles/general/select.css";
 
 const Select = ({
   placeholder,
   onChange,
   name,
-  optionlist,
+  optionlistProp,
   value,
-  defaultValue
+  labelName
 }) => {
+  const [optionlist, setOptionlist] = useState([]);
+
+  useEffect(() => {
+    if (
+      (optionlistProp && optionlistProp.length > 2) ||
+      optionlistProp.includes("Sold")
+    ) {
+      setOptionlist(optionlistProp);
+    }
+  }, [optionlistProp]);
+
   return (
-    <select
-      className="text-row"
-      name={name}
-      value={value}
-      onChange={onChange}
-      placeholder={placeholder}
-      optionlist={optionlist}
-    >
-      <option defaultValue={defaultValue}>{defaultValue}</option>
-      {optionlist.map((option, i) => {
-        return (
-          <option key={i} value={option}>
-            {option}
-          </option>
-        );
-      })}
-    </select>
+    <div className="filter-group">
+      <label>{labelName}: </label>
+      <select
+        className="text-row"
+        name={name}
+        value={value}
+        onChange={onChange}
+        placeholder={placeholder}
+        optionlist={optionlist}
+      >
+        <option defaultValue="All">All</option>
+        {optionlist.map((option, i) => {
+          return (
+            <option key={i} value={option}>
+              {option}
+            </option>
+          );
+        })}
+      </select>
+    </div>
   );
 };
 
