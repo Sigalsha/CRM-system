@@ -30,9 +30,10 @@ const Clients = () => {
 
   useEffect(() => {
     dispatch(getClients());
-  }, [dispatch]);
+  }, [dispatch, updatedClient]);
 
   useEffect(() => {
+    // debugger;
     try {
       setCountries(
         utils.reduceDuplications(
@@ -65,7 +66,7 @@ const Clients = () => {
     } catch (err) {
       console.log(err);
     }
-  }, [clients]);
+  }, [clients, updatedClient]);
 
   const updateCurrentPage = (pageIndex) => {
     return [...clients].slice(pageIndex - itemsPerPage, pageIndex);
