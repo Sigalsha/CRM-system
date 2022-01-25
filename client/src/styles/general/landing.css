@@ -6,7 +6,6 @@
   --fs-landing-small: 0.8em;
   --fs-landing-small-2: 1.7em;
   --fs-landing: 2em;
-  --fs-landing-2: 2.5em;
   --fs-landing-3: 3em;
   --fs-landing-large: 28px;
 }
@@ -44,7 +43,7 @@
 .landing-header {
   font-weight: var(--fw-bold);
   text-transform: uppercase;
-  font-size: var(--fs-landing-2);
+  font-size: var(--fs-basis-l1);
   padding-top: 3%;
   height: 150px;
   text-align: center;
@@ -99,7 +98,7 @@
 
 @media screen and (max-width: 880px) {
   .landing-header {
-    font-size: var(--fs-landing-2);
+    font-size: var(--fs-basis-l1);
     margin: 100px 25px 0 25px;
   }
 

@@ -28,27 +28,27 @@ body {
   background-color: var(--clr-back);
 }
 
-#general-loader {
+.general-loader {
   margin-left: var(--m-left-40);
   margin-top: var(--m-top-20);
 }
 
 @media screen and (min-width: 1023px) {
-  #general-loader {
+  .general-loader {
     margin-left: var(--m-left-40);
     margin-top: var(--m-top-15);
   }
 }
 
 @media screen and (max-width: 700px) {
-  #general-loader {
+  .general-loader {
     margin-left: var(--m-left-30);
     margin-top: var(--m-top-30);
   }
 }
 
 @media screen and (max-width: 415px) {
-  #general-loader {
+  .general-loader {
     margin-left: 20%;
     margin-top: var(--m-top-70);
   }

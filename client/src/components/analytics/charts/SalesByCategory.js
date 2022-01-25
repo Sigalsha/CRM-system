@@ -65,6 +65,7 @@ const SalesByCategory = (props) => {
     <div className="chart-wrapper">
       <div className="category-header">
         <h5 className="chart-header">Sales by</h5>
+        <label htmlFor="sales by"></label>
         <select
           className="select-category"
           value={category}

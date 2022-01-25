@@ -1,20 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { registerUser } from "../../actions/authActions";
-import { clearErrors } from "../../actions/errorActions";
 import {
   AUTH_ALERTS,
   AUTH_HEADERS,
   AUTH_BUTTONS,
   NAV_LINKS,
-  NAV_LINKS_TITLES
+  AUTH_SUB_HEADERS
 } from "../../utils/constants";
 import utils from "../../utils/utils";
+import { registerUser } from "../../actions/authActions";
+import { clearErrors } from "../../actions/errorActions";
 import { useAuth } from "../../hooks/authHooks";
 import { useError } from "../../hooks/errorHooks";
 import LinkContainer from "../general/LinkContainer";
 import InputWrapper from "../general/InputWrapper";
+import Input from "../general/Input";
 import Alert from "../general/Alert";
 import "../../styles/general/landing.css";
 
@@ -114,27 +115,39 @@ const Register = () => {
         <form onSubmit={handleSubmit}>
           <div>
             <InputWrapper
-              inputVal={name}
-              handleInputChange={(e) => setName(e.target.value)}
               inputHeader="name:"
               htmlFor="name"
-              inputName="name"
+              Input={
+                <Input
+                  name="name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                />
+              }
             />
             <InputWrapper
-              inputVal={email}
-              handleInputChange={(e) => setEmail(e.target.value)}
               inputHeader="email:"
               htmlFor="email"
-              inputName="email"
-              inputType="email"
+              Input={
+                <Input
+                  name="email"
+                  inputType="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              }
             />
             <InputWrapper
-              inputVal={password}
-              inputType="password"
-              handleInputChange={(e) => setPassword(e.target.value)}
               inputHeader="password:"
               htmlFor="password"
-              inputName="password"
+              Input={
+                <Input
+                  name="password"
+                  inputType="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+              }
             />
           </div>
           <button type="submit" className="link-square">
@@ -143,10 +156,10 @@ const Register = () => {
         </form>
       </div>
       <div className="landing-links-wrapper">
-        <p>Not your first time? </p>
+        <p>{AUTH_SUB_HEADERS["register"]}</p>
         <LinkContainer
           path={`/${NAV_LINKS.guestUser[0]}`}
-          text={NAV_LINKS_TITLES["login"]}
+          text={AUTH_HEADERS["login"]}
         />
       </div>
     </div>

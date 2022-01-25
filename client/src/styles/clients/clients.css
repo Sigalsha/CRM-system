@@ -10,7 +10,7 @@
   text-decoration: none;
 }
 
-#loader-position {
+.loader-position {
   margin-left: var(--m-left-40);
   margin-top: var(--m-top-15);
 }
@@ -33,7 +33,7 @@ table {
 }
 
 @media screen and (max-width: 700px) {
-  #loader-position {
+  .loader-position {
     margin-left: var(--m-left-40);
     margin-top: var(--m-top-30);
   }
@@ -44,14 +44,14 @@ table {
 }
 
 @media screen and (max-width: 600px) {
-  #loader-position {
+  .loader-position {
     margin-left: var(--m-left-30);
     margin-top: var(--m-top-30);
   }
 }
 
 @media screen and (max-width: 415px) {
-  #loader-position {
+  .loader-position {
     margin-left: var(--m-left-25);
     margin-top: var(--m-top-70);
   }

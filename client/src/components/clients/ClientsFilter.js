@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { getFilteredClients } from "../../actions/clientsActions";
-import { EMAIL_TYPES, IS_SOLD, CLIENTS_HEADERS } from "../../utils/constants";
-import "../../styles/clients/clientsFilter.css";
+import { EMAIL_TYPES, IS_SOLD } from "../../utils/constants";
 import Select from "../general/Select";
+import "../../styles/clients/clientsFilter.css";
 
 const ClientsFilter = ({ countries, names, owners }) => {
   const [owner, setOwner] = useState("");
@@ -88,6 +88,7 @@ const ClientsFilter = ({ countries, names, owners }) => {
         onChange={handleChange}
         name="name"
         isFilterSelect
+        htmlFor="name"
       />
       <Select
         labelName="Country"
@@ -96,6 +97,7 @@ const ClientsFilter = ({ countries, names, owners }) => {
         value={country}
         onChange={handleChange}
         name="country"
+        htmlFor="country"
       />
       <Select
         labelName="Email Type"
@@ -104,6 +106,7 @@ const ClientsFilter = ({ countries, names, owners }) => {
         onChange={handleChange}
         value={emailType}
         name="emailType"
+        htmlFor="emailType"
       />
       <Select
         labelName="Sold"
@@ -112,6 +115,7 @@ const ClientsFilter = ({ countries, names, owners }) => {
         onChange={handleChange}
         value={sold}
         name="sold"
+        htmlFor="is sold"
       />
       <Select
         labelName="Owner"
@@ -119,35 +123,11 @@ const ClientsFilter = ({ countries, names, owners }) => {
         optionlistProp={owners}
         value={owner}
         name="owner"
+        htmlFor="owner"
         onChange={handleChange}
       />
     </div>
   );
 };
-
-/* const Filter = ({
-  labelName,
-  optionlist,
-  placeholder,
-  onChange,
-  value,
-  name
-}) => {
-  console.log(optionlist);
-
-  return (
-    <div className="filter-group">
-      <label>{labelName}: </label>
-      <Select
-        optionlist={optionlist}
-        placeholder={placeholder}
-        onChange={onChange}
-        value={value}
-        name={name}
-        defaultValue="All"
-      />
-    </div>
-  );
-}; */
 
 export default ClientsFilter;

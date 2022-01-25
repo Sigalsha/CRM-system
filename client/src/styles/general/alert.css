@@ -23,16 +23,22 @@
   left: var(--m-left-50);
   top: var(--m-top-50);
   transform: translate(-50%, -50%);
-  width: var(--w-55);
+  width: 50vw;
   padding: var(--pd-2);
   display: flex;
   flex-flow: column wrap;
   font-size: var(--fs-basis-s1);
-  text-align: left;
+  /* text-align: left; */
   letter-spacing: 0.3;
   color: var(--clr-alert);
   background-color: var(--clr-back-container);
   opacity: 0.85;
+  height: 20vh;
+}
+
+.alert-success {
+  color: var(--clr-secondary-text);
+  background-color: var(--clr-alert-success);
 }
 
 .close-btn {
@@ -41,6 +47,7 @@
   color: var(--clr-alert);
   border: none;
   font-size: var(--fs-px-15);
+  flex: 1;
 }
 
 .close-btn:hover {
@@ -50,11 +57,16 @@
 .alert-text {
   font-size: var(--fs-alert-large);
   color: var(--clr-alert);
-  margin: 0 0 0 1%;
-  text-align: center;
+  margin: 0 0 0 0.5%;
+  /* text-align: center; */
   padding: var(--pd-1);
+  flex: 3;
 }
 
 .alert-text span {
   padding-left: 10px;
+}
+
+.alert-text-success {
+  color: var(--clr-secondary-text);
 }

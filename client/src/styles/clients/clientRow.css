@@ -1,4 +1,21 @@
+@import "../colors.css";
+@import "../typography.css";
+@import "../sizes.css";
+
 .table-loader-position {
   text-align: center;
   padding-top: 20vh;
+}
+
+.no-results {
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-basis-l1);
+  text-align: center;
+  margin-top: var(--m-top-15);
+}
+
+@media screen and (max-width: 600px) {
+  .no-results {
+    margin-top: var(--m-top-30);
+  }
 }

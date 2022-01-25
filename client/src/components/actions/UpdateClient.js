@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   ACTIONS_ALERTS,
   ACTION_HEADERS,
@@ -10,12 +10,23 @@ import Datalist from "./Datalist";
 import "../../styles/actions/updateClient.css";
 
 const UpdateClient = ({ currentClient, changeClient, emailTypes, owners }) => {
-  const [owner, setOwner] = useState("");
-  const [emailType, setEmailType] = useState("");
   const [alert, setAlert] = useState(false);
   const [alertText, setAlertText] = useState("");
+  const [successAlert, setSuccessAlert] = useState(false);
+  const [inputValues, setInputValues] = useState({
+    owner: "",
+    emailType: ""
+  });
 
-  const toggleAlert = () => setAlert(!alert);
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setInputValues({ ...inputValues, [name]: value });
+  };
+
+  const toggleAlert = () => {
+    setAlert(!alert);
+    setSuccessAlert(false);
+  };
 
   const resetInputs = () => {
     Array.from(document.querySelectorAll("input")).forEach(
@@ -23,61 +34,41 @@ const UpdateClient = ({ currentClient, changeClient, emailTypes, owners }) => {
     );
   };
 
-  const changeOwner = () => {
-    if (!currentClient) {
+  const actionClicked = (
+    actionType,
+    validationErr,
+    actionValue,
+    resetState
+  ) => {
+    if (!currentClient || !currentClient.hasOwnProperty("name")) {
       setAlertText(ACTIONS_ALERTS["update"]["currentClient"]);
       setAlert(true);
-      setOwner("");
+
+      resetState && setInputValues({ ...inputValues, actionType: "" });
       resetInputs();
       return;
     }
-    if (!owner) {
-      setAlertText(ACTIONS_ALERTS["update"]["owner"]);
+    if (validationErr) {
+      setAlertText(ACTIONS_ALERTS["update"][actionType]);
       setAlert(true);
       return;
     }
-    changeClient({ owner });
+    changeClient({ [actionType]: actionValue });
+    setAlertText(ACTIONS_ALERTS["success"]["update"][actionType]);
+    setAlert(true);
+    setSuccessAlert(true);
     resetInputs();
-  };
-
-  const changeEmailType = () => {
-    if (!currentClient) {
-      setAlertText(ACTIONS_ALERTS["update"]["currentClient"]);
-      setAlert(true);
-      resetInputs();
-      return;
-    }
-    if (!emailType) {
-      setAlertText(ACTIONS_ALERTS["update"]["emailType"]);
-      setAlert(true);
-      return;
-    }
-
-    changeClient({ emailType });
-    resetInputs();
-  };
-
-  const declareSold = () => {
-    if (currentClient && currentClient.sold) {
-      setAlertText(ACTIONS_ALERTS["update"]["declareSale"]);
-      setAlert(true);
-      resetInputs();
-      return;
-    } else {
-      if (!currentClient) {
-        setAlertText(ACTIONS_ALERTS["update"]["currentClient"]);
-        setAlert(true);
-        resetInputs();
-        return;
-      }
-      changeClient({ sold: true });
-      resetInputs();
-    }
   };
 
   return (
     <div className="update-client-container">
-      {alert && <Alert text={alertText} toggleAlert={toggleAlert} />}
+      {alert && (
+        <Alert
+          text={alertText}
+          toggleAlert={toggleAlert}
+          isSuccess={successAlert}
+        />
+      )}
       <SubHeader
         text={ACTION_HEADERS["update"]["transferOwnership"]}
         htmlFor="owner"
@@ -88,12 +79,14 @@ const UpdateClient = ({ currentClient, changeClient, emailTypes, owners }) => {
         id={owners}
         mapList={owners}
         name="owner"
-        onChange={(e) => setOwner(e.target.value)}
+        onChange={handleInputChange}
         // check what is for
         /* onFocus={this.onFocus} */
       />
       <UpdateButton
-        onClick={changeOwner}
+        onClick={() =>
+          actionClicked("owner", !inputValues.owner, inputValues.owner, true)
+        }
         text={ACTIONS_BUTTONS["update"]["transfer"]}
       />
 
@@ -107,10 +100,17 @@ const UpdateClient = ({ currentClient, changeClient, emailTypes, owners }) => {
         id={emailTypes}
         mapList={emailTypes}
         name="emailType"
-        onChange={(e) => setEmailType(e.target.value)}
+        onChange={handleInputChange}
       />
       <UpdateButton
-        onClick={changeEmailType}
+        onClick={() =>
+          actionClicked(
+            "emailType",
+            !inputValues.emailType,
+            inputValues.emailType,
+            true
+          )
+        }
         text={ACTIONS_BUTTONS["update"]["send"]}
       />
 
@@ -120,7 +120,9 @@ const UpdateClient = ({ currentClient, changeClient, emailTypes, owners }) => {
       />
       <div className="empty-div" />
       <UpdateButton
-        onClick={declareSold}
+        onClick={() =>
+          actionClicked("sold", currentClient && currentClient.sold, true)
+        }
         text={ACTIONS_BUTTONS["update"]["declare"]}
       />
     </div>

@@ -1,5 +1,3 @@
-import e from "cors";
-
 export const URL = "http://localhost:8100/clients/";
 
 export const NAV_LINKS_TITLES = {
@@ -58,13 +56,21 @@ export const ACTIONS_ALERTS = {
     currentClient: "You must choose a client!",
     owner: "You must choose an owner!",
     emailType: "You must choose an email type!",
-    declareSale: "Sale was already declared!"
+    sold: "Sale was already declared!"
   },
   addClient: {
     firstName: "You must add the client's first name",
     surname: "You must add the client's surname",
     country: "You must add the client's country",
     owner: "You must add the client's owner"
+  },
+  success: {
+    update: {
+      owner: "Owner has been changed!",
+      emailType: "Email type has been changed!",
+      sold: "Sale has been declared!"
+    },
+    addClient: "Client has been added!"
   }
 };
 
@@ -107,6 +113,11 @@ export const AUTH_HEADERS = {
 export const AUTH_BUTTONS = {
   register: "sign up",
   login: "login"
+};
+
+export const AUTH_SUB_HEADERS = {
+  register: "Not your first time?",
+  login: "New here?"
 };
 
 export const AUTH_ALERTS = {

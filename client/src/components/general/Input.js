@@ -1,6 +1,6 @@
 import "../../styles/actions/addClient.css";
 
-const Input = ({ inputType, name, value, onChange }) => {
+function Input({ inputType, name, value, onChange }) {
   return (
     <input
       className="input-add-client"
@@ -15,6 +15,6 @@ const Input = ({ inputType, name, value, onChange }) => {
       onChange={onChange}
     />
   );
-};
+}
 
 export default Input;

@@ -1,4 +1,5 @@
 import axios from "axios";
+import { URL } from "../utils/constants";
 import {
   GET_CLIENTS,
   CLIENTS_LOADING,
@@ -7,7 +8,6 @@ import {
   FILTER_CLIENTS
 } from "./types";
 import { returnErrors } from "./errorActions";
-import { URL } from "../utils/constants";
 
 export const getClients = () => async (dispatch) => {
   dispatch(setClientsLoading());

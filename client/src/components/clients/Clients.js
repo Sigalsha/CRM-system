@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from "react";
-import Loader from "react-loader-spinner";
 import { useSelector, useDispatch } from "react-redux";
 import { getClients, updateClient } from "../../actions/clientsActions";
 import utils from "../../utils/utils";
-import { COLORS } from "../../utils/constants";
-import "../../styles/clients/clients.css";
+import { CLIENTS_HEADERS } from "../../utils/constants";
+import Loading from "../general/Loading";
 import ClientsFilter from "./ClientsFilter";
 import ClientsPagination from "./ClientsPagination";
 import ClientRow from "./ClientRow";
 import EditClientPopUp from "./EditClientPopUp";
-import { CLIENTS_HEADERS } from "../../utils/constants";
+import "../../styles/clients/clients.css";
 
 const itemsPerPage = 20;
 
@@ -33,7 +32,6 @@ const Clients = () => {
   }, [dispatch, updatedClient]);
 
   useEffect(() => {
-    // debugger;
     try {
       setCountries(
         utils.reduceDuplications(
@@ -145,16 +143,10 @@ const Clients = () => {
   return (
     <>
       {isLoading ? (
-        <div id="loader-position">
-          <Loader
-            type="Puff"
-            color={COLORS["yellow"]}
-            height={200}
-            width={200}
-          />
-        </div>
+        <Loading />
       ) : (
         <div id="clients-container">
+          {/* {alert && <Alert text={alertText} toggleAlert={toggleAlert} />} */}
           <div className="clients-child">
             <ClientsFilter
               clients={clients}

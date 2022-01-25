@@ -6,8 +6,10 @@ import {
 } from "../../utils/constants";
 import Alert from "../general/Alert";
 import Required from "../general/Required";
-import Datalist from "./Datalist";
 import SubHeader from "../general/SubHeader";
+import Datalist from "./Datalist";
+import InputWrapper from "../general/InputWrapper";
+import Input from "../general/Input";
 import "../../styles/actions/addClient.css";
 
 const AddClient = ({ owners, addNewClient }) => {
@@ -17,6 +19,7 @@ const AddClient = ({ owners, addNewClient }) => {
   const [owner, setOwner] = useState("");
   const [alert, setAlert] = useState(false);
   const [alertText, setAlertText] = useState("");
+  const [successAlert, setSuccessAlert] = useState(false);
 
   // TODO - implement it
   /*       handleInputChange = (event) => {
@@ -47,7 +50,10 @@ const AddClient = ({ owners, addNewClient }) => {
     return true;
   };
 
-  const toggleAlert = () => setAlert(!alert);
+  const toggleAlert = () => {
+    setAlert(!alert);
+    setSuccessAlert(false);
+  };
 
   const resetInputs = () => {
     Array.from(document.querySelectorAll("input")).forEach(
@@ -71,11 +77,15 @@ const AddClient = ({ owners, addNewClient }) => {
       owner: owner
     };
 
+    // check it
     if (checkNewClientDetails(newClient) === false) {
       alert("please add all the client's details!");
     }
 
     addNewClient(newClient);
+    setAlertText(ACTIONS_ALERTS["success"]["update"]["addClient"]);
+    setAlert(true);
+    setSuccessAlert(true);
     setFirstName("");
     setSurname("");
     setCountry("");
@@ -85,86 +95,67 @@ const AddClient = ({ owners, addNewClient }) => {
 
   return (
     <div className="add-client-container">
-      {alert && <Alert text={alertText} toggleAlert={toggleAlert} />}
-      <InputClientWrapper
-        inputType={firstName}
-        inputTypeString="firstName"
+      {alert && (
+        <Alert
+          text={alertText}
+          toggleAlert={toggleAlert}
+          isSuccess={successAlert}
+        />
+      )}
+      <InputWrapper
+        inputHeader={ACTION_HEADERS["add"]["firstName"]}
         htmlFor="first name"
-        handleInputChange={(e) => setFirstName(e.target.value)}
+        Input={
+          <Input
+            name="firstName"
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+          />
+        }
       />
-      <InputClientWrapper
-        inputType={surname}
-        inputTypeString="surname"
+      <InputWrapper
+        inputHeader={ACTION_HEADERS["add"]["surname"]}
         htmlFor="surname"
-        handleInputChange={(e) => setSurname(e.target.value)}
+        Input={
+          <Input
+            name="surname"
+            value={surname}
+            onChange={(e) => setSurname(e.target.value)}
+          />
+        }
       />
-      <InputClientWrapper
-        inputType={country}
-        inputTypeString="country"
+      <InputWrapper
+        inputHeader={ACTION_HEADERS["add"]["country"]}
         htmlFor="country"
-        handleInputChange={(e) => setCountry(e.target.value)}
+        Input={
+          <Input
+            name="country"
+            value={country}
+            onChange={(e) => setCountry(e.target.value)}
+          />
+        }
       />
-      <InputClientWrapper
-        inputTypeString="owner"
-        mapList={owners}
-        id={owners}
-        list={owners}
+      <InputWrapper
+        inputHeader={ACTION_HEADERS["add"]["owner"]}
         htmlFor="owner"
-        handleInputChange={(e) => setOwner(e.target.value)}
+        isDatalist={true}
+        Datalist={
+          <Datalist
+            name="owner"
+            list={owners}
+            mapList={owners}
+            id={owners}
+            placeholder="owner"
+            isAddClient={true}
+            onChange={(e) => setOwner(e.target.value)}
+          />
+        }
       />
       <AddNewClientBtn
         onClick={handleAddClient}
         text={ACTIONS_BUTTONS["add"]["addNew"]}
       />
     </div>
-  );
-};
-
-const InputClientWrapper = ({
-  inputType,
-  inputTypeString,
-  handleInputChange,
-  mapList,
-  list,
-  id,
-  htmlFor
-}) => {
-  return (
-    <div className="input-wrapper">
-      <Required />
-      <SubHeader
-        text={ACTION_HEADERS["add"][inputTypeString]}
-        htmlFor={htmlFor}
-      />
-      {inputTypeString !== "owner" ? (
-        <Input
-          name={inputTypeString}
-          value={inputType}
-          onChange={handleInputChange}
-        />
-      ) : (
-        <Datalist
-          isAddClient="true"
-          list={list}
-          id={id}
-          mapList={mapList}
-          name={inputTypeString}
-          onChange={handleInputChange}
-        />
-      )}
-    </div>
-  );
-};
-
-const Input = ({ name, value, onChange }) => {
-  return (
-    <input
-      className="input-add-client"
-      type="text"
-      name={name}
-      value={value ? value : ""}
-      onChange={onChange}
-    />
   );
 };
 

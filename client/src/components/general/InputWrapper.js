@@ -1,29 +1,16 @@
 import React from "react";
 import Required from "./Required";
 import SubHeader from "./SubHeader";
-import Input from "./Input";
 import "../../styles/actions/addClient.css";
 
-const InputWrapper = ({
-  inputVal,
-  inputType,
-  inputHeader,
-  inputName,
-  handleInputChange,
-  htmlFor
-}) => {
+function InputWrapper({ inputHeader, htmlFor, isDatalist, Datalist, Input }) {
   return (
     <div className="input-wrapper">
       <Required />
       <SubHeader text={inputHeader} htmlFor={htmlFor} />
-      <Input
-        name={inputName}
-        value={inputVal}
-        onChange={handleInputChange}
-        inputType={inputType}
-      />
+      {isDatalist ? Datalist : Input}
     </div>
   );
-};
+}
 
 export default InputWrapper;

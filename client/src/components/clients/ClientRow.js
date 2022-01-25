@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
-import Loader from "react-loader-spinner";
-import { COLORS } from "../../utils/constants";
+import Loading from "../general/Loading";
 import ClientData from "./ClientData";
 import ColumnsHeader from "./ColumnsHeader";
 import "../../styles/clients/clientRow.css";
 
-const ClientRow = ({ clients, toggleEditClient, itemsPerPage }) => {
+const ClientRow = ({ clients, toggleEditClient }) => {
   const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -14,41 +13,36 @@ const ClientRow = ({ clients, toggleEditClient, itemsPerPage }) => {
     }
   }, [clients]);
 
+  const clientsTable = (
+    <>
+      {clients.map((c) => {
+        return (
+          <ClientData
+            key={c._id}
+            _id={c._id}
+            name={c.name}
+            country={c.country}
+            firstContact={c.firstContact}
+            emailType={c.emailType}
+            sold={c.sold}
+            owner={c.owner}
+            toggleEditClient={toggleEditClient}
+          />
+        );
+      })}
+    </>
+  );
+
+  const noResults = <h1 className="no-results">Sorry, no results found</h1>;
+
   return (
     <>
       {isLoading ? (
-        <div className="table-loader-position">
-          <Loader
-            type="Puff"
-            color={COLORS["yellow"]}
-            height={200}
-            width={200}
-          />
-        </div>
+        <Loading className="table-loader-position" />
       ) : (
         <table>
           <ColumnsHeader />
-          <tbody>
-            {clients.length ? (
-              clients.map((c) => {
-                return (
-                  <ClientData
-                    key={c._id}
-                    _id={c._id}
-                    name={c.name}
-                    country={c.country}
-                    firstContact={c.firstContact}
-                    emailType={c.emailType}
-                    sold={c.sold}
-                    owner={c.owner}
-                    toggleEditClient={toggleEditClient}
-                  />
-                );
-              })
-            ) : (
-              <h1>Sorry, no results found</h1>
-            )}
-          </tbody>
+          <tbody>{clients.length ? clientsTable : noResults}</tbody>
         </table>
       )}
     </>

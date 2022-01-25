@@ -1,5 +1,4 @@
 import React, { useState, Fragment, useEffect } from "react";
-import Loader from "react-loader-spinner";
 import { useSelector, useDispatch } from "react-redux";
 import {
   faUsers,
@@ -7,20 +6,15 @@ import {
   faUserPlus,
   faGlobeAmericas
 } from "@fortawesome/free-solid-svg-icons";
-import {
-  getClients,
-  updateClient,
-  addClient
-} from "../../actions/clientsActions";
 import utils from "../../utils/utils";
-import clientsData from "../../data.json";
-import { URL, COLORS } from "../../utils/constants";
-import "../../styles/analytics/analytics.css";
+import { getClients } from "../../actions/clientsActions";
+import Loading from "../general/Loading";
 import TopEmployees from "./charts/TopEmployees";
 import SalesByMonth from "./charts/SalesByMonth";
 import ClientAcquisition from "./charts/ClientAcquisition";
 import SalesByCategory from "./charts/SalesByCategory";
 import Badges from "./Badges";
+import "../../styles/analytics/analytics.css";
 
 const Analytics = () => {
   const [loading, setLoading] = useState(true);
@@ -108,14 +102,7 @@ const Analytics = () => {
     <Fragment>
       {hasError && <p>Something went wrong.</p>}
       {loading ? (
-        <div id="loader-position">
-          <Loader
-            type="Puff"
-            color={COLORS["yellow"]}
-            height={200}
-            width={200}
-          />
-        </div>
+        <Loading />
       ) : (
         <div id="analytics-container">
           <Badges badges={getBadges()} />

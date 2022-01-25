@@ -1,22 +1,17 @@
 import React, { Fragment, useState, useEffect } from "react";
-import Loader from "react-loader-spinner";
 import { useSelector, useDispatch } from "react-redux";
+import utils from "../../utils/utils";
+import { CLIENTS_HEADERS, ACTION_HEADERS } from "../../utils/constants";
+import Loading from "../general/Loading";
 import {
   getClients,
   updateClient,
   addClient
 } from "../../actions/clientsActions";
-import utils from "../../utils/utils";
-import {
-  URL,
-  CLIENTS_HEADERS,
-  COLORS,
-  ACTION_HEADERS
-} from "../../utils/constants";
-import "../../styles/actions/actions.css";
 import ClientInput from "./ClientInput";
 import UpdateClient from "./UpdateClient.js";
 import AddClient from "./AddClient";
+import "../../styles/actions/actions.css";
 
 const Actions = () => {
   const [loading, setLoading] = useState(true);
@@ -57,7 +52,6 @@ const Actions = () => {
   };
 
   const changeClient = (updatedClientData) => {
-    debugger;
     const updatedClient = {
       emailType: updatedClientData.emailType
         ? updatedClientData.emailType
@@ -86,14 +80,7 @@ const Actions = () => {
   return (
     <Fragment>
       {loading ? (
-        <div id="loader-position">
-          <Loader
-            type="Puff"
-            color={COLORS["yellow"]}
-            height={200}
-            width={200}
-          />
-        </div>
+        <Loading />
       ) : (
         <div id="actions-container">
           <div className="actions-child">

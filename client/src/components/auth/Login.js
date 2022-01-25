@@ -1,18 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate, useLocation } from "react-router-dom";
-import { login } from "../../actions/authActions";
-import { clearErrors } from "../../actions/errorActions";
 import {
   AUTH_HEADERS,
   AUTH_BUTTONS,
   AUTH_ALERTS,
   NAV_LINKS,
-  NAV_LINKS_TITLES
+  NAV_LINKS_TITLES,
+  AUTH_SUB_HEADERS
 } from "../../utils/constants";
+import { login } from "../../actions/authActions";
+import { clearErrors } from "../../actions/errorActions";
 import { useAuth, useLogged } from "../../hooks/authHooks";
 import { useError } from "../../hooks/errorHooks";
 import InputWrapper from "../general/InputWrapper";
+import Input from "../general/Input";
 import Alert from "../general/Alert";
 import LinkContainer from "../general/LinkContainer";
 import "../../styles/general/landing.css";
@@ -21,8 +23,11 @@ const Login = () => {
   const isAuthenticated = useAuth();
   const isLogged = useLogged();
   const error = useError();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+
+  const [inputValues, setInputValues] = useState({
+    email: "",
+    password: ""
+  });
   const [alert, setAlert] = useState(false);
   const [alertText, setAlertText] = useState("");
   const dispatch = useDispatch();
@@ -43,7 +48,12 @@ const Login = () => {
       setAlert(true);
       setAlertText(error);
     }
-  }, [isAuthenticated, isLogged, error]);
+  }, [dispatch, navigate, from, isAuthenticated, isLogged, error]);
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setInputValues({ ...inputValues, [name]: value });
+  };
 
   const toggleAlert = () => setAlert(!alert);
 
@@ -66,16 +76,15 @@ const Login = () => {
     e.preventDefault();
 
     if (
-      !validateInput(email, "email") ||
-      !validateInput(password, "password")
+      !validateInput(inputValues.email, "email") ||
+      !validateInput(inputValues.password, "password")
     ) {
       return;
     }
 
+    const { email, password } = inputValues;
     dispatch(login({ email, password }));
-
-    setEmail("");
-    setPassword("");
+    setInputValues({ ...inputValues, email: "", password: "" });
     resetInputs();
   };
 
@@ -89,18 +98,28 @@ const Login = () => {
         <form onSubmit={handleSubmit}>
           <div>
             <InputWrapper
-              inputVal={email}
-              handleInputChange={(e) => setEmail(e.target.value)}
               inputHeader="email:"
-              inputName="email"
-              inputType="email"
+              htmlFor="email"
+              Input={
+                <Input
+                  name="email"
+                  inputType="email"
+                  value={inputValues.email}
+                  onChange={handleInputChange}
+                />
+              }
             />
             <InputWrapper
-              inputVal={password}
-              inputType="password"
-              handleInputChange={(e) => setPassword(e.target.value)}
               inputHeader="password:"
-              inputName="password"
+              htmlFor="password"
+              Input={
+                <Input
+                  inputType="password"
+                  name="password"
+                  value={inputValues.password}
+                  onChange={handleInputChange}
+                />
+              }
             />
           </div>
           <button type="submit" className="link-square">
@@ -109,7 +128,7 @@ const Login = () => {
         </form>
       </div>
       <div className="landing-links-wrapper">
-        <p>New here? </p>
+        <p>{AUTH_SUB_HEADERS["login"]}</p>
         <LinkContainer
           path={`/${NAV_LINKS.guestUser[1]}`}
           text={NAV_LINKS_TITLES["register"]}

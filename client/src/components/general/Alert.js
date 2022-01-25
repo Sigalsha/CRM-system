@@ -5,14 +5,17 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import "../../styles/general/alert.css";
 
-const Alert = ({ text, toggleAlert }) => {
+const Alert = ({ isSuccess, text, toggleAlert }) => {
   return (
     <div className="alert-container">
-      <div className="alert-wrapper">
-        <button className="close-btn" onClick={toggleAlert}>
+      <div className={`alert-wrapper ${isSuccess && "alert-success"}`}>
+        <button
+          className={`close-btn ${isSuccess && "alert-text-success"}`}
+          onClick={toggleAlert}
+        >
           <FontAwesomeIcon icon={faTimes} />
         </button>
-        <p className="alert-text">
+        <p className={`alert-text ${isSuccess && "alert-text-success"}`}>
           <FontAwesomeIcon icon={faExclamationCircle} />
           <span>{text}</span>
         </p>

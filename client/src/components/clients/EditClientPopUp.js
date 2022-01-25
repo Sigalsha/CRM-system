@@ -29,7 +29,7 @@ const EditClientPopUp = ({
           <FontAwesomeIcon icon={faTimes} />
         </div>
         <div className="popup-row">
-          <span>Name:</span>
+          <label htmlFor="name">Name:</label>
           <input
             className="popup-input"
             type="text"
@@ -39,7 +39,7 @@ const EditClientPopUp = ({
           />
         </div>
         <div className="popup-row">
-          <span>surname:</span>
+          <label htmlFor="surname">surname:</label>
           <input
             className="popup-input"
             type="text"
@@ -49,7 +49,7 @@ const EditClientPopUp = ({
           />
         </div>
         <div className="popup-row">
-          <span>Country</span>
+          <label htmlFor="country">Country</label>
           <input
             className="popup-input"
             type="text"

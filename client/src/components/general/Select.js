@@ -7,7 +7,8 @@ const Select = ({
   name,
   optionlistProp,
   value,
-  labelName
+  labelName,
+  htmlFor
 }) => {
   const [optionlist, setOptionlist] = useState([]);
 
@@ -22,7 +23,7 @@ const Select = ({
 
   return (
     <div className="filter-group">
-      <label>{labelName}: </label>
+      <label htmlFor={htmlFor}>{labelName}: </label>
       <select
         className="text-row"
         name={name}

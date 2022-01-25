@@ -5,19 +5,18 @@ import {
   Route,
   Navigate
 } from "react-router-dom";
-import store from "./store";
-import Loader from "react-loader-spinner";
-import { COLORS } from "./utils/constants";
-import { loadUser } from "./actions/authActions";
-import Landing from "./components/general/Landing";
-import Register from "./components/auth/Register";
 import { useAuth } from "./hooks/authHooks";
+import { loadUser } from "./actions/authActions";
+import Loading from "./components/general/Loading";
+import Landing from "./components/general/Landing";
+import Navbar from "./components/general/Navbar";
+import Register from "./components/auth/Register";
 import ProtectedRoutes from "./components/auth/ProtectedRoutes";
 import Login from "./components/auth/Login";
-import Navbar from "./components/general/Navbar";
 import Clients from "./components/clients/Clients.js";
 import Actions from "./components/actions/Actions.js";
 import Analytics from "./components/analytics/Analytics";
+import store from "./store";
 import "./styles/app.css";
 
 function App() {
@@ -25,9 +24,6 @@ function App() {
   const [clients, setClients] = useState([]);
   const [errorMsg, setError] = useState(false);
   const isAuthenticated = useAuth();
-  // const dispatch = useDispatch();
-  // const error = useSelector((state) => state.error);
-  // const isAuthenticated = useSelector((state) => state.isAuthenticated);
 
   useEffect(() => {
     store.dispatch(loadUser());
@@ -47,14 +43,7 @@ function App() {
     <Fragment>
       {errorMsg && <p>{errorMsg}</p>}
       {loading ? (
-        <div id="general-loader">
-          <Loader
-            type="Puff"
-            color={COLORS["yellow"]}
-            height={200}
-            width={200}
-          />
-        </div>
+        <Loading className="general-loader" />
       ) : (
         <div className="app">
           <Router>
