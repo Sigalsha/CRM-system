@@ -9,6 +9,7 @@ import {
   AUTH_SUB_HEADERS
 } from "../../utils/constants";
 import utils from "../../utils/utils";
+import { resetInputs, validateInput } from "../../utils/helpers";
 import { registerUser } from "../../actions/authActions";
 import { clearErrors } from "../../actions/errorActions";
 import { useAuth } from "../../hooks/authHooks";
@@ -50,15 +51,6 @@ const Register = () => {
     }
   }, [error, isAuthenticated]);
 
-  const validateInput = (inputValue, inputType) => {
-    if (!inputValue) {
-      setAlert(true);
-      setAlertText(AUTH_ALERTS["register"][inputType]);
-      return false;
-    }
-    return true;
-  };
-
   const toggleAlert = () => setAlert(!alert);
 
   const checkNewUserDetails = (inputValues) => {
@@ -78,19 +70,31 @@ const Register = () => {
     return true;
   };
 
-  const resetInputs = () => {
-    Array.from(document.querySelectorAll("input")).forEach(
-      (input) => (input.value = "")
-    );
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
     if (
-      !validateInput(name, "name") ||
-      !validateInput(email, "email") ||
-      !validateInput(password, "password")
+      !validateInput(
+        name,
+        "name",
+        setAlert,
+        setAlertText,
+        AUTH_ALERTS["register"]
+      ) ||
+      !validateInput(
+        email,
+        "email",
+        setAlert,
+        setAlertText,
+        AUTH_ALERTS["register"]
+      ) ||
+      !validateInput(
+        password,
+        "password",
+        setAlert,
+        setAlertText,
+        AUTH_ALERTS["register"]
+      )
     ) {
       return;
     }

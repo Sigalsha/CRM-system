@@ -8,6 +8,7 @@
 }
 
 .no-results {
+  display: block;
   font-weight: var(--fw-bold);
   font-size: var(--fs-basis-l1);
   text-align: center;

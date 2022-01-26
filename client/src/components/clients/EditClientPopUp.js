@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import InputWrapper from "../general/InputWrapper";
+import Input from "../general/Input";
 import "../../styles/clients/editClientPopUp.css";
 
 const EditClientPopUp = ({
@@ -28,39 +30,50 @@ const EditClientPopUp = ({
         <div className="exit-btn" onClick={toggleEditClient}>
           <FontAwesomeIcon icon={faTimes} />
         </div>
-        <div className="popup-row">
-          <label htmlFor="name">Name:</label>
-          <input
-            className="popup-input"
-            type="text"
-            name="firstName"
-            value={firstName}
-            onChange={(e) => setFirstName(e.target.value)}
+        <form onSubmit={handleSubmit}>
+          <InputWrapper
+            inputHeader="Name:"
+            htmlFor="first name"
+            isPopupInput={true}
+            Input={
+              <Input
+                name="firstName"
+                value={firstName}
+                isPopupInput={true}
+                onChange={(e) => setFirstName(e.target.value)}
+              />
+            }
           />
-        </div>
-        <div className="popup-row">
-          <label htmlFor="surname">surname:</label>
-          <input
-            className="popup-input"
-            type="text"
-            name="surname"
-            value={surname}
-            onChange={(e) => setSurname(e.target.value)}
+          <InputWrapper
+            inputHeader="Surname:"
+            htmlFor="surname"
+            isPopupInput={true}
+            Input={
+              <Input
+                name="surname"
+                value={surname}
+                isPopupInput={true}
+                onChange={(e) => setSurname(e.target.value)}
+              />
+            }
           />
-        </div>
-        <div className="popup-row">
-          <label htmlFor="country">Country</label>
-          <input
-            className="popup-input"
-            type="text"
-            name="country"
-            value={country}
-            onChange={(e) => setCountry(e.target.value)}
+          <InputWrapper
+            inputHeader="Country:"
+            htmlFor="country"
+            isPopupInput={true}
+            Input={
+              <Input
+                name="country"
+                value={country}
+                isPopupInput={true}
+                onChange={(e) => setCountry(e.target.value)}
+              />
+            }
           />
-        </div>
-        <div className="update-btn" onClick={handleSubmit}>
-          Update
-        </div>
+          <button type="submit" className="update-btn">
+            Update
+          </button>
+        </form>
       </div>
     </div>
   );

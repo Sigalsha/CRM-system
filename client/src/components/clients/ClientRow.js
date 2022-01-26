@@ -33,7 +33,11 @@ const ClientRow = ({ clients, toggleEditClient }) => {
     </>
   );
 
-  const noResults = <h1 className="no-results">Sorry, no results found</h1>;
+  const noResults = (
+    <tr>
+      <th className="no-results">Sorry, no results found</th>
+    </tr>
+  );
 
   return (
     <>

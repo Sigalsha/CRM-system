@@ -56,12 +56,10 @@ class Utils {
 
   getTopSalesByKey = (sales) => {
     let salesCounts = this.countSalesByKey(sales);
-    console.log("salesCounts: ", salesCounts);
     let maxCount = Math.max(...Object.values(salesCounts));
     let mostFrequent = Object.keys(salesCounts).filter(
       (k) => salesCounts[k] === maxCount
     );
-    console.log("mostFrequent: ", mostFrequent);
     return mostFrequent;
   };
 
@@ -76,7 +74,6 @@ class Utils {
   isMinLength = (value) => {
     const minReg = /( *?[0-9a-zA-Z] *?){3,}/;
     return minReg.test(value);
-    // ^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$
   };
 
   isEmailValid = (email) => {

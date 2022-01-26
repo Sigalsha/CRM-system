@@ -4,6 +4,7 @@ import {
   ACTION_HEADERS,
   ACTIONS_BUTTONS
 } from "../../utils/constants";
+import { resetInputs } from "../../utils/helpers";
 import Alert from "../general/Alert";
 import SubHeader from "../general/SubHeader";
 import Datalist from "./Datalist";
@@ -26,12 +27,6 @@ const UpdateClient = ({ currentClient, changeClient, emailTypes, owners }) => {
   const toggleAlert = () => {
     setAlert(!alert);
     setSuccessAlert(false);
-  };
-
-  const resetInputs = () => {
-    Array.from(document.querySelectorAll("input")).forEach(
-      (input) => (input.value = "")
-    );
   };
 
   const actionClicked = (

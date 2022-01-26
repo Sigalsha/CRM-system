@@ -62,7 +62,8 @@ export const ACTIONS_ALERTS = {
     firstName: "You must add the client's first name",
     surname: "You must add the client's surname",
     country: "You must add the client's country",
-    owner: "You must add the client's owner"
+    owner: "You must add the client's owner",
+    minChar: "must have 3 or more characters"
   },
   success: {
     update: {

@@ -31,7 +31,7 @@
 .input-text-add-client {
   border: none;
   width: var(--w-100);
-  text-align: start;
+  text-align: center;
 }
 
 @media screen and (min-width: 1023px) {

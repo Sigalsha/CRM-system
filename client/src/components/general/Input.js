@@ -1,14 +1,10 @@
-import "../../styles/actions/addClient.css";
+import "../../styles/general/input.css";
+import "../../styles/clients/editClientPopUp.css";
 
-function Input({ inputType, name, value, onChange }) {
+function Input({ inputType, name, value, onChange, isPopupInput }) {
   return (
     <input
-      className="input-add-client"
-      style={{
-        textDecoration: "none",
-        borderColor: "none",
-        backgroundColor: "rgba(247, 206, 62, 0.5)"
-      }}
+      className={`${isPopupInput ? "popup-input" : "general-input"}`}
       type={inputType ? inputType : "text"}
       name={name}
       value={value ? value : ""}

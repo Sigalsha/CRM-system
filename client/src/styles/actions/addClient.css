@@ -18,22 +18,6 @@
   color: var(--clr-primary-text);
 }
 
-.input-wrapper {
-  display: inline-flex;
-  width: var(--w-100);
-  align-items: center;
-}
-
-.input-add-client {
-  width: var(--w-40);
-  background-color: var(--clr-tran);
-  border-style: solid;
-  border-width: var(--bor-w-001);
-  border-color: var(--clr-border);
-  color: var(--clr-primary-text);
-  margin-top: 1%;
-}
-
 .add-new-client-btn {
   width: 67%;
   height: 40px;
@@ -66,10 +50,6 @@
     width: var(--w-80);
   }
 
-  .input-add-client {
-    margin-top: 1.5%;
-  }
-
   .add-new-client-btn {
     width: 72%;
     margin-top: 30px;
@@ -80,10 +60,6 @@
   .add-client-container {
     margin-top: var(--m-top-20-px);
     width: var(--w-95);
-  }
-
-  .input-add-client {
-    width: var(--w-50);
   }
 
   .add-new-client-btn {

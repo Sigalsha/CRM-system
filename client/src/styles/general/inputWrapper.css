@@ -1,0 +1,9 @@
+@import "../colors.css";
+@import "../typography.css";
+@import "../sizes.css";
+
+.input-wrapper {
+  display: inline-flex;
+  width: var(--w-100);
+  align-items: center;
+}

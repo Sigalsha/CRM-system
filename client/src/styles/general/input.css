@@ -1,0 +1,26 @@
+@import "../colors.css";
+@import "../typography.css";
+@import "../sizes.css";
+
+.general-input {
+  width: var(--w-40);
+  background-color: var(--clr-tran);
+  border-style: solid;
+  border-width: var(--bor-w-001);
+  border-color: var(--clr-border);
+  color: var(--clr-primary-text);
+  margin-top: 1%;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 700px) {
+  .general-input {
+    margin-top: 1.5%;
+  }
+}
+
+@media screen and (max-width: 415px) {
+  .general-input {
+    width: var(--w-50);
+  }
+}

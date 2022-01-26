@@ -9,6 +9,7 @@ import {
   NAV_LINKS_TITLES,
   AUTH_SUB_HEADERS
 } from "../../utils/constants";
+import { resetInputs, validateInput } from "../../utils/helpers";
 import { login } from "../../actions/authActions";
 import { clearErrors } from "../../actions/errorActions";
 import { useAuth, useLogged } from "../../hooks/authHooks";
@@ -57,27 +58,24 @@ const Login = () => {
 
   const toggleAlert = () => setAlert(!alert);
 
-  const validateInput = (inputValue, inputType) => {
-    if (!inputValue) {
-      setAlert(true);
-      setAlertText(AUTH_ALERTS["login"][inputType]);
-      return false;
-    }
-    return true;
-  };
-
-  const resetInputs = () => {
-    Array.from(document.querySelectorAll("input")).forEach(
-      (input) => (input.value = "")
-    );
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
     if (
-      !validateInput(inputValues.email, "email") ||
-      !validateInput(inputValues.password, "password")
+      !validateInput(
+        inputValues.email,
+        "email",
+        setAlert,
+        setAlertText,
+        AUTH_ALERTS["login"]
+      ) ||
+      !validateInput(
+        inputValues.password,
+        "password",
+        setAlert,
+        setAlertText,
+        AUTH_ALERTS["login"]
+      )
     ) {
       return;
     }
