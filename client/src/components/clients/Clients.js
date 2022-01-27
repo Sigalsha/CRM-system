@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getClients, updateClient } from "../../actions/clientsActions";
+import { clearErrors } from "../../actions/errorActions";
+import { useError } from "../../hooks/errorHooks";
 import utils from "../../utils/utils";
-import { CLIENTS_HEADERS } from "../../utils/constants";
+import { CLIENTS_HEADERS, ACTIONS_ALERTS } from "../../utils/constants";
 import Loading from "../general/Loading";
+import Alert from "../general/Alert";
 import ClientsFilter from "./ClientsFilter";
 import ClientsPagination from "./ClientsPagination";
 import ClientRow from "./ClientRow";
@@ -13,12 +16,11 @@ import "../../styles/clients/clients.css";
 const itemsPerPage = 20;
 
 const Clients = () => {
-  const dispatch = useDispatch();
   const { clients, loading } = useSelector((state) => state.clients);
   const [owners, setOwners] = useState([]);
   const [names, setNames] = useState([]);
   const [countries, setCountries] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [pageCount, setPageCount] = useState(0);
   const [pageLimit, setPageLimit] = useState(20);
   const [isPageReset, setIsPageReset] = useState(false);
@@ -26,9 +28,19 @@ const Clients = () => {
   const [showPopup, setShowPopup] = useState(false);
   const [clientToEdit, setClientToEdit] = useState({});
   const [updatedClient, setUpdatedClient] = useState(false);
+  const [alert, setAlert] = useState(false);
+  const [alertText, setAlertText] = useState("");
+  const [successAlert, setSuccessAlert] = useState(false);
+  const [isResetFilters, setResetFilters] = useState(false);
+  const dispatch = useDispatch();
+  const error = useError();
 
   useEffect(() => {
+    console.log("useEffect1 of Clients");
     dispatch(getClients());
+    if (!loading) {
+      setIsLoading(false);
+    }
   }, [dispatch, updatedClient]);
 
   useEffect(() => {
@@ -50,10 +62,8 @@ const Clients = () => {
       setPageLimit(20);
       setPageCount(updatePageCount(clients.length));
 
-      console.log("useEffect of Clients");
-
       if (
-        loading &&
+        !loading &&
         currentClients.length > 1 &&
         countries.length > 2 &&
         owners.length > 2 &&
@@ -64,7 +74,7 @@ const Clients = () => {
     } catch (err) {
       console.log(err);
     }
-  }, [clients, updatedClient]);
+  }, [clients, updatedClient, isResetFilters]);
 
   const updateCurrentPage = (pageIndex) => {
     return [...clients].slice(pageIndex - itemsPerPage, pageIndex);
@@ -123,12 +133,24 @@ const Clients = () => {
     );
   };
 
+  const toggleAlert = () => {
+    setAlert(!alert);
+    setSuccessAlert(false);
+  };
+
   const editClientChange = (updatedClient) => {
     dispatch(
       updateClient(clientToEdit.id, { ...clientToEdit, ...updatedClient })
     );
+    if (!error) {
+      setAlertText(ACTIONS_ALERTS["success"]["update"]["general"]);
+      setAlert(true);
+      setSuccessAlert(true);
+      dispatch(clearErrors());
+      setUpdatedClient(updatedClient);
+      setResetFilters(true);
+    }
 
-    setUpdatedClient(updatedClient);
     setShowPopup(!showPopup);
     setClientToEdit({
       id: null,
@@ -146,13 +168,20 @@ const Clients = () => {
         <Loading />
       ) : (
         <div id="clients-container">
-          {/* {alert && <Alert text={alertText} toggleAlert={toggleAlert} />} */}
+          {alert && (
+            <Alert
+              text={alertText}
+              toggleAlert={toggleAlert}
+              isSuccess={successAlert}
+            />
+          )}
           <div className="clients-child">
             <ClientsFilter
               clients={clients}
               countries={countries}
               owners={owners}
               names={names}
+              isResetFilters={isResetFilters}
             />
           </div>
           <div className="clients-child">

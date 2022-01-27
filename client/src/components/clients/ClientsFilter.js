@@ -5,12 +5,11 @@ import { EMAIL_TYPES, IS_SOLD } from "../../utils/constants";
 import Select from "../general/Select";
 import "../../styles/clients/clientsFilter.css";
 
-const ClientsFilter = ({ countries, names, owners }) => {
+const ClientsFilter = ({ countries, names, owners, isResetFilters }) => {
   const [owner, setOwner] = useState("");
   const [sold, setSold] = useState("");
   const [name, setName] = useState("");
   const [country, setCountry] = useState("");
-  // const [countries, setCountries] = useState([]);
   const [emailType, setEmailType] = useState("");
   const [currentFilters, setCurrentFilters] = useState({
     name: "",
@@ -22,10 +21,22 @@ const ClientsFilter = ({ countries, names, owners }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log("currentFilters from ClientsFilter ", currentFilters);
     dispatch(getFilteredClients(currentFilters));
-    // currentFilters should be sent to redux searchClients
   }, [currentFilters, dispatch]);
+
+  useEffect(() => {
+    if (isResetFilters) {
+      resetFilters();
+    }
+  }, [isResetFilters]);
+
+  const resetFilters = () => {
+    setName("");
+    setCountry("");
+    setEmailType("");
+    setOwner("");
+    setSold("");
+  };
 
   const updateSelectedFilter = (e) => {
     const { value, name } = e.target;
@@ -61,8 +72,6 @@ const ClientsFilter = ({ countries, names, owners }) => {
         break;
       case "country":
         setCountry(value);
-        console.log(countries);
-
         break;
       case "emailType":
         setEmailType(value);

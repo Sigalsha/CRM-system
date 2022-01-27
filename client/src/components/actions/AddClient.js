@@ -19,7 +19,6 @@ const AddClient = ({ owners, addNewClient }) => {
   const [owner, setOwner] = useState("");
   const [alert, setAlert] = useState(false);
   const [alertText, setAlertText] = useState("");
-  const [successAlert, setSuccessAlert] = useState(false);
 
   // TODO - implement it
   /*       handleInputChange = (event) => {
@@ -32,10 +31,7 @@ const AddClient = ({ owners, addNewClient }) => {
         });
       }; */
 
-  const toggleAlert = () => {
-    setAlert(!alert);
-    setSuccessAlert(false);
-  };
+  const toggleAlert = () => setAlert(!alert);
 
   const checkNewClientDetails = (inputValues) => {
     for (let val in inputValues) {
@@ -93,9 +89,6 @@ const AddClient = ({ owners, addNewClient }) => {
     };
 
     addNewClient(newClient);
-    setAlertText(ACTIONS_ALERTS["success"]["update"]["addClient"]);
-    setAlert(true);
-    setSuccessAlert(true);
     setFirstName("");
     setSurname("");
     setCountry("");
@@ -105,13 +98,7 @@ const AddClient = ({ owners, addNewClient }) => {
 
   return (
     <div className="add-client-container">
-      {alert && (
-        <Alert
-          text={alertText}
-          toggleAlert={toggleAlert}
-          isSuccess={successAlert}
-        />
-      )}
+      {alert && <Alert text={alertText} toggleAlert={toggleAlert} />}
       <form onSubmit={handleSubmit}>
         <InputWrapper
           inputHeader={ACTION_HEADERS["add"]["firstName"]}

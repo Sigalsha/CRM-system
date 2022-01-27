@@ -90,7 +90,8 @@ export const ACTIONS_ALERTS = {
     update: {
       owner: "Owner has been changed!",
       emailType: "Email type has been changed!",
-      sold: "Sale has been declared!"
+      sold: "Sale has been declared!",
+      general: "Client was updated!"
     },
     addClient: "Client has been added!"
   }

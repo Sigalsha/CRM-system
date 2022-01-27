@@ -4,7 +4,9 @@ import {
   GET_CLIENTS,
   CLIENTS_LOADING,
   UPDATE_CLIENT,
+  UPDATE_CLIENT_FAIL,
   ADD_CLIENT,
+  ADD_CLIENT_FAIL,
   FILTER_CLIENTS
 } from "./types";
 import { returnErrors } from "./errorActions";
@@ -57,7 +59,14 @@ export const updateClient = (clientId, updatedClient) => async (dispatch) => {
       });
     })
     .catch((err) => {
-      dispatch(returnErrors(err.response.data, err.response.status));
+      dispatch(
+        returnErrors(
+          err.response.data,
+          err.response.status,
+          "UPDATE_CLIENT_FAIL"
+        )
+      );
+      dispatch({ type: UPDATE_CLIENT_FAIL });
       console.log("err from update client (put) backend ", err);
     });
 };
@@ -73,7 +82,10 @@ export const addClient = (newClient) => async (dispatch) => {
       });
     })
     .catch((err) => {
-      dispatch(returnErrors(err.response.data, err.response.status));
+      dispatch(
+        returnErrors(err.response.data, err.response.status, "ADD_CLIENT_FAIL")
+      );
+      dispatch({ type: ADD_CLIENT_FAIL });
       console.log("err from add new client (post) backend ", err);
     });
 };

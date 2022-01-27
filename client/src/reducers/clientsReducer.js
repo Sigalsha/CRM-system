@@ -3,7 +3,9 @@ import {
   CLIENTS_LOADING,
   UPDATE_CLIENT,
   ADD_CLIENT,
-  FILTER_CLIENTS
+  FILTER_CLIENTS,
+  ADD_CLIENT_FAIL,
+  UPDATE_CLIENT_FAIL
 } from "../actions/types";
 
 const initialState = {
@@ -29,17 +31,25 @@ export default function (state = initialState, action) {
       };
     case UPDATE_CLIENT:
       return {
-        ...state
+        ...state,
+        loading: false
       };
     case ADD_CLIENT:
       return {
         ...state,
-        clients: [action.payload, ...state.clients]
+        clients: [action.payload, ...state.clients],
+        loading: false
       };
     case CLIENTS_LOADING:
       return {
         ...state,
         loading: true
+      };
+    case UPDATE_CLIENT_FAIL:
+    case ADD_CLIENT_FAIL:
+      return {
+        ...state,
+        loading: false
       };
     default:
       return state;

@@ -13,7 +13,6 @@ import "../../styles/actions/updateClient.css";
 const UpdateClient = ({ currentClient, changeClient, emailTypes, owners }) => {
   const [alert, setAlert] = useState(false);
   const [alertText, setAlertText] = useState("");
-  const [successAlert, setSuccessAlert] = useState(false);
   const [inputValues, setInputValues] = useState({
     owner: "",
     emailType: ""
@@ -24,10 +23,7 @@ const UpdateClient = ({ currentClient, changeClient, emailTypes, owners }) => {
     setInputValues({ ...inputValues, [name]: value });
   };
 
-  const toggleAlert = () => {
-    setAlert(!alert);
-    setSuccessAlert(false);
-  };
+  const toggleAlert = () => setAlert(!alert);
 
   const actionClicked = (
     actionType,
@@ -48,22 +44,13 @@ const UpdateClient = ({ currentClient, changeClient, emailTypes, owners }) => {
       setAlert(true);
       return;
     }
-    changeClient({ [actionType]: actionValue });
-    setAlertText(ACTIONS_ALERTS["success"]["update"][actionType]);
-    setAlert(true);
-    setSuccessAlert(true);
+    changeClient({ [actionType]: actionValue }, actionType);
     resetInputs();
   };
 
   return (
     <div className="update-client-container">
-      {alert && (
-        <Alert
-          text={alertText}
-          toggleAlert={toggleAlert}
-          isSuccess={successAlert}
-        />
-      )}
+      {alert && <Alert text={alertText} toggleAlert={toggleAlert} />}
       <SubHeader
         text={ACTION_HEADERS["update"]["transferOwnership"]}
         htmlFor="owner"
