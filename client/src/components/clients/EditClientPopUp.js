@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import { EDIT_CLIENT } from "../../utils/constants";
 import InputWrapper from "../general/InputWrapper";
 import Input from "../general/Input";
 import "../../styles/clients/editClientPopUp.css";
@@ -71,7 +72,7 @@ const EditClientPopUp = ({
             }
           />
           <button type="submit" className="update-btn">
-            Update
+            {EDIT_CLIENT["updateBtn"]}
           </button>
         </form>
       </div>

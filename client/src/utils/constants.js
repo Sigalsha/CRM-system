@@ -1,5 +1,10 @@
 export const URL = "http://localhost:8100/clients/";
 
+export const LANDING = {
+  header: "CRM - manage your success",
+  subHeader: "Welcome"
+};
+
 export const NAV_LINKS_TITLES = {
   home: "Home",
   clients: "Clients",
@@ -7,7 +12,8 @@ export const NAV_LINKS_TITLES = {
   analytics: "Analytics",
   logout: "Logout",
   login: "Login",
-  register: "Register"
+  register: "Register",
+  welcome: "hey"
 };
 
 export const NAV_LINKS = {
@@ -23,6 +29,21 @@ export const CLIENTS_HEADERS = {
   emailType: "emailType",
   sold: "sold",
   owner: "owner"
+};
+
+export const CLIENTS_TABLE = {
+  sold: "V",
+  notSold: "-",
+  noResults: "Sorry, no results found"
+};
+
+export const CLIENT_PAGINATION = {
+  next: "next",
+  prev: "previous"
+};
+
+export const EDIT_CLIENT = {
+  updateBtn: "Update"
 };
 
 export const EMAIL_TYPES = ["A", "B", "C", "D", "No Type"];
@@ -104,6 +125,22 @@ export const COLORS = {
   lightgray: "lightgray",
   backgroundGray: "#f5f5f5",
   cyan: "#00bfff"
+};
+
+export const SELECT = {
+  default: "All"
+};
+
+export const CLIENT_ACQ_HEADERS = {
+  salesByYear: "Sales by Year",
+  salesCom: "Sales comparison"
+};
+
+export const ANALYTICS_HEADERS = {
+  salesByCategory: "Sales by",
+  clientAq: "Client Acquisition",
+  salesByMonth: `2018's Sales by Month`,
+  topEmployees: "Top Employees"
 };
 
 export const AUTH_HEADERS = {

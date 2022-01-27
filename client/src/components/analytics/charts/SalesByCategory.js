@@ -8,7 +8,11 @@ import {
   Tooltip,
   Text
 } from "recharts";
-import { SALES_BY_CATEGORY, COLORS } from "../../../utils/constants";
+import {
+  SALES_BY_CATEGORY,
+  COLORS,
+  ANALYTICS_HEADERS
+} from "../../../utils/constants";
 import "../../../styles/analytics/analytics.css";
 import "../../../styles/analytics/charts/salesByCategory.css";
 
@@ -64,7 +68,7 @@ const SalesByCategory = (props) => {
   return (
     <div className="chart-wrapper">
       <div className="category-header">
-        <h5 className="chart-header">Sales by</h5>
+        <h5 className="chart-header">{ANALYTICS_HEADERS["salesByCategory"]}</h5>
         <label htmlFor="sales by"></label>
         <select
           className="select-category"

@@ -1,5 +1,4 @@
-import React, { Fragment } from "react";
-import { NAV_LINKS_TITLES, NAV_LINKS } from "../../utils/constants";
+import { NAV_LINKS_TITLES, NAV_LINKS, LANDING } from "../../utils/constants";
 import { useAuth, useUsername } from "../../hooks/authHooks";
 import LinkContainer from "../general/LinkContainer";
 import "../../styles/general/landing.css";
@@ -12,40 +11,30 @@ const Landing = () => {
   authUserLandingLinks.pop();
 
   const authUserLinks = (
-    <Fragment>
+    <>
       {authUserLandingLinks.map((linkPath, i) => {
-        return (
-          <LinkContainer
-            key={i}
-            path={`/${linkPath}`}
-            text={NAV_LINKS_TITLES[linkPath]}
-          ></LinkContainer>
-        );
+        return <LinkWrapper linkPath={linkPath} key={i} />;
       })}
-    </Fragment>
+    </>
   );
 
   const guestUserLinks = (
-    <Fragment>
+    <>
       {NAV_LINKS.guestUser.map((linkPath, i) => {
-        return (
-          <LinkContainer
-            key={i}
-            path={`/${linkPath}`}
-            text={NAV_LINKS_TITLES[linkPath]}
-          ></LinkContainer>
-        );
+        return <LinkWrapper linkPath={linkPath} key={i} />;
       })}
-    </Fragment>
+    </>
   );
 
   return (
     <div className="landing-container">
       <div className="landing-header">
-        <span>CRM - manage your success</span>
+        <span>{LANDING["header"]}</span>
       </div>
       {isAuthenticated && (
-        <div className="landing-sub-header">Welcome {username}</div>
+        <div className="landing-sub-header">
+          {LANDING["subHeader"]} {username}
+        </div>
       )}
       <div className="landing-links-wrapper">
         {isAuthenticated ? authUserLinks : guestUserLinks}
@@ -53,5 +42,9 @@ const Landing = () => {
     </div>
   );
 };
+
+const LinkWrapper = ({ linkPath }) => (
+  <LinkContainer path={`/${linkPath}`} text={NAV_LINKS_TITLES[linkPath]} />
+);
 
 export default Landing;

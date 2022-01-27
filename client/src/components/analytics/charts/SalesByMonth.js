@@ -10,7 +10,7 @@ import {
   Text
 } from "recharts";
 import utils from "../../../utils/utils";
-import { COLORS, MONTHS } from "../../../utils/constants";
+import { COLORS, MONTHS, ANALYTICS_HEADERS } from "../../../utils/constants";
 import "../../../styles/analytics/analytics.css";
 
 const SalesByMonth = ({ sales }) => {
@@ -27,7 +27,7 @@ const SalesByMonth = ({ sales }) => {
 
   return (
     <div className="chart-wrapper">
-      <h5 className="chart-header">2018's Sales by Month</h5>
+      <h5 className="chart-header">{ANALYTICS_HEADERS["salesByMonth"]}</h5>
       <LineChart
         width={400}
         height={300}

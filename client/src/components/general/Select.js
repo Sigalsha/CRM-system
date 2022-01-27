@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { SELECT } from "../../utils/constants";
 import "../../styles/general/select.css";
 
 const Select = ({
@@ -32,7 +33,7 @@ const Select = ({
         placeholder={placeholder}
         optionlist={optionlist}
       >
-        <option defaultValue="All">All</option>
+        <option defaultValue="All">{SELECT["default"]}</option>
         {optionlist.map((option, i) => {
           return (
             <option key={i} value={option}>

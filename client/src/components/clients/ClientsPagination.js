@@ -2,14 +2,14 @@ import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowCircleLeft } from "@fortawesome/free-solid-svg-icons";
 import { faArrowCircleRight } from "@fortawesome/free-solid-svg-icons";
+import { CLIENT_PAGINATION } from "../../utils/constants";
 import "../../styles/clients/clientsPagination.css";
 
 const ClientsPagination = ({
   displayByPage,
   pageLimit,
   pageCount,
-  isPageReset,
-  clients
+  isPageReset
 }) => {
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -55,7 +55,7 @@ const ClientsPagination = ({
         }
       >
         <FontAwesomeIcon icon={faArrowCircleLeft} style={{ marginRight: 5 }} />
-        previous
+        {CLIENT_PAGINATION["previous"]}
       </span>
       <PageNumbers
         pageCount={pageCount}
@@ -74,7 +74,7 @@ const ClientsPagination = ({
             }
           `}
       >
-        next
+        {CLIENT_PAGINATION["next"]}
         <FontAwesomeIcon icon={faArrowCircleRight} style={{ marginLeft: 5 }} />
       </span>
     </div>

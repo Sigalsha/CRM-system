@@ -1,7 +1,11 @@
 import React from "react";
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from "recharts";
 import utils from "../../../utils/utils";
-import { COLORS } from "../../../utils/constants";
+import {
+  COLORS,
+  CLIENT_ACQ_HEADERS,
+  ANALYTICS_HEADERS
+} from "../../../utils/constants";
 import "../../../styles/analytics/analytics.css";
 import "../../../styles/analytics/charts/clientAcquisition.css";
 
@@ -95,15 +99,15 @@ const ClientAcquisition = ({ sales, salesOf2018, years }) => {
 
   return (
     <div className="pies-wrapper">
-      <h5 className="chart-header">Client Acquisition</h5>
+      <h5 className="chart-header">{ANALYTICS_HEADERS["clientAq"]}</h5>
       <div className="pie-wrapper">
         <div>
           {generatePie(getSalesDataByYears, renderCustomizedLabel)}
-          <p className="pie-header">Sales by Year</p>
+          <p className="pie-header">{CLIENT_ACQ_HEADERS["salesByYear"]}</p>
         </div>
         <div>
           {generatePie(getSalesData)}
-          <p className="pie-header">Sales comparison</p>
+          <p className="pie-header">{CLIENT_ACQ_HEADERS["salesCom"]}</p>
         </div>
       </div>
     </div>

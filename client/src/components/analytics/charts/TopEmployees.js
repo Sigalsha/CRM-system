@@ -10,13 +10,13 @@ import {
   BarChart,
   CartesianGrid
 } from "recharts";
-import { COLORS } from "../../../utils/constants";
+import { COLORS, ANALYTICS_HEADERS } from "../../../utils/constants";
 import "../../../styles/analytics/analytics.css";
 
 const TopEmployees = ({ owners, getOwners }) => {
   return (
     <div className="chart-wrapper">
-      <h5 className="chart-header">Top Employees</h5>
+      <h5 className="chart-header">{ANALYTICS_HEADERS["topEmployees"]}</h5>
       <BarChart
         width={400}
         height={300}

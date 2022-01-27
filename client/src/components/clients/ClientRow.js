@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { CLIENTS_TABLE } from "../../utils/constants";
 import Loading from "../general/Loading";
 import ClientData from "./ClientData";
 import ColumnsHeader from "./ColumnsHeader";
@@ -35,7 +36,7 @@ const ClientRow = ({ clients, toggleEditClient }) => {
 
   const noResults = (
     <tr>
-      <th className="no-results">Sorry, no results found</th>
+      <th className="no-results">{CLIENTS_TABLE["noResults"]}</th>
     </tr>
   );
 

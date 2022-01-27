@@ -57,7 +57,9 @@ const Navbar = () => {
   return (
     <div id="navbar-container">
       {isAuthenticated && username && (
-        <p style={{ color: "white" }}>hey {username}</p>
+        <p style={{ color: "white" }}>
+          {NAV_LINKS_TITLES["welcome"]} {username}
+        </p>
       )}
       {isAuthenticated ? authUserLinks : guestLinks}
     </div>

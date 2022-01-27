@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import { CLIENTS_TABLE } from "../../utils/constants";
 import "../../styles/clients/clientData.css";
 
 const ClientData = ({
@@ -48,10 +49,10 @@ const ClientData = ({
         <td className="rowItem">
           {sold ? (
             <span>
-              <strong>V</strong>
+              <strong>{CLIENTS_TABLE["sold"]}</strong>
             </span>
           ) : (
-            "-"
+            `${CLIENTS_TABLE["notSold"]}`
           )}
         </td>
         <td className="rowItem">{owner}</td>
