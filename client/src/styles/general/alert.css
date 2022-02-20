@@ -33,7 +33,7 @@
   color: var(--clr-alert);
   background-color: var(--clr-back-container);
   opacity: 0.85;
-  height: 20vh;
+  height: var(--h-20-vh);
 }
 
 .alert-success {

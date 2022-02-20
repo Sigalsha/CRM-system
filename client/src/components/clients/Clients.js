@@ -76,6 +76,11 @@ const Clients = () => {
     }
   }, [clients, updatedClient, isResetFilters]);
 
+  const toggleAlert = () => {
+    setAlert(!alert);
+    setSuccessAlert(false);
+  };
+
   const updateCurrentPage = (pageIndex) => {
     return [...clients].slice(pageIndex - itemsPerPage, pageIndex);
   };
@@ -131,11 +136,6 @@ const Clients = () => {
         sold: client.sold ? client.sold : false
       }
     );
-  };
-
-  const toggleAlert = () => {
-    setAlert(!alert);
-    setSuccessAlert(false);
   };
 
   const editClientChange = (updatedClient) => {

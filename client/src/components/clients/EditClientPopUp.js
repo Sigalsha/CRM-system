@@ -4,6 +4,7 @@ import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { EDIT_CLIENT } from "../../utils/constants";
 import InputWrapper from "../general/InputWrapper";
 import Input from "../general/Input";
+
 import "../../styles/clients/editClientPopUp.css";
 
 const EditClientPopUp = ({
@@ -15,7 +16,9 @@ const EditClientPopUp = ({
   const [surname, setSurname] = useState(clientToEdit.name.split(" ")[1]);
   const [country, setCountry] = useState(clientToEdit.country);
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
     const clientToUpdate = {
       name:
         firstName && surname ? `${firstName} ${surname}` : clientToEdit.name,

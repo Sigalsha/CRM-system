@@ -120,12 +120,18 @@ export const SALES_BY_CATEGORY = {
 };
 
 export const COLORS = {
-  brown: "#795548",
+  /*   brown: "#795548",
   yellow: "#f7ce3e",
   orange: "#ff884b",
   lightgray: "lightgray",
   backgroundGray: "#f5f5f5",
-  cyan: "#00bfff"
+  cyan: "#00bfff" */
+  brown: "#31415d",
+  yellow: "#4f6b8d",
+  orange: "#738ba4",
+  lightgray: "#b1cfe7",
+  backgroundGray: "#f5f5f5",
+  cyan: "#89a1b8"
 };
 
 export const SELECT = {

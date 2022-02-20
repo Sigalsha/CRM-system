@@ -17,6 +17,7 @@
 * {
   text-decoration: none;
   font-family: var(--ff-primary);
+  margin: 0;
 }
 
 body {

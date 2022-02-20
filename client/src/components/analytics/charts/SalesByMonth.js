@@ -32,7 +32,7 @@ const SalesByMonth = ({ sales }) => {
         width={400}
         height={300}
         data={getSalesByMonth()}
-        margin={{ top: 20, bottom: 5, right: 5, left: 5 }}
+        margin={{ top: 25, bottom: 5, right: 5, left: 5 }}
         fontSize={12}
       >
         <CartesianGrid strokeDasharray="3 3" />

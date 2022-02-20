@@ -1,4 +1,4 @@
-import React, { useState, Fragment, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   faUsers,
@@ -99,7 +99,7 @@ const Analytics = () => {
   };
 
   return (
-    <Fragment>
+    <>
       {hasError && <p>Something went wrong.</p>}
       {loading ? (
         <Loading />
@@ -137,7 +137,7 @@ const Analytics = () => {
           </div>
         </div>
       )}
-    </Fragment>
+    </>
   );
 };
 

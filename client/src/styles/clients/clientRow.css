@@ -4,7 +4,7 @@
 
 .table-loader-position {
   text-align: center;
-  padding-top: 20vh;
+  padding-top: var(--h-20-vh);
 }
 
 .no-results {

@@ -21,7 +21,7 @@ const Badges = ({ badges }) => {
               <span className="badge-tooltip">{badge.description}</span>
             </p>
             <p className="badge-desc">{badge.description}</p>
-            <h2 className="badge-result">{badge.result}</h2>
+            <p className="badge-result">{badge.result}</p>
           </div>
         );
       })}

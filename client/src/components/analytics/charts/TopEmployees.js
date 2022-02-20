@@ -21,7 +21,7 @@ const TopEmployees = ({ owners, getOwners }) => {
         width={400}
         height={300}
         data={getOwners(owners)}
-        margin={{ top: 20, bottom: 5, right: 5, left: 5 }}
+        margin={{ top: 25, bottom: 5, right: 5, left: 5 }}
         fontSize={12}
       >
         <CartesianGrid stroke={COLORS["backgroundGray"]} />
@@ -35,8 +35,8 @@ const TopEmployees = ({ owners, getOwners }) => {
           <LabelList
             dataKey="name"
             position="top"
-            fontSize={12}
-            marginBottom={15}
+            fontSize={10}
+            marginBottom={20}
           />
         </Bar>
       </BarChart>

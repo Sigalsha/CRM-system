@@ -1,4 +1,17 @@
 :root {
+  /*
+  dark: #070b1b;
+  deep-blue: #31415d;
+  primary-blue: #4f6b8d;
+  secondary-blue: #738ba4;
+  lightest-blue: #b1cfe7;
+  lighter-blue: #9ab4cc;
+  light-blue: #89a1b8;
+
+  
+  
+  */
+
   /* Layouts */
   --bp-mobile: 375px;
   --bp-desktop: 1440px;
@@ -8,12 +21,14 @@
   --clr-primary-back: rgb(236, 240, 241); /*#ecf0f1*/
   --clr-primary-text: rgb(0, 0, 0);
   --clr-secondary-text: rgb(255, 255, 255);
-  --clr-primary-yellow: rgb(247, 206, 62); /*#f7ce3e*/
+  --clr-primary-yellow: #89a1b8; /**/
+  /* --clr-primary-yellow: rgb(247, 206, 62); */ /*#f7ce3e*/
   --clr-border: rgb(211, 211, 211); /*lightgray*/
   --clr-tran: transparent;
   --clr-red: rgb(255, 0, 0);
 
-  --clr-link-back: rgba(247, 206, 62, 0.9);
+  /* --clr-link-back: rgba(247, 206, 62, 0.9); */
+  --clr-link-back: #4f6b8d;
   --clr-link-back-hover: rgba(247, 206, 62, 0.5);
   --clr-box-shadow: rgba(0, 0, 0, 0.6);
 
@@ -21,9 +36,12 @@
   --clr-border-landing: rgb(0, 0, 0);
   /* Navbar */
   --clr-nav-hover: rgba(169, 169, 169, 0.2);
+  --clr-nav-back: rgb(7, 11, 27);
   /* Badges */
-  --clr-badges-odd: rgba(255, 136, 75, 0.85);
-  --clr-badges-even: rgba(247, 206, 62, 0.85);
+  /* --clr-badges-odd: rgba(255, 136, 75, 0.85); */
+  --clr-badges-odd: #4f6b8d;
+  /* --clr-badges-even: rgba(247, 206, 62, 0.85); */
+  --clr-badges-even: #89a1b8;
   /* ClientsPagination */
   --clr-pagination-num: rgb(121, 85, 72);
   /* EditClientPopUp */

@@ -24,6 +24,13 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
+
+  const [inputValues, setInputValues] = useState({
+    email: "",
+    password: "",
+    name: ""
+  });
+
   const [alert, setAlert] = useState(false);
   const [alertText, setAlertText] = useState("");
   const dispatch = useDispatch();
@@ -53,6 +60,11 @@ const Register = () => {
 
   const toggleAlert = () => setAlert(!alert);
 
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setInputValues({ ...inputValues, [name]: value });
+  };
+
   const checkNewUserDetails = (inputValues) => {
     for (let val in inputValues) {
       if (!utils.isMinLength(inputValues[val])) {
@@ -75,21 +87,21 @@ const Register = () => {
 
     if (
       !validateInput(
-        name,
+        inputValues.name,
         "name",
         setAlert,
         setAlertText,
         AUTH_ALERTS["register"]
       ) ||
       !validateInput(
-        email,
+        inputValues.email,
         "email",
         setAlert,
         setAlertText,
         AUTH_ALERTS["register"]
       ) ||
       !validateInput(
-        password,
+        inputValues.password,
         "password",
         setAlert,
         setAlertText,
@@ -99,13 +111,13 @@ const Register = () => {
       return;
     }
 
+    const { name, email, password } = inputValues;
+
     if (!checkNewUserDetails({ name, email, password })) return;
 
     dispatch(registerUser({ name, email, password }));
 
-    setName("");
-    setEmail("");
-    setPassword("");
+    setInputValues({ ...inputValues, name: "", email: "", password: "" });
     resetInputs();
   };
 
