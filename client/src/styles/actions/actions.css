@@ -35,7 +35,7 @@
   padding: var(--pd-1);
   text-transform: uppercase;
   font-weight: var(--fw-bold);
-  letter-spacing: 0.2;
+  letter-spacing: 0.15em;
   font-size: var(--fs-basis);
   color: var(--clr-primary-text);
 }

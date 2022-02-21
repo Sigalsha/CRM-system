@@ -29,8 +29,8 @@ const SalesByMonth = ({ sales }) => {
     <div className="chart-wrapper">
       <h5 className="chart-header">{ANALYTICS_HEADERS["salesByMonth"]}</h5>
       <LineChart
-        width={400}
-        height={300}
+        width={350}
+        height={200}
         data={getSalesByMonth()}
         margin={{ top: 25, bottom: 5, right: 5, left: 5 }}
         fontSize={12}

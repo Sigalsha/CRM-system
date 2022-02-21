@@ -85,8 +85,8 @@ const SalesByCategory = (props) => {
         </select>
       </div>
       <AreaChart
-        width={400}
-        height={300}
+        width={350}
+        height={200}
         data={generateCategoryData()}
         margin={{ top: 20, bottom: 5, right: 5, left: 5 }}
         fontSize={12}

@@ -47,9 +47,7 @@ function App() {
       ) : (
         <div className="app">
           <Router>
-            <div className="general">
-              <Navbar />
-            </div>
+            <Navbar />
             <Routes>
               <Route element={<ProtectedRoutes />}>
                 <Route path="/" element={<Landing />} />

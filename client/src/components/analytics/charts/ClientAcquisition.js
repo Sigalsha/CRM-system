@@ -71,8 +71,8 @@ const ClientAcquisition = ({ sales, salesOf2018, years }) => {
 
   const generatePie = (pieData, renderCustomizedLabel) => {
     return (
-      <ResponsiveContainer width={250} height={250}>
-        <PieChart fontSize={13}>
+      <ResponsiveContainer width={200} height={180}>
+        <PieChart fontSize={11}>
           <Pie
             data={pieData()}
             cx="50%"
@@ -83,7 +83,7 @@ const ClientAcquisition = ({ sales, salesOf2018, years }) => {
                 ? renderCustomizedLabel
                 : (name) => `${name.value}`
             }
-            outerRadius={80}
+            outerRadius={60}
             dataKey="value"
             legendType={"rect"}
           >

@@ -18,5 +18,5 @@
 .pie-header {
   text-align: center;
   margin-right: var(--m-right-20);
-  font-size: var(--fs-px-14);
+  font-size: 11px;
 }

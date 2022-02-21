@@ -31,7 +31,7 @@
   flex-flow: column wrap;
   max-width: fit-content;
   max-height: 400px;
-  margin: 20px;
+  margin: 2%;
 }
 
 .chart-header {
@@ -39,6 +39,26 @@
   font-weight: var(--fw-bold);
   text-align: center;
   padding-top: 5px;
+}
+
+.recharts-wrapper {
+  letter-spacing: normal;
+}
+
+@media screen and (min-width: 1023px) {
+  .charts-container {
+    margin-top: 2%;
+    justify-content: center;
+    gap: 2%;
+  }
+
+  .chart-wrapper {
+    margin: 1% 2%;
+  }
+
+  .chart-header {
+    padding-top: 0;
+  }
 }
 
 @media screen and (max-width: 700px) {
@@ -60,6 +80,10 @@
 }
 
 @media screen and (max-width: 500px) {
+  .charts-container {
+    margin-top: 5%;
+    padding: 5% 0;
+  }
   .recharts-wrapper {
     margin-right: var(--m-right-40);
   }

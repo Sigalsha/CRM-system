@@ -8,10 +8,9 @@
 }
 
 #navbar-container {
-  height: 2%;
   width: var(--w-100);
   font-size: var(--fs-basis);
-  padding: 0.5%;
+  padding: 0 0.5%;
   display: flex;
   text-align: center;
   align-items: center;
@@ -44,8 +43,15 @@
   background-color: var(--clr-nav-hover);
 }
 
+@media screen and (max-width: 700px) {
+  #navbar-container {
+    padding: 1%;
+  }
+}
+
 @media screen and (max-width: 400px) {
   #navbar-container {
-    text-align: start;
+    height: 5vh;
+    /* text-align: start; */
   }
 }

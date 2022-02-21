@@ -29,7 +29,7 @@
 
   /* --clr-link-back: rgba(247, 206, 62, 0.9); */
   --clr-link-back: #4f6b8d;
-  --clr-link-back-hover: rgba(247, 206, 62, 0.5);
+  --clr-link-back-hover: rgb(137, 161, 184); /*#89a1b8*/
   --clr-box-shadow: rgba(0, 0, 0, 0.6);
 
   /* Landing */

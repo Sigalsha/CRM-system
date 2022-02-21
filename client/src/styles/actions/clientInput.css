@@ -10,7 +10,6 @@
   padding: var(--pd-1);
   margin: 1% 1% 1% 2%;
   font-size: var(--fs-basis-s1);
-  letter-spacing: normal;
 }
 
 .client-input-header {

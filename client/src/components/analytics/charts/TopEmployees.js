@@ -18,8 +18,8 @@ const TopEmployees = ({ owners, getOwners }) => {
     <div className="chart-wrapper">
       <h5 className="chart-header">{ANALYTICS_HEADERS["topEmployees"]}</h5>
       <BarChart
-        width={400}
-        height={300}
+        width={350}
+        height={200}
         data={getOwners(owners)}
         margin={{ top: 25, bottom: 5, right: 5, left: 5 }}
         fontSize={12}
@@ -35,8 +35,10 @@ const TopEmployees = ({ owners, getOwners }) => {
           <LabelList
             dataKey="name"
             position="top"
-            fontSize={10}
+            fontSize={9}
             marginBottom={20}
+            marginLeft={20}
+            marginRight={20}
           />
         </Bar>
       </BarChart>

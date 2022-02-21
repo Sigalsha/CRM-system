@@ -32,7 +32,6 @@
   opacity: 0.87;
   color: var(--clr-secondary-text);
   font-size: var(--fs-basis-s1);
-  letter-spacing: 0.3;
 }
 
 .exit-btn {
