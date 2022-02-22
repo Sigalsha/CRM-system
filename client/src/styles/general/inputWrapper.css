@@ -6,4 +6,5 @@
   display: inline-flex;
   width: var(--w-100);
   align-items: center;
+  line-height: 2;
 }

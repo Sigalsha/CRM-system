@@ -51,7 +51,6 @@
 
 @media screen and (max-width: 400px) {
   #navbar-container {
-    height: 5vh;
-    /* text-align: start; */
+    height: 8vh;
   }
 }

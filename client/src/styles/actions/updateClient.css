@@ -3,20 +3,21 @@
 @import "../sizes.css";
 
 .update-client-container {
-  width: var(--w-90);
+  width: var(--w-70);
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
   text-align: left;
   font-size: var(--fs-basis-s1);
-  margin: 1% 1% 1% 2%;
-  padding: var(--pd-1);
+  margin: 0 1% 0 2%;
+  padding: 0 1%;
 }
 
 .light-btn {
   width: var(--w-25);
   margin-left: 10%;
   margin-top: 1%;
+  line-height: 2;
   text-transform: uppercase;
   color: var(--clr-primary-yellow);
   font-weight: var(--fw-bold);
@@ -29,15 +30,11 @@
 .empty-div {
   width: var(--w-25);
   margin-left: var(--m-left-5);
+  margin-top: 1%;
+  line-height: 2;
 }
 
 @media screen and (min-width: 1023px) {
-  .update-client-container {
-    width: var(--w-70);
-    margin: 0.5% 1% 0.5% 2%;
-    padding-top: 0;
-  }
-
   .empty-div {
     margin-left: var(--m-left-1);
   }

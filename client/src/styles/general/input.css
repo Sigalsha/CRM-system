@@ -3,7 +3,7 @@
 @import "../sizes.css";
 
 .general-input {
-  width: var(--w-40);
+  width: var(--w-70);
   background-color: var(--clr-tran);
   border-style: solid;
   border-width: var(--bor-w-001);
@@ -21,6 +21,6 @@
 
 @media screen and (max-width: 415px) {
   .general-input {
-    width: var(--w-50);
+    width: var(--w-70);
   }
 }

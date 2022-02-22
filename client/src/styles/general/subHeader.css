@@ -1,7 +1,8 @@
 @import "../sizes.css";
 
 .update-header {
-  width: var(--w-25);
+  width: var(--w-30);
+  line-height: 2;
   margin-top: 1%;
 }
 

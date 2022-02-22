@@ -25,13 +25,13 @@
   vertical-align: middle;
   /* margin-top: var(--m-top-10-px); */
   width: var(--w-18-vw);
-  /* height: var(--h-22-vh); */
+  height: 15vh;
   border: 1px solid var(--clr-tran);
   border-radius: 15px;
   display: flex;
   flex-flow: column;
   align-items: center;
-  padding: 1%;
+  padding: 1% 0.5% 0.5% 0.5%;
 }
 
 .badge:nth-child(odd) {
@@ -43,16 +43,15 @@
 }
 
 .badge-icon {
-  font-size: 1.2em;
-  margin-top: 5%;
+  font-size: 1em;
 }
 
 .badge-header {
-  margin-top: 5%;
+  margin-top: 3%;
   font-weight: var(--fw-bold);
   text-transform: uppercase;
   white-space: normal;
-  font-size: 0.95em;
+  font-size: 0.9em;
 }
 
 .tooltip-hover .badge-tooltip {
@@ -74,8 +73,8 @@
 }
 
 .badge-desc {
-  margin-top: 5%;
-  font-size: var(--fs-px-12);
+  margin-top: 3%;
+  font-size: var(--fs-px-11);
   text-align: center;
   font-weight: var(--fw-light);
   white-space: normal;
@@ -83,7 +82,7 @@
 }
 
 .badge-result {
-  font-size: var(--fs-basis-m1);
+  font-size: 1.1em;
   font-weight: var(--fw-bold);
   /* margin: auto 0 1vh 0; */
   margin-top: auto;
@@ -91,23 +90,42 @@
 
 @media screen and (min-width: 1023px) {
   .badge {
-    height: 15vh;
     padding: 0.5%;
-  }
-
-  .badge-icon {
-    margin-top: 2%;
-    font-size: 1em;
-  }
-
-  .badge-header {
-    margin-top: 3%;
-    font-size: 0.9em;
   }
 
   .badge-desc {
     font-size: var(--fs-px-12);
     margin-top: 3%;
+  }
+}
+
+@media screen and (max-width: 880px) {
+  .badge {
+    padding: 0.5%;
+  }
+
+  .badge-header {
+    font-size: 0.85em;
+  }
+
+  .badge-result {
+    font-size: 0.95em;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .badge {
+    width: 30vw;
+    margin: 2% 0;
+    padding: 1%;
+  }
+
+  .badge-header {
+    font-size: 0.95em;
+  }
+
+  .badge-desc {
+    font-size: 12px;
   }
 
   .badge-result {
@@ -115,20 +133,9 @@
   }
 }
 
-@media screen and (max-width: 880px) {
+@media screen and (max-width: 600px) {
   .badge {
-    width: var(--w-40);
-    margin: 20px;
-  }
-
-  .badge-desc {
-    font-size: var(--fs-px-12);
-  }
-}
-
-@media screen and (max-width: 700px) {
-  .badge-icon {
-    margin-top: var(--m-top-15-px);
+    width: 40vw;
   }
 }
 
@@ -140,6 +147,7 @@
   .badge {
     width: 45vw;
     margin: 2% 0;
+    padding: 2%;
   }
 
   .badge-header {
@@ -148,7 +156,7 @@
   }
 
   .badge-icon {
-    font-size: 1.5em;
+    font-size: 1.2em;
     margin-top: 2%;
   }
 
@@ -174,13 +182,17 @@
   }
 
   .badge-result {
-    font-size: 1.2em;
+    font-size: 1.5em;
   }
 }
 
 @media screen and (max-width: 400px) {
+  .badge-icon {
+    margin-top: 0;
+  }
+
   .badge-header {
-    font-size: var(--fs-basis-s1);
+    font-size: 0.8em;
   }
 
   .tooltip-hover .badge-tooltip {
@@ -188,5 +200,9 @@
     margin-left: var(--m-left-10-px);
     padding: 5px;
     font-size: var(--fs-px-12);
+  }
+
+  .badge-result {
+    font-size: 1.2em;
   }
 }
