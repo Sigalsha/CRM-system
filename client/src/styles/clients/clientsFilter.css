@@ -4,16 +4,42 @@
 .clients-filter-wrapper {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
   flex-wrap: wrap;
-  margin-top: var(--m-top-20-px);
+  margin-top: 2%;
+  gap: 3%;
 }
 
 .filter-group {
   display: flex;
   align-items: center;
-  margin: 0 10px;
-  width: 200px;
+  flex: 1;
+}
+
+@media screen and (max-width: 900px) {
+  .filter-group label {
+    font-size: 0.9em;
+    width: 40%;
+  }
+
+  .text-row {
+    font-size: 0.9em;
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .clients-filter-wrapper {
+    gap: 4%;
+  }
+
+  .filter-group label {
+    font-size: 0.85em;
+  }
+
+  .text-row {
+    font-size: 0.85em;
+  }
 }
 
 @media screen and (max-width: 700px) {

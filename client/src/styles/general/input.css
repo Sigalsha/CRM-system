@@ -13,6 +13,10 @@
   text-decoration: none;
 }
 
+.general-input:focus {
+  outline: none;
+}
+
 @media screen and (max-width: 700px) {
   .general-input {
     margin-top: 1.5%;

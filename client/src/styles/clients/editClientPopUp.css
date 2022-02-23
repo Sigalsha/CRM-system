@@ -26,15 +26,16 @@
   width: var(--w-50);
   padding: var(--pd-2);
   display: flex;
-  flex-wrap: wrap;
+  flex-flow: column wrap;
   text-align: left;
   background-color: var(--clr-back-container);
-  opacity: 0.87;
+  opacity: 0.95;
   color: var(--clr-secondary-text);
   font-size: var(--fs-basis-s1);
 }
 
 .exit-btn {
+  flex: 1;
   margin-left: var(--m-left-au);
   font-size: var(--fs-basis);
 }
@@ -43,37 +44,54 @@
   cursor: pointer;
 }
 
+form {
+  flex: 5;
+  flex-flow: column wrap;
+}
+
 .popup-row {
   width: var(--w-100);
-  display: flex;
-  line-height: 30px;
-  margin-bottom: 5px;
   background-color: var(--clr-tran);
+  flex: 2;
+  display: flex;
+  align-items: center;
 }
 
 .popup-row span {
   width: var(--w-40);
 }
 
+.update-header {
+  width: var(--w-25);
+}
+
 .popup-input {
-  width: var(--w-55);
+  width: 60%;
   background-color: var(--clr-tran);
-  border-style: var(--bor-st-sol);
   border-width: var(--bor-w-001);
   border-color: var(--clr-border-popup);
-  color: var(--clr-secondary-text);
+  color: #b1cfe7;
+  font-size: 1em;
+  padding-bottom: 1%;
+  margin-top: 1%;
+}
+
+.popup-input:focus {
+  outline: none;
 }
 
 .update-btn {
-  width: var(--w-95);
+  width: 86%;
   margin-top: 5%;
-  margin-bottom: 2%;
-  background-color: var(--clr-primary-yellow);
+  background-color: #738ba4;
   color: var(--clr-primary-text);
   font-weight: var(--fw-bold);
   text-align: center;
   font-size: var(--fs-basis);
-  padding: var(--pd-1-0);
+  padding: 1.5%;
+  border-color: var(--clr-tran);
+  border-radius: 5px;
+  flex: 1;
 }
 
 .update-btn:hover {
@@ -82,12 +100,16 @@
 
 @media screen and (min-width: 1023px) {
   .popup-container {
+    height: 50%;
     width: var(--w-45);
-    padding: 1.5%;
   }
 
-  .update-btn {
-    margin-bottom: 0;
+  .update-header {
+    font-size: 1.2em;
+  }
+
+  .popup-input {
+    font-size: 1.1em;
   }
 }
 

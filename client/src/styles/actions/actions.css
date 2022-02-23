@@ -13,8 +13,7 @@
 
 #actions-container {
   width: 98%;
-  margin-left: var(--m-left-1);
-  margin-right: 1%;
+  padding: 0 1%;
   background-color: var(--clr-primary-back);
 }
 

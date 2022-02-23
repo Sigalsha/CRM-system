@@ -48,9 +48,3 @@
     padding: 1%;
   }
 }
-
-@media screen and (max-width: 400px) {
-  #navbar-container {
-    height: 8vh;
-  }
-}

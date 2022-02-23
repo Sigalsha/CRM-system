@@ -46,7 +46,7 @@
   --clr-pagination-num: rgb(121, 85, 72);
   /* EditClientPopUp */
   --clr-back-wrapper: rgba(0, 0, 0, 0.4);
-  --clr-back-container: rgb(0, 0, 0);
+  --clr-back-container: rgb(7, 11, 27); /*#070b1b*/
   --clr-border-popup: rgb(255, 255, 255);
   /* Alert */
   --clr-alert: rgb(217, 83, 79); /*#d9534f*/

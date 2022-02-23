@@ -12,7 +12,7 @@
 
 .badges-wrapper {
   height: var(--h-100);
-  /*   max-width: 97%; */
+  max-width: 98%;
   display: flex;
   justify-content: space-evenly;
   flex-flow: row wrap;
@@ -23,7 +23,6 @@
 .badge {
   text-align: center;
   vertical-align: middle;
-  /* margin-top: var(--m-top-10-px); */
   width: var(--w-18-vw);
   height: 15vh;
   border: 1px solid var(--clr-tran);
@@ -84,11 +83,14 @@
 .badge-result {
   font-size: 1.1em;
   font-weight: var(--fw-bold);
-  /* margin: auto 0 1vh 0; */
   margin-top: auto;
 }
 
 @media screen and (min-width: 1023px) {
+  .badges-wrapper {
+    max-width: 100%;
+  }
+
   .badge {
     padding: 0.5%;
   }
@@ -100,6 +102,11 @@
 }
 
 @media screen and (max-width: 880px) {
+  .badges-wrapper {
+    max-width: 97%;
+    gap: 1%;
+  }
+
   .badge {
     padding: 0.5%;
   }
@@ -147,17 +154,16 @@
   .badge {
     width: 45vw;
     margin: 2% 0;
-    padding: 2%;
+    padding: 5% 2%;
   }
 
   .badge-header {
     padding: 0 5%;
-    line-height: 1.5;
+    line-height: 2;
   }
 
   .badge-icon {
-    font-size: 1.2em;
-    margin-top: 2%;
+    font-size: 1.5em;
   }
 
   .tooltip-hover {
@@ -187,12 +193,13 @@
 }
 
 @media screen and (max-width: 400px) {
-  .badge-icon {
-    margin-top: 0;
+  .badge {
+    padding: 2%;
   }
 
   .badge-header {
     font-size: 0.8em;
+    margin-top: 5%;
   }
 
   .tooltip-hover .badge-tooltip {
@@ -203,6 +210,7 @@
   }
 
   .badge-result {
-    font-size: 1.2em;
+    font-size: 1.5em;
+    margin-bottom: 5%;
   }
 }
