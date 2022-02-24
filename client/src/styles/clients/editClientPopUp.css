@@ -24,7 +24,8 @@
   top: var(--m-top-50);
   transform: translate(-50%, -50%);
   width: var(--w-50);
-  padding: var(--pd-2);
+  height: 40%;
+  padding: 3%;
   display: flex;
   flex-flow: column wrap;
   text-align: left;
@@ -38,6 +39,7 @@
   flex: 1;
   margin-left: var(--m-left-au);
   font-size: var(--fs-basis);
+  display: inline-flex;
 }
 
 .exit-btn:hover {
@@ -59,10 +61,6 @@ form {
 
 .popup-row span {
   width: var(--w-40);
-}
-
-.update-header {
-  width: var(--w-25);
 }
 
 .popup-input {
@@ -102,6 +100,7 @@ form {
   .popup-container {
     height: 50%;
     width: var(--w-45);
+    padding: 2%;
   }
 
   .update-header {
@@ -116,10 +115,8 @@ form {
 @media screen and (max-width: 700px) {
   .popup-container {
     font-size: var(--fs-editC);
-  }
-
-  .popup-row {
-    line-height: 25px;
+    width: 55%;
+    height: 35%;
   }
 
   .popup-row span {
@@ -135,17 +132,37 @@ form {
   }
 }
 
-@media screen and (max-width: 400px) {
-  .popup-wrapper {
-    font-size: var(--fs-px-14);
+@media screen and (max-width: 600px) {
+  .popup-container {
+    width: 60%;
+    height: 30%;
   }
 
-  .popup-row span {
-    padding-right: 10px;
+  .update-header {
+    font-size: 0.95em;
+  }
+
+  .popup-input {
+    font-size: 0.9em;
   }
 
   .update-btn {
-    margin-top: var(--m-top-10-px);
-    margin-bottom: 5px;
+    font-size: 0.95em;
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .popup-container {
+    width: 70%;
+    padding: 5%;
+  }
+
+  .popup-input {
+    font-size: 1em;
+  }
+
+  .update-btn {
+    font-size: 1em;
   }
 }
