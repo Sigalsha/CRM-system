@@ -4,7 +4,7 @@
 .clients-pagination-wrapper {
   display: flex;
   justify-content: space-evenly;
-  margin: 20px 0;
+  margin: 3% 0;
   flex-wrap: wrap;
 }
 
@@ -30,7 +30,7 @@
 }
 
 .page-number {
-  padding-right: 5px;
+  padding: 0 5px;
   cursor: pointer;
 }
 
@@ -44,23 +44,41 @@
   color: var(--clr-primary-text);
 }
 
-@media screen and (max-width: 1000px) {
+.page-not-in-range {
+  display: none;
+}
+
+@media screen and (min-width: 1023px) {
+  /*   .clients-pagination-wrapper {
+    margin: 2% 0;
+  } */
+
+  .page-number {
+    padding: 0 0.3vw;
+  }
+
   .page-not-in-range {
-    display: none;
+    display: inherit;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .clients-pagination-wrapper {
+    margin: 5% 0;
   }
 }
 
 @media screen and (max-width: 700px) {
-  .page-numbers {
-    font-size: var(--fs-px-12);
+  .clients-pagination-wrapper {
+    font-size: 1.2em;
+    margin: 3%;
+    justify-content: space-between;
   }
 }
 
 @media screen and (max-width: 415px) {
   .clients-pagination-wrapper {
-    font-size: var(--fs-px-12);
-    margin: 5px 10px 10px 5px;
-    justify-content: space-between;
+    margin: 5%;
   }
 
   .page-number {

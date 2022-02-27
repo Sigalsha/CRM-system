@@ -6,7 +6,7 @@
   align-items: center;
   justify-content: space-evenly;
   flex-wrap: wrap;
-  margin-top: 2%;
+  margin: 3% 0;
   gap: 3%;
 }
 
@@ -16,65 +16,37 @@
   flex: 1;
 }
 
-@media screen and (max-width: 900px) {
-  .filter-group label {
-    font-size: 0.9em;
-    width: 40%;
-  }
-
-  .text-row {
-    font-size: 0.9em;
-    width: 60%;
-  }
-}
-
 @media screen and (max-width: 800px) {
   .clients-filter-wrapper {
-    gap: 4%;
-  }
-
-  .filter-group label {
-    font-size: 0.85em;
-  }
-
-  .text-row {
-    font-size: 0.85em;
+    margin: 5% 0;
   }
 }
 
 @media screen and (max-width: 700px) {
   .clients-filter-wrapper {
-    justify-content: space-evenly;
-    flex-wrap: wrap;
+    align-items: center;
+    flex-flow: column wrap;
+    width: 70%;
+    margin: 3% auto;
   }
 
   .filter-group {
-    width: var(--w-95);
-  }
-
-  .text-row {
-    margin-left: var(--m-left-10-px);
     width: var(--w-100);
-    font-size: var(--fs-px-12);
+    line-height: 2;
   }
 }
 
 @media screen and (max-width: 400px) {
   .clients-filter-wrapper {
-    align-items: baseline;
-    flex-flow: column;
+    margin: 5% auto;
+    width: 90%;
   }
 
   .filter-group {
     width: var(--w-95);
   }
 
-  label {
-    font-size: var(--fs-px-12);
-  }
-
   .text-row {
-    margin-left: var(--m-left-10-px);
     width: var(--w-100);
   }
 }

@@ -30,4 +30,8 @@
     font-size: var(--fs-px-9);
     padding: var(--pd-1-0);
   }
+
+  .row-container:hover {
+    font-weight: bolder;
+  }
 }

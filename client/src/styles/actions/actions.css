@@ -13,7 +13,7 @@
 
 #actions-container {
   width: 98%;
-  padding: 0 1%;
+  padding: 1%;
   background-color: var(--clr-primary-back);
 }
 
@@ -34,18 +34,18 @@
   text-transform: uppercase;
   font-weight: var(--fw-bold);
   letter-spacing: 0.15em;
-  font-size: var(--fs-basis);
+  font-size: var(--fs-basis-m1);
   color: var(--clr-primary-text);
 }
 
 @media screen and (min-width: 1023px) {
   #section {
-    margin: 20px 5px;
+    margin: 2%;
   }
 
   .actions-header {
     font-size: 1.2em;
-    margin: 1% 1% 0 1%;
+    margin: 0 1%;
   }
 }
 

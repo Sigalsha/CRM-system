@@ -8,16 +8,15 @@
   justify-content: flex-start;
   flex-wrap: wrap;
   text-align: left;
-  font-size: var(--fs-basis-s1);
+  font-size: 1.1em;
   margin: 0 1% 0 2%;
   padding: 0 1%;
+  line-height: 2;
 }
 
 .light-btn {
   width: var(--w-25);
   margin-left: 10%;
-  margin-top: 1%;
-  line-height: 2;
   text-transform: uppercase;
   color: var(--clr-primary-yellow);
   font-weight: var(--fw-bold);

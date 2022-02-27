@@ -6,8 +6,6 @@
   border-color: var(--clr-border);
   text-align: center;
   margin-left: var(--m-left-5);
-  line-height: 2;
-  margin-top: 1%;
 }
 
 .datalist-add-client {
