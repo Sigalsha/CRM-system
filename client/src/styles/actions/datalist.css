@@ -5,11 +5,11 @@
   width: var(--w-25);
   border-color: var(--clr-border);
   text-align: center;
-  margin-left: var(--m-left-5);
+  /* margin-left: var(--m-left-5); */
 }
 
 .datalist-add-client {
-  width: var(--w-70);
+  /* width: var(--w-70); */
   background-color: var(--clr-tran);
   border-style: var(--bor-st-sol);
   border-width: var(--bor-w-001);
@@ -40,6 +40,14 @@
 @media screen and (min-width: 1023px) {
   .datalist-wrapper {
     margin-left: var(--m-left-1);
+  }
+
+  .datalist-add-client {
+    width: 40%;
+  }
+
+  .input-text {
+    font-size: 0.85em;
   }
 }
 

@@ -8,9 +8,8 @@
 
 .add-client-container {
   width: var(--w-50);
-  margin-left: 2%;
-  padding: var(--pd-1);
-  font-size: var(--fs-basis-s1);
+  margin: 0 1% 0 2%;
+  padding: 0 1%;
   color: var(--clr-primary-text);
 }
 
@@ -20,6 +19,10 @@ form {
   flex-wrap: wrap;
   text-align: left;
 }
+
+/* .general-input {
+  width: 40%;
+} */
 
 .add-new-client-btn {
   width: 100%;
@@ -40,8 +43,13 @@ form {
 }
 
 @media screen and (min-width: 1023px) {
-  .add-client-container {
-    padding-top: 0;
+  .update-header {
+    width: 30%;
+    margin-bottom: 1%;
+  }
+
+  .general-input {
+    width: 40%;
   }
 }
 

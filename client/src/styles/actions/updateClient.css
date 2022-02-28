@@ -3,15 +3,12 @@
 @import "../sizes.css";
 
 .update-client-container {
-  width: var(--w-70);
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
   text-align: left;
-  font-size: 1.1em;
   margin: 0 1% 0 2%;
   padding: 0 1%;
-  line-height: 2;
 }
 
 .light-btn {
@@ -30,12 +27,21 @@
   width: var(--w-25);
   margin-left: var(--m-left-5);
   margin-top: 1%;
-  line-height: 2;
 }
 
 @media screen and (min-width: 1023px) {
+  .update-client-container {
+    line-height: 1.5;
+    width: var(--w-70);
+  }
+
+  .light-btn {
+    font-size: var(--fs-basis-s1);
+  }
+
   .empty-div {
     margin-left: var(--m-left-1);
+    line-height: 1.5;
   }
 }
 
