@@ -8,6 +8,7 @@
   align-items: center;
   padding: 0 1%;
   margin: 0 1% 0 2%;
+  line-height: 2;
 }
 
 .client-input-header {
@@ -18,20 +19,12 @@
 
 @media screen and (min-width: 1023px) {
   .client-input-container {
-    line-height: 1.5;
     width: var(--w-70);
-  }
-
-  .client-input {
-    font-size: 0.4em;
-    margin: auto 0;
   }
 
   .update-header {
     font-size: 1.1em;
-    line-height: 1.5;
     width: 30%;
-    margin-bottom: 1%;
   }
 }
 
@@ -45,8 +38,14 @@
   }
 }
 
+@media screen and (max-width: 600px) {
+  .client-input-header {
+    width: 40%;
+  }
+}
+
 @media screen and (max-width: 415px) {
-  .client-input-container {
-    margin-top: var(--m-top-20-px);
+  .client-input-header {
+    width: 45%;
   }
 }

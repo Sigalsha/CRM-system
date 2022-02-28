@@ -50,6 +50,12 @@ app.use(function(req, res, next) {
 
   next();
 }); */
+
+// heroku
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
+
 // view engine setup
 app.set("view engine", "pug");
 app.set("views", path.join(__dirname, "views"));

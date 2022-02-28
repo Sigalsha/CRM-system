@@ -10,12 +10,12 @@
   font-size: var(--fs-req-small);
   margin-right: 5px;
   color: var(--clr-red);
-  margin-top: var(--m-top-4);
+  /*  margin-top: var(--m-top-4); */
 }
 
-.client-input {
+/* .client-input {
   margin-top: 1%;
-}
+} */
 
 @media screen and (max-width: 700px) {
   .main {

@@ -17,12 +17,6 @@
   outline: none;
 }
 
-@media screen and (max-width: 700px) {
-  .general-input {
-    margin-top: 1.5%;
-  }
-}
-
 @media screen and (max-width: 415px) {
   .general-input {
     width: var(--w-70);

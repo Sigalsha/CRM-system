@@ -20,9 +20,9 @@ form {
   text-align: left;
 }
 
-/* .general-input {
-  width: 40%;
-} */
+.general-input {
+  margin-top: 0;
+}
 
 .add-new-client-btn {
   width: 100%;
@@ -32,10 +32,10 @@ form {
   font-weight: var(--fw-bold);
   font-size: var(--fs-basis);
   text-align: center;
-  margin-top: 6vh;
+  margin-top: 5vh;
   border-color: transparent;
   border-radius: 5px;
-  margin-left: auto;
+  letter-spacing: 0.08em;
 }
 
 .add-new-client-btn:hover {
@@ -45,11 +45,14 @@ form {
 @media screen and (min-width: 1023px) {
   .update-header {
     width: 30%;
-    margin-bottom: 1%;
   }
 
   .general-input {
     width: 40%;
+  }
+
+  .add-new-client-btn {
+    width: 72%;
   }
 }
 
@@ -59,14 +62,26 @@ form {
   }
 }
 
+@media screen and (max-width: 600px) {
+  .add-new-client-btn {
+    font-size: 0.85em;
+  }
+}
+
 @media screen and (max-width: 415px) {
   .add-client-container {
-    margin-top: var(--m-top-20-px);
+    margin-top: 2%;
     width: var(--w-95);
   }
 
+  .general-input {
+    width: 70%;
+    margin-right: 20%;
+  }
+
   .add-new-client-btn {
-    font-size: var(--fs-addC);
-    height: 50px;
+    margin-top: 3vh;
+    height: 5vh;
+    width: 81%;
   }
 }

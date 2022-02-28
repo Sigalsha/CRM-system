@@ -5,17 +5,14 @@
   width: var(--w-25);
   border-color: var(--clr-border);
   text-align: center;
-  /* margin-left: var(--m-left-5); */
+  line-height: 2;
 }
 
 .datalist-add-client {
-  /* width: var(--w-70); */
+  width: var(--w-70);
   background-color: var(--clr-tran);
-  border-style: var(--bor-st-sol);
-  border-width: var(--bor-w-001);
-  border-color: var(--clr-border);
   color: var(--clr-primary-text);
-  margin-top: 1%;
+  line-height: 2;
 }
 
 .input-text {
@@ -32,7 +29,6 @@
 }
 
 .input-text-add-client {
-  border: none;
   width: var(--w-100);
   text-align: center;
 }
@@ -56,13 +52,24 @@
     width: var(--w-30);
   }
 
-  .datalist-add-client {
-    margin-top: 1.5%;
+  .input-text {
+    font-size: 0.8em;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .input-text {
+    font-size: 0.75em;
   }
 }
 
 @media screen and (max-width: 415px) {
+  .datalist-wrapper {
+    margin-right: auto;
+    margin-left: 10px;
+  }
   .datalist-add-client {
     width: var(--w-70);
+    margin-right: 20%;
   }
 }

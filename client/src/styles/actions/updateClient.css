@@ -9,6 +9,7 @@
   text-align: left;
   margin: 0 1% 0 2%;
   padding: 0 1%;
+  line-height: 2;
 }
 
 .light-btn {
@@ -17,6 +18,7 @@
   text-transform: uppercase;
   color: var(--clr-primary-yellow);
   font-weight: var(--fw-bold);
+  line-height: 2;
 }
 
 .light-btn:hover {
@@ -25,8 +27,7 @@
 
 .empty-div {
   width: var(--w-25);
-  margin-left: var(--m-left-5);
-  margin-top: 1%;
+  line-height: 2;
 }
 
 @media screen and (min-width: 1023px) {
@@ -41,7 +42,6 @@
 
   .empty-div {
     margin-left: var(--m-left-1);
-    line-height: 1.5;
   }
 }
 
@@ -50,7 +50,34 @@
     width: var(--w-100);
   }
 
+  .light-btn {
+    font-size: 0.85em;
+  }
+
   .empty-div {
     width: var(--w-30);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .update-header {
+    width: 40%;
+  }
+
+  .light-btn {
+    width: 20%;
+    font-size: 0.75em;
+  }
+}
+
+@media screen and (max-width: 415px) {
+  .update-header {
+    width: 45%;
+  }
+
+  .light-btn {
+    margin-left: auto;
+    margin-right: 5%;
+    width: 15%;
   }
 }
