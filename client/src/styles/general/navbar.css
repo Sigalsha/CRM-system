@@ -10,7 +10,6 @@
 #navbar-container {
   width: var(--w-100);
   font-size: var(--fs-basis);
-  padding: 0 0.5%;
   display: flex;
   text-align: center;
   align-items: center;
@@ -19,7 +18,7 @@
 
 .nav-link {
   flex: 1;
-  padding: var(--pd-1);
+  padding: 2%;
   color: var(--clr-secondary-text);
 }
 
@@ -43,8 +42,8 @@
   background-color: var(--clr-nav-hover);
 }
 
-@media screen and (max-width: 700px) {
-  #navbar-container {
-    padding: 1%;
+@media screen and (min-width: 1023px) {
+  .nav-link {
+    padding: 1% 2%;
   }
 }

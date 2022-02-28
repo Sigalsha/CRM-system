@@ -12,6 +12,7 @@
 }
 
 #analytics-container {
+  flex: 10;
   background-color: var(--clr-primary-back);
   margin: 0 10%;
 }
@@ -82,7 +83,7 @@
 @media screen and (max-width: 500px) {
   .charts-container {
     margin-top: 5%;
-    padding: 5% 0;
+    padding: 5% 0 10% 0;
   }
 
   .chart-wrapper {

@@ -27,6 +27,8 @@ body {
 .app {
   height: 100vh;
   background-color: var(--clr-back);
+  display: flex;
+  flex-direction: column;
 }
 
 .general-loader {

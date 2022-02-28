@@ -56,11 +56,11 @@ const Navbar = () => {
 
   return (
     <div id="navbar-container">
-      {isAuthenticated && username && (
+      {/*     {isAuthenticated && username && (
         <p style={{ color: "white" }}>
           {NAV_LINKS_TITLES["welcome"]} {username}
         </p>
-      )}
+      )} */}
       {isAuthenticated ? authUserLinks : guestLinks}
     </div>
   );
