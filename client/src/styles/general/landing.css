@@ -16,7 +16,6 @@
 
 .landing-container {
   flex: 10;
-  /* min-height: 93.5vh; */
   width: var(--w-100);
   color: var(--clr-primary-text);
   display: flex;

@@ -24,7 +24,6 @@
 
 #section {
   margin: 30px 5px;
-  border-style: var(--bor-st-sol);
   border-width: var(--bor-w-001);
   border-color: var(--clr-border);
 }

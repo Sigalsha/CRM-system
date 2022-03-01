@@ -28,7 +28,7 @@
   --clr-red: rgb(255, 0, 0);
 
   /* --clr-link-back: rgba(247, 206, 62, 0.9); */
-  --clr-link-back: #4f6b8d;
+  --clr-link-back: rgb(79, 107, 141); /*#4f6b8d*/
   --clr-link-back-hover: rgb(137, 161, 184); /*#89a1b8*/
   --clr-box-shadow: rgba(0, 0, 0, 0.6);
 

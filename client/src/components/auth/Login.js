@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate, useLocation } from "react-router-dom";
 import {
-  AUTH_HEADERS,
+  LANDING,
   AUTH_BUTTONS,
   AUTH_ALERTS,
   NAV_LINKS,
@@ -18,6 +18,7 @@ import InputWrapper from "../general/InputWrapper";
 import Input from "../general/Input";
 import Alert from "../general/Alert";
 import LinkContainer from "../general/LinkContainer";
+import "../../styles/general/login.css";
 import "../../styles/general/landing.css";
 
 const Login = () => {
@@ -88,13 +89,13 @@ const Login = () => {
 
   return (
     <div className="landing-container">
-      <div className="landing-header">
-        <span>{AUTH_HEADERS["login"]}</span>
-      </div>
-      <div className="landing-links-wrapper">
+      <div className="landing-wrapper">
+        {/* <div className="crm-logo"></div> */}
+        <p className="login-header">{LANDING["header"]}</p>
+        <p className="login-sub-header">{LANDING["subHeader"]}</p>
         {alert && <Alert text={alertText} toggleAlert={toggleAlert} />}
-        <form onSubmit={handleSubmit}>
-          <div>
+        <div className="login-wrapper">
+          <form onSubmit={handleSubmit} className="login-form">
             <InputWrapper
               inputHeader="email:"
               htmlFor="email"
@@ -119,18 +120,18 @@ const Login = () => {
                 />
               }
             />
+            <button type="submit" className="login-btn">
+              {AUTH_BUTTONS["login"]}
+            </button>
+          </form>
+          <div className="register-link-wrapper">
+            <p>{AUTH_SUB_HEADERS["login"]}</p>
+            <LinkContainer
+              path={`/${NAV_LINKS.guestUser[1]}`}
+              text={NAV_LINKS_TITLES["register"]}
+            />
           </div>
-          <button type="submit" className="link-square">
-            {AUTH_BUTTONS["login"]}
-          </button>
-        </form>
-      </div>
-      <div className="landing-links-wrapper">
-        <p>{AUTH_SUB_HEADERS["login"]}</p>
-        <LinkContainer
-          path={`/${NAV_LINKS.guestUser[1]}`}
-          text={NAV_LINKS_TITLES["register"]}
-        />
+        </div>
       </div>
     </div>
   );

@@ -47,3 +47,13 @@
     padding: 1% 2%;
   }
 }
+
+@media screen and (max-width: 415px) {
+  #navbar-container {
+    font-size: 0.9em;
+  }
+
+  .nav-link {
+    padding: 3% 2%;
+  }
+}

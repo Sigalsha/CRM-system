@@ -10,7 +10,6 @@
   justify-content: space-around;
   align-items: center;
   padding: var(--pd-1);
-  border-style: var(--bor-st-sol);
   border-width: 0px 0px 2px 0px;
   border-color: var(--clr-border);
 }

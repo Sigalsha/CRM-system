@@ -9,7 +9,6 @@
 .select-category {
   margin-left: 40px;
   border-color: var(--clr-border);
-  border-style: var(--bor-st-sol);
   border-width: var(--bor-w-001);
   text-align: center;
   background-color: transparent;

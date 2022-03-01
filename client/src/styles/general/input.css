@@ -5,7 +5,6 @@
 .general-input {
   width: var(--w-70);
   background-color: var(--clr-tran);
-  border-style: solid;
   border-width: var(--bor-w-001);
   border-color: var(--clr-border);
   color: var(--clr-primary-text);

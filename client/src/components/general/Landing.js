@@ -33,7 +33,7 @@ const Landing = () => {
       </div>
       {isAuthenticated && (
         <div className="landing-sub-header">
-          {LANDING["subHeader"]} {username}
+          {LANDING["usernameHeader"]} {username}
         </div>
       )}
       <div className="landing-links-wrapper">

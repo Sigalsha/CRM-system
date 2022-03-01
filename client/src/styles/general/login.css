@@ -1,0 +1,88 @@
+@import "../colors.css";
+@import "../typography.css";
+@import "../sizes.css";
+
+* {
+  text-decoration: none;
+}
+
+.landing-wrapper {
+  width: 35vw;
+  display: flex;
+  flex-flow: column wrap;
+  text-align: center;
+  margin: 15vh auto;
+  align-items: center;
+  background-color: rgba(79, 107, 141, 0.8);
+  padding: 2%;
+  z-index: 2;
+}
+
+.crm-logo {
+  background-image: url("../../assets//crm-logo1.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 8vw;
+  height: 8vh;
+  margin-right: auto;
+}
+
+.login-header {
+  margin-top: 1vh;
+  font-family: "Balsamiq Sans";
+  font-size: 1.8em;
+  font-weight: bold;
+}
+
+.login-sub-header {
+  font-size: 0.9em;
+  font-weight: 300;
+  text-transform: capitalize;
+  font-family: "Fira Sans";
+  font-style: italic;
+  line-height: 2;
+  letter-spacing: 0.1em;
+}
+
+.login-wrapper {
+  display: flex;
+  flex-flow: column wrap;
+  gap: 5vh;
+  padding-top: 20%;
+}
+
+/* .login-form {
+  font-size: 1.2em;
+} */
+
+.login-btn {
+  width: 100%;
+  height: 6vh;
+  background-color: #31415d;
+  color: var(--clr-primary-text);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-basis);
+  text-align: center;
+  margin-top: 5vh;
+  border-color: transparent;
+  border-radius: 10px;
+  letter-spacing: 0.08em;
+}
+
+.login-btn:hover {
+  background-color: var(--clr-link-back-hover);
+}
+
+.register-link-wrapper {
+  display: inline-flex;
+  align-items: center;
+  font-size: 1.2em;
+}
+
+@media screen and (min-width: 1023px) {
+  .landing-wrapper {
+    margin-top: 20vh;
+    width: 30vw;
+    padding: 2%;
+  }
+}

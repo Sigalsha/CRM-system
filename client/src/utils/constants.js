@@ -1,8 +1,9 @@
 export const URL = "http://localhost:8100/clients/";
 
 export const LANDING = {
-  header: "CRM - manage your success",
-  subHeader: "Welcome"
+  header: "CRM",
+  subHeader: "manage your success",
+  usernameHeader: "Welcome"
 };
 
 export const NAV_LINKS_TITLES = {

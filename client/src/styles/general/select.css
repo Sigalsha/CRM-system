@@ -8,7 +8,6 @@ label {
 
 .text-row {
   border-color: var(--clr-border);
-  border-style: var(--bor-st-sol);
   border-width: var(--bor-w-001);
   text-align: center;
   background-color: var(--clr-tran);
