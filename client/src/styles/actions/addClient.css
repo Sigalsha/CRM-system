@@ -43,7 +43,7 @@ form {
 }
 
 @media screen and (min-width: 1023px) {
-  .update-header {
+  .input-header {
     width: 30%;
   }
 

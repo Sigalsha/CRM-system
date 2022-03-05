@@ -18,8 +18,8 @@ import InputWrapper from "../general/InputWrapper";
 import Input from "../general/Input";
 import Alert from "../general/Alert";
 import LinkContainer from "../general/LinkContainer";
-import "../../styles/general/login.css";
 import "../../styles/general/landing.css";
+import "../../styles/general/login.css";
 
 const Login = () => {
   const isAuthenticated = useAuth();
@@ -89,38 +89,42 @@ const Login = () => {
 
   return (
     <div className="landing-container">
-      <div className="landing-wrapper">
+      <div className="auth-wrapper">
         {/* <div className="crm-logo"></div> */}
-        <p className="login-header">{LANDING["header"]}</p>
-        <p className="login-sub-header">{LANDING["subHeader"]}</p>
+        <p className="auth-header">{LANDING["header"]}</p>
+        <p className="auth-sub-header">{LANDING["subHeader"]}</p>
         {alert && <Alert text={alertText} toggleAlert={toggleAlert} />}
         <div className="login-wrapper">
           <form onSubmit={handleSubmit} className="login-form">
             <InputWrapper
               inputHeader="email:"
               htmlFor="email"
+              isAuth={true}
               Input={
                 <Input
                   name="email"
                   inputType="email"
                   value={inputValues.email}
                   onChange={handleInputChange}
+                  isAuth={true}
                 />
               }
             />
             <InputWrapper
               inputHeader="password:"
               htmlFor="password"
+              isAuth={true}
               Input={
                 <Input
                   inputType="password"
                   name="password"
                   value={inputValues.password}
                   onChange={handleInputChange}
+                  isAuth={true}
                 />
               }
             />
-            <button type="submit" className="login-btn">
+            <button type="submit" className="auth-btn">
               {AUTH_BUTTONS["login"]}
             </button>
           </form>

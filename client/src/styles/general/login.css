@@ -6,17 +6,18 @@
   text-decoration: none;
 }
 
-.landing-wrapper {
+.auth-wrapper {
   width: 35vw;
   display: flex;
   flex-flow: column wrap;
   text-align: center;
-  margin: 20vh auto;
+  margin: auto;
   align-items: center;
   background-color: rgba(79, 107, 141, 0.8);
   padding: 2%;
   z-index: 2;
   font-size: 0.9em;
+  border-radius: 7px;
 }
 
 .crm-logo {
@@ -28,127 +29,188 @@
   margin-right: auto;
 }
 
-.login-header {
+.auth-header {
   margin-top: 1vh;
   font-family: "Balsamiq Sans";
-  font-size: 1.8em;
+  font-size: 2em;
   font-weight: bold;
 }
 
-.login-sub-header {
-  font-size: 0.9em;
+.auth-sub-header {
+  font-size: 1.1em;
   font-weight: 300;
   text-transform: capitalize;
   font-family: "Fira Sans";
   font-style: italic;
   line-height: 2;
-  letter-spacing: 0.1emמ;
+  letter-spacing: 0.1em;
 }
 
 .login-wrapper {
   display: flex;
-  flex-flow: column wrap;
+  flex-flow: column;
   gap: 5vh;
   padding-top: 20%;
-  width: 70%;
+  width: 100%;
 }
 
-.update-header {
-  width: 40%;
+.main {
+  margin-top: 5px;
+}
+
+#auth-label {
+  width: 50%;
   padding-top: 2%;
+  font-size: 1.2em;
 }
 
-.general-input {
-  width: 60%;
+#auth-input {
+  width: 95%;
   font-size: 0.85em;
 }
 
-.login-btn {
+.auth-btn {
   width: 100%;
-  height: 6vh;
+  padding: 5%;
   background-color: #31415d;
   color: var(--clr-primary-text);
   font-size: var(--fs-basis);
   text-align: center;
   margin-top: 3vh;
-  border-color: transparent;
+  border: 0;
   border-radius: 5px;
   letter-spacing: 0.1em;
   font-weight: 600;
   text-transform: uppercase;
+  font-size: 1.1em;
 }
 
-.login-btn:hover {
+.auth-btn:hover {
   background-color: var(--clr-link-back-hover);
 }
 
 .register-link-wrapper {
   display: inline-flex;
   align-items: center;
-  font-size: 1em;
+  font-size: 1.2em;
 }
 
-.link-square {
-  border: 0;
-  border-radius: 5px;
+.auth-link {
   padding: 5%;
-  height: 6vh;
-  letter-spacing: 0.1em;
-  font-weight: 600;
-  text-transform: uppercase;
+  margin: 5% 0 5% 5%;
+  font-size: 0.9em;
+  border-radius: 5px;
 }
 
 @media screen and (min-width: 1023px) {
-  .landing-wrapper {
+  .auth-wrapper {
     width: 30vw;
-    padding: 2%;
+  }
+  .auth-header {
+    font-size: 2.5em;
   }
 
   .login-form {
     display: unset;
   }
+
+  .auth-btn {
+    padding: 4%;
+  }
+
+  .auth-link {
+    padding: 4%;
+  }
 }
 
 @media screen and (max-width: 880px) {
+  .auth-wrapper {
+    width: 40vw;
+  }
   .login-wrapper {
-    width: 80%;
-    gap: 7vh;
     padding-top: 30%;
+  }
+
+  #auth-input {
+    font-size: 0.75em;
   }
 }
 
 @media screen and (max-width: 800px) {
-  .landing-wrapper {
+  .auth-wrapper {
     width: 40vw;
+  }
+
+  .auth-header {
+    margin-top: 2vh;
   }
 }
 
 @media screen and (max-width: 700px) {
-  .login-wrapper {
-    width: 85%;
+  .auth-wrapper {
+    width: 45vw;
   }
 }
 
 @media screen and (max-width: 600px) {
-  .landing-wrapper {
-    width: 45vw;
+  .auth-wrapper {
+    width: 60vw;
   }
 
   .login-wrapper {
-    width: 90%;
+    width: 95%;
+    padding-top: 20%;
   }
 
-  .update-header {
-    width: 35%;
+  .auth-header {
+    margin-top: 2.5vh;
   }
 
-  .login-btn {
-    height: 5vh;
+  #auth-label {
+    width: 45%;
+  }
+
+  .auth-btn {
     font-size: 0.85em;
   }
 
-  .link-square {
-    font-size: 0.85em;
-    height: 5vh;
+  .auth-link {
+    font-size: 0.75em;
+  }
+}
+
+@media screen and (max-width: 415px) {
+  .auth-wrapper {
+    margin: 15vh auto;
+    border-radius: 5px;
+    width: 80vw;
+    padding: 3%;
+  }
+
+  .auth-header {
+    font-size: 2.5em;
+    margin-top: 1.5vh;
+  }
+
+  .login-wrapper {
+    padding-top: 30%;
+  }
+
+  #auth-label {
+    width: 50%;
+  }
+
+  #auth-input {
+    margin-right: 0;
+    width: 95%;
+    font-size: 0.8em;
+  }
+
+  .auth-btn {
+    font-size: 1.1em;
+  }
+
+  .auth-link {
+    font-size: 0.9em;
   }
 }

@@ -6,7 +6,8 @@ import {
   AUTH_HEADERS,
   AUTH_BUTTONS,
   NAV_LINKS,
-  AUTH_SUB_HEADERS
+  AUTH_SUB_HEADERS,
+  LANDING
 } from "../../utils/constants";
 import utils from "../../utils/utils";
 import { resetInputs, validateInput } from "../../utils/helpers";
@@ -19,6 +20,8 @@ import InputWrapper from "../general/InputWrapper";
 import Input from "../general/Input";
 import Alert from "../general/Alert";
 import "../../styles/general/landing.css";
+import "../../styles/general/login.css";
+import "../../styles/general/register.css";
 
 const Register = () => {
   const [email, setEmail] = useState("");
@@ -123,60 +126,70 @@ const Register = () => {
 
   return (
     <div className="landing-container">
-      <div className="landing-header">
-        <span>{AUTH_HEADERS["register"]}</span>
-      </div>
-      <div className="landing-links-wrapper">
-        {alert && <Alert text={alertText} toggleAlert={toggleAlert} />}
-        <form onSubmit={handleSubmit}>
-          <div>
-            <InputWrapper
-              inputHeader="name:"
-              htmlFor="name"
-              Input={
-                <Input
-                  name="name"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                />
-              }
-            />
-            <InputWrapper
-              inputHeader="email:"
-              htmlFor="email"
-              Input={
-                <Input
-                  name="email"
-                  inputType="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-              }
-            />
-            <InputWrapper
-              inputHeader="password:"
-              htmlFor="password"
-              Input={
-                <Input
-                  name="password"
-                  inputType="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-              }
+      <div className="auth-wrapper">
+        <p className="auth-header register-header">{LANDING["header"]}</p>
+        <p className="auth-sub-header register-sub-header">
+          {LANDING["subHeader"]}
+        </p>
+        <div className="register-wrapper">
+          {alert && <Alert text={alertText} toggleAlert={toggleAlert} />}
+          <form onSubmit={handleSubmit}>
+            <div>
+              <InputWrapper
+                inputHeader="name:"
+                htmlFor="name"
+                isAuth={true}
+                Input={
+                  <Input
+                    name="name"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    isAuth={true}
+                  />
+                }
+              />
+              <InputWrapper
+                inputHeader="email:"
+                htmlFor="email"
+                isAuth={true}
+                Input={
+                  <Input
+                    name="email"
+                    inputType="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    isAuth={true}
+                  />
+                }
+              />
+              <InputWrapper
+                inputHeader="password:"
+                htmlFor="password"
+                isAuth={true}
+                Input={
+                  <Input
+                    name="password"
+                    inputType="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    isAuth={true}
+                  />
+                }
+              />
+            </div>
+            <button type="submit" className="auth-btn">
+              {AUTH_BUTTONS["register"]}
+            </button>
+          </form>
+
+          <div className="login-link-wrapper">
+            <p>{AUTH_SUB_HEADERS["register"]}</p>
+            <LinkContainer
+              path={`/${NAV_LINKS.guestUser[0]}`}
+              text={AUTH_HEADERS["login"]}
             />
           </div>
-          <button type="submit" className="link-square">
-            {AUTH_BUTTONS["register"]}
-          </button>
-        </form>
-      </div>
-      <div className="landing-links-wrapper">
-        <p>{AUTH_SUB_HEADERS["register"]}</p>
-        <LinkContainer
-          path={`/${NAV_LINKS.guestUser[0]}`}
-          text={AUTH_HEADERS["login"]}
-        />
+        </div>
       </div>
     </div>
   );

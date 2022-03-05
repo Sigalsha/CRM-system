@@ -28,23 +28,28 @@ const Landing = () => {
 
   return (
     <div className="landing-container">
-      <div className="landing-header">
-        <span>{LANDING["header"]}</span>
-      </div>
-      {isAuthenticated && (
-        <div className="landing-sub-header">
-          {LANDING["usernameHeader"]} {username}
+      <div className="landing-wrapper">
+        <p className="landing-header">{LANDING["header"]}</p>
+        <p className="landing-sub-header">{LANDING["subHeader"]}</p>
+        {isAuthenticated && (
+          <div className="landing-username-header">
+            {LANDING["usernameHeader"]} {username}!
+          </div>
+        )}
+        <div className="landing-links-wrapper">
+          {isAuthenticated ? authUserLinks : guestUserLinks}
         </div>
-      )}
-      <div className="landing-links-wrapper">
-        {isAuthenticated ? authUserLinks : guestUserLinks}
       </div>
     </div>
   );
 };
 
 const LinkWrapper = ({ linkPath }) => (
-  <LinkContainer path={`/${linkPath}`} text={NAV_LINKS_TITLES[linkPath]} />
+  <LinkContainer
+    path={`/${linkPath}`}
+    text={NAV_LINKS_TITLES[linkPath]}
+    isLanding={true}
+  />
 );
 
 export default Landing;

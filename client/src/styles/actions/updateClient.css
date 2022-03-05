@@ -60,7 +60,7 @@
 }
 
 @media screen and (max-width: 600px) {
-  .update-header {
+  .input-header {
     width: 40%;
   }
 
@@ -71,7 +71,7 @@
 }
 
 @media screen and (max-width: 415px) {
-  .update-header {
+  .input-header {
     width: 45%;
   }
 

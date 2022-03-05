@@ -45,7 +45,7 @@
   /* ClientsPagination */
   --clr-pagination-num: rgb(121, 85, 72);
   /* EditClientPopUp */
-  --clr-back-wrapper: rgba(0, 0, 0, 0.4);
+  --clr-back-wrapper: rgba(0, 0, 0, 0.8);
   --clr-back-container: rgb(7, 11, 27); /*#070b1b*/
   --clr-border-popup: rgb(255, 255, 255);
   /* Alert */

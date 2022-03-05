@@ -10,12 +10,13 @@ function InputWrapper({
   isDatalist,
   Datalist,
   Input,
-  isPopupInput
+  isPopupInput,
+  isAuth
 }) {
   return (
     <div className={`${isPopupInput ? "popup-row" : "input-wrapper"}`}>
       {!isPopupInput && <Required />}
-      <SubHeader text={inputHeader} htmlFor={htmlFor} />
+      <SubHeader text={inputHeader} htmlFor={htmlFor} isAuth={isAuth} />
       {isDatalist ? Datalist : Input}
     </div>
   );
