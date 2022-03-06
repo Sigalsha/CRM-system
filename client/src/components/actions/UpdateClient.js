@@ -113,9 +113,9 @@ const UpdateClient = ({ currentClient, changeClient, emailTypes, owners }) => {
 
 const UpdateButton = ({ onClick, text }) => {
   return (
-    <div className="light-btn" onClick={onClick}>
+    <button className="light-btn" onClick={onClick}>
       {text}
-    </div>
+    </button>
   );
 };
 

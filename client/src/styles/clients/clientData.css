@@ -22,9 +22,20 @@
 .rowItem {
   flex: 1;
   font-size: var(--fs-basis-s2);
+  /* font-size: 0.9em; */
 }
 
-@media screen and (max-width: 400px) {
+.rowItem:nth-child(5) {
+  padding-left: 5%;
+}
+
+@media screen and (min-width: 1023px) {
+  /*   .rowItem {
+    font-size: 0.95em;
+  } */
+}
+
+@media screen and (max-width: 415px) {
   .row-container {
     font-size: var(--fs-px-9);
     padding: var(--pd-1-0);
@@ -32,5 +43,7 @@
 
   .row-container:hover {
     font-weight: bolder;
+    font-size: 1.1em;
+    padding: 0;
   }
 }

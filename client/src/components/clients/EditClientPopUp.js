@@ -31,9 +31,9 @@ const EditClientPopUp = ({
   return (
     <div className="popup-wrapper">
       <div className="popup-container" id={clientToEdit.id}>
-        <div className="exit-btn" onClick={toggleEditClient}>
+        <button className="exit-btn" onClick={toggleEditClient}>
           <FontAwesomeIcon icon={faTimes} />
-        </div>
+        </button>
         <form onSubmit={handleSubmit}>
           <InputWrapper
             inputHeader="Name:"

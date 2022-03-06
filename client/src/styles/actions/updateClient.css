@@ -19,6 +19,7 @@
   color: var(--clr-primary-yellow);
   font-weight: var(--fw-bold);
   line-height: 2;
+  border: 0;
 }
 
 .light-btn:hover {

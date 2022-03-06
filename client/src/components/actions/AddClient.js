@@ -37,6 +37,10 @@ const AddClient = ({ owners, addNewClient }) => {
     for (let val in inputValues) {
       if (!utils.isMinLength(inputValues[val])) {
         setAlert(true);
+        if (val === "firstName") {
+          setAlertText(`first name ${ACTIONS_ALERTS["addClient"]["minChar"]}`);
+          return false;
+        }
         setAlertText(`${val} ${ACTIONS_ALERTS["addClient"]["minChar"]}`);
         return false;
       }

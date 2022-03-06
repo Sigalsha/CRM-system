@@ -1,7 +1,7 @@
 @import "../colors.css";
 @import "../typography.css";
 
-label {
+.select-label {
   width: 30%;
   font-size: 0.9em;
 }
@@ -12,7 +12,7 @@ label {
   text-align: center;
   background-color: var(--clr-tran);
   margin-bottom: 2%;
-  margin-left: 5%;
+  margin-left: 15%;
   width: 60%;
   font-size: 0.85em;
 }
@@ -22,7 +22,7 @@ label {
 }
 
 @media screen and (min-width: 1023px) {
-  label {
+  .select-label {
     max-width: 50%;
   }
 
@@ -31,14 +31,44 @@ label {
   }
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 900px) {
+  .select-label {
+    font-size: 0.85em;
+  }
+
   .text-row {
+    width: 60%;
+    font-size: 0.8em;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .select-label {
+    font-size: 0.95em;
+  }
+
+  .text-row {
+    font-size: 0.9em;
+    margin-left: 5%;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .select-label {
     font-size: 1.1em;
+  }
+  .text-row {
+    font-size: 1em;
   }
 }
 
 @media screen and (max-width: 600px) {
-  label {
-    font-size: 0.85em;
+  .select-label {
+    width: 40%;
+  }
+
+  .text-row {
+    width: 70%;
+    margin-left: 5%;
   }
 }

@@ -22,7 +22,6 @@
   flex-flow: row wrap;
   justify-content: space-evenly;
   margin-top: 2%;
-  /* padding-bottom: 5%; */
 }
 
 .chart-wrapper {
@@ -67,16 +66,17 @@
     margin-left: var(--m-left-40);
     margin-top: var(--m-top-30);
   }
+
+  #analytics-container {
+    margin: 1% auto;
+    max-width: 75%;
+  }
 }
 
 @media screen and (max-width: 600px) {
   .loader-position {
     margin-left: var(--m-left-30);
     margin-top: var(--m-top-30);
-  }
-
-  #analytics-container {
-    margin: 0;
   }
 }
 
@@ -89,10 +89,6 @@
   .chart-wrapper {
     margin: 5% 2%;
   }
-  /* 
-  .recharts-wrapper {
-    margin-right: var(--m-right-40);
-  } */
 
   .recharts-surface {
     max-width: 320px;
@@ -103,5 +99,9 @@
   .loader-position {
     margin-left: var(--m-left-25);
     margin-top: var(--m-top-70);
+  }
+
+  #analytics-container {
+    margin-top: 5%;
   }
 }

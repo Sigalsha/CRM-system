@@ -40,6 +40,9 @@
   margin-left: var(--m-left-au);
   font-size: var(--fs-basis);
   display: inline-flex;
+  background-color: inherit;
+  color: inherit;
+  border: 0;
 }
 
 .exit-btn:hover {

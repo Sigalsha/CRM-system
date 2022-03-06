@@ -24,10 +24,6 @@ import "../../styles/general/login.css";
 import "../../styles/general/register.css";
 
 const Register = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
-
   const [inputValues, setInputValues] = useState({
     email: "",
     password: "",
@@ -132,7 +128,9 @@ const Register = () => {
           {LANDING["subHeader"]}
         </p>
         <div className="register-wrapper">
-          {alert && <Alert text={alertText} toggleAlert={toggleAlert} />}
+          {alert && (
+            <Alert text={alertText} toggleAlert={toggleAlert} isAuth={true} />
+          )}
           <form onSubmit={handleSubmit}>
             <div>
               <InputWrapper
@@ -142,8 +140,8 @@ const Register = () => {
                 Input={
                   <Input
                     name="name"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
+                    value={inputValues.name}
+                    onChange={handleInputChange}
                     isAuth={true}
                   />
                 }
@@ -156,8 +154,8 @@ const Register = () => {
                   <Input
                     name="email"
                     inputType="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    value={inputValues.email}
+                    onChange={handleInputChange}
                     isAuth={true}
                   />
                 }
@@ -170,8 +168,8 @@ const Register = () => {
                   <Input
                     name="password"
                     inputType="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
+                    value={inputValues.password}
+                    onChange={handleInputChange}
                     isAuth={true}
                   />
                 }
@@ -181,7 +179,6 @@ const Register = () => {
               {AUTH_BUTTONS["register"]}
             </button>
           </form>
-
           <div className="login-link-wrapper">
             <p>{AUTH_SUB_HEADERS["register"]}</p>
             <LinkContainer

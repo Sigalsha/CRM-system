@@ -24,7 +24,9 @@ const Select = ({
 
   return (
     <div className="filter-group">
-      <label htmlFor={htmlFor}>{labelName}: </label>
+      <label className="select-label" htmlFor={htmlFor}>
+        {labelName}:{" "}
+      </label>
       <select
         className="text-row"
         name={name}

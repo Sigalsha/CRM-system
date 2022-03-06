@@ -46,7 +46,7 @@ const ClientsPagination = ({
 
   return (
     <div className="clients-pagination-wrapper">
-      <span
+      <button
         className={`page-arrow
             ${currentPage === 1 ? "page-cursor-not-allowed" : "page-cursor"}
           `}
@@ -55,14 +55,14 @@ const ClientsPagination = ({
         }
       >
         <FontAwesomeIcon icon={faArrowCircleLeft} style={{ marginRight: 5 }} />
-        {CLIENT_PAGINATION["previous"]}
-      </span>
+        {CLIENT_PAGINATION["prev"]}
+      </button>
       <PageNumbers
         pageCount={pageCount}
         pageLimit={pageLimit}
         handleSinglePageClick={handleSinglePageClick}
       />
-      <span
+      <button
         onClick={() =>
           nextDisplay(currentPage < pageCount ? currentPage + 1 : currentPage)
         }
@@ -76,7 +76,7 @@ const ClientsPagination = ({
       >
         {CLIENT_PAGINATION["next"]}
         <FontAwesomeIcon icon={faArrowCircleRight} style={{ marginLeft: 5 }} />
-      </span>
+      </button>
     </div>
   );
 };

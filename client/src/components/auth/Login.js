@@ -93,7 +93,9 @@ const Login = () => {
         {/* <div className="crm-logo"></div> */}
         <p className="auth-header">{LANDING["header"]}</p>
         <p className="auth-sub-header">{LANDING["subHeader"]}</p>
-        {alert && <Alert text={alertText} toggleAlert={toggleAlert} />}
+        {alert && (
+          <Alert text={alertText} toggleAlert={toggleAlert} isAuth={true} />
+        )}
         <div className="login-wrapper">
           <form onSubmit={handleSubmit} className="login-form">
             <InputWrapper

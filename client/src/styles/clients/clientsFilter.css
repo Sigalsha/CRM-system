@@ -18,15 +18,9 @@
 
 @media screen and (max-width: 800px) {
   .clients-filter-wrapper {
-    margin: 5% 0;
-  }
-}
-
-@media screen and (max-width: 700px) {
-  .clients-filter-wrapper {
     align-items: center;
     flex-flow: column wrap;
-    width: 70%;
+    width: 50%;
     margin: 3% auto;
   }
 
@@ -36,14 +30,20 @@
   }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 600px) {
   .clients-filter-wrapper {
-    margin: 5% auto;
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 415px) {
+  .clients-filter-wrapper {
+    margin: 1% auto;
     width: 90%;
   }
 
   .filter-group {
-    width: var(--w-95);
+    line-height: 2.5;
   }
 
   .text-row {

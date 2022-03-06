@@ -20,15 +20,20 @@
 
 .alert-wrapper {
   position: fixed;
-  left: 25%;
+  left: 20%;
   top: 30%;
-  width: 50%;
+  width: 60%;
   height: 40%;
   padding: var(--pd-1);
   display: flex;
   flex-flow: column wrap;
   color: var(--clr-alert);
   background-color: var(--clr-back-container);
+}
+
+.auth-wrap {
+  left: 25%;
+  width: 50%;
 }
 
 .alert-success {
@@ -50,8 +55,14 @@
 
 .alert-text {
   color: var(--clr-alert);
-  font-size: 2em;
   margin: auto;
+  font-size: 1.8em;
+  letter-spacing: normal;
+  line-height: 1.5;
+}
+
+.auth-text {
+  font-size: 2em;
 }
 
 .alert-text span {
@@ -87,22 +98,37 @@
   }
 
   .alert-text {
+    font-size: 1.5em;
+  }
+
+  .auth-text {
     font-size: 1.7em;
   }
 }
 
 @media screen and (max-width: 800px) {
   .alert-wrapper {
+    left: 15%;
+    top: 35%;
+    width: 70%;
+    height: 30%;
+    padding: 2%;
+  }
+
+  .auth-wrap {
     left: 20%;
     top: 32.5%;
     width: 60%;
     height: 35%;
-    padding: 2%;
   }
 }
 
 @media screen and (max-width: 700px) {
   .alert-text {
+    font-size: 1.4em;
+  }
+
+  .auth-text {
     font-size: 1.5em;
   }
 }
@@ -114,6 +140,10 @@
   }
 
   .alert-text {
+    font-size: 1.2em;
+  }
+
+  .auth-text {
     font-size: 1.4em;
   }
 }
@@ -121,13 +151,22 @@
 @media screen and (max-width: 415px) {
   .alert-wrapper {
     left: 5%;
+    top: 40%;
     width: 90%;
+    height: 20%;
+    padding: 5%;
+  }
+
+  .auth-wrap {
     height: 25%;
     top: 37.5%;
-    padding: 5%;
   }
 
   .alert-text {
     font-size: 1.3em;
+  }
+
+  .alert-text span {
+    padding-left: 5px;
   }
 }
