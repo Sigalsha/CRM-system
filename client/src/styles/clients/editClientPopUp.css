@@ -2,10 +2,6 @@
 @import "../typography.css";
 @import "../sizes.css";
 
-:root {
-  --fs-editC: 1.1em;
-}
-
 .popup-wrapper {
   position: fixed;
   width: var(--w-100);
@@ -71,8 +67,8 @@ form {
   background-color: var(--clr-tran);
   border-width: var(--bor-w-001);
   border-color: var(--clr-border-popup);
-  color: #b1cfe7;
-  font-size: 1em;
+  color: var(--clr-lightest-blue);
+  font-size: var(--fs-basis);
   padding-bottom: 1%;
   margin-top: 1%;
 }
@@ -84,7 +80,7 @@ form {
 .update-btn {
   width: 91%;
   margin-top: 5%;
-  background-color: #738ba4;
+  background-color: var(--clr-secondary-back);
   color: var(--clr-primary-text);
   font-weight: var(--fw-bold);
   text-align: center;
@@ -107,17 +103,17 @@ form {
   }
 
   .input-header {
-    font-size: 1.2em;
+    font-size: var(--fs-basis-m2);
   }
 
   .popup-input {
-    font-size: 1.1em;
+    font-size: var(--fs-basis-m1);
   }
 }
 
 @media screen and (max-width: 700px) {
   .popup-container {
-    font-size: var(--fs-editC);
+    font-size: var(--fs-basis-m1);
     width: 55%;
     height: 35%;
   }
@@ -131,7 +127,7 @@ form {
   }
 
   .update-btn {
-    font-size: var(--fs-editC);
+    font-size: var(--fs-basis-m1);
   }
 }
 
@@ -142,15 +138,15 @@ form {
   }
 
   .input-header {
-    font-size: 0.95em;
+    font-size: var(--fs-basis-s2);
   }
 
   .popup-input {
-    font-size: 0.9em;
+    font-size: var(--fs-basis-s1);
   }
 
   .update-btn {
-    font-size: 0.95em;
+    font-size: var(--fs-basis-s2);
     width: 90%;
   }
 }
@@ -162,10 +158,10 @@ form {
   }
 
   .popup-input {
-    font-size: 1em;
+    font-size: var(--fs-basis);
   }
 
   .update-btn {
-    font-size: 1em;
+    font-size: var(--fs-basis);
   }
 }

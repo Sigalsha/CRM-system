@@ -6,14 +6,14 @@
   justify-content: space-evenly;
   margin: 3% 0;
   flex-wrap: wrap;
-  font-size: 0.9em;
+  font-size: var(--fs-basis-s1);
 }
 
 .page-arrow {
   display: inline-flex;
   align-items: center;
   border: 0;
-  font-size: 1em;
+  font-size: var(--fs-basis);
 }
 
 .page-cursor-not-allowed {
@@ -68,11 +68,11 @@
 @media screen and (max-width: 800px) {
   .clients-pagination-wrapper {
     margin: 5% 0;
-    font-size: 1em;
+    font-size: var(--fs-basis);
   }
 
   .page-arrow {
-    font-size: 0.95em;
+    font-size: var(--fs-basis-s2);
   }
 
   .page-numbers {
@@ -82,7 +82,7 @@
 
 @media screen and (max-width: 700px) {
   .clients-pagination-wrapper {
-    font-size: 1.2em;
+    font-size: var(--fs-basis-m2);
     margin: 3%;
     justify-content: space-between;
   }
@@ -94,7 +94,7 @@
 
 @media screen and (max-width: 600px) {
   .clients-pagination-wrapper {
-    font-size: 1.1em;
+    font-size: var(--fs-basis-m1);
   }
 
   .page-numbers {
@@ -104,7 +104,7 @@
 
 @media screen and (max-width: 500px) {
   .clients-pagination-wrapper {
-    font-size: 1em;
+    font-size: var(--fs-basis);
   }
 
   .page-numbers {
@@ -115,11 +115,11 @@
 @media screen and (max-width: 415px) {
   .clients-pagination-wrapper {
     margin: 5%;
-    font-size: 1.1em;
+    font-size: var(--fs-basis-m1);
   }
 
   .page-arrow {
-    font-size: 1.1em;
+    font-size: var(--fs-basis-m1);
   }
 
   .page-number {

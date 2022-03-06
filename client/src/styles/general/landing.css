@@ -3,9 +3,6 @@
 @import "../sizes.css";
 
 :root {
-  --fs-landing-small: 0.8em;
-  --fs-landing-small-2: 1.7em;
-  --fs-landing: 2em;
   --fs-landing-3: 3em;
   --fs-landing-large: 28px;
 }
@@ -45,35 +42,34 @@
   flex-flow: column wrap;
   text-align: center;
   align-items: center;
-  /* background-color: rgba(79, 107, 141, 0.8); */
   padding: 2%;
   z-index: 2;
-  width: 100%;
+  width: var(--w-100);
   margin: 2vh auto 10vh auto;
 }
 
 .landing-header {
   margin-top: 1vh;
-  font-family: "Balsamiq Sans";
-  font-size: 2em;
+  font-family: var(--ff-landing);
+  font-size: var(--fs-basis-l2);
   font-weight: bold;
 }
 
 .landing-sub-header {
-  font-weight: 300;
+  font-weight: var(--fw-lightest);
   text-transform: capitalize;
-  font-family: "Fira Sans";
+  font-family: var(--ff-primary);
   font-style: italic;
   line-height: 2;
-  letter-spacing: 0.05em;
+  letter-spacing: var(--ls-s1);
 }
 
 .landing-username-header {
   padding: 15vh 0 10vh 0;
-  font-family: "Balsamiq Sans";
-  font-size: 3em;
+  font-family: var(--ff-landing);
+  font-size: var(--fs-landing-3);
   font-weight: bold;
-  letter-spacing: 0.07em;
+  letter-spacing: var(--ls-s2);
 }
 
 .landing-links-wrapper {
@@ -82,7 +78,7 @@
   justify-content: space-around;
   text-align: center;
   align-items: center;
-  font-size: 1.5em;
+  font-size: var(--fs-basis-m3);
   position: relative;
   z-index: 2;
 }
@@ -91,14 +87,14 @@
   flex: 1;
   padding: 3%;
   margin: 5%;
-  background-color: #31415d;
+  background-color: var(--clr-btn-link);
   border-radius: 10px;
-  font-weight: 600;
+  font-weight: var(--fw-medium);
   text-transform: uppercase;
 }
 
 .landing-link {
-  background-color: #4f6b8d;
+  background-color: var(--clr-link-back);
 }
 
 .link-square:hover {
@@ -109,36 +105,22 @@
 .single-link {
   text-align: center;
   color: var(--clr-primary-text);
-  letter-spacing: 0.1em;
-}
-
-@media screen and (min-width: 1023px) {
-  /*   .landing-header {
-    font-size: 2.5em;
-  } */
-
-  /*   .landing-sub-header {
-    font-size: 4em;
-  } */
+  letter-spacing: var(--ls-l);
 }
 
 @media screen and (max-width: 880px) {
-  /*   .landing-header {
-    font-size: var(--fs-basis-l1);
-  } */
-
   .landing-username-header {
     padding: 15vh 0;
   }
 
   .landing-links-wrapper {
-    font-size: 1.1em;
+    font-size: var(--fs-basis-m1);
   }
 }
 
 @media screen and (max-width: 700px) {
   .landing-sub-header {
-    font-size: 0.9em;
+    font-size: var(--fs-basis-s1);
   }
 
   .landing-username-header {
@@ -164,19 +146,19 @@
 
 @media screen and (max-width: 415px) {
   .landing-header {
-    font-size: 1.8em;
+    font-size: var(--fs-basis-m4);
   }
 
   .landing-sub-header {
-    font-size: 0.85em;
+    font-size: var(--fs-basis-s3);
   }
 
   .landing-username-header {
-    font-size: 2.5em;
+    font-size: var(--fs-basis-l1);
   }
 
   .landing-links-wrapper {
-    font-size: 1.5em;
+    font-size: var(--fs-basis-m3);
     gap: 5%;
   }
 

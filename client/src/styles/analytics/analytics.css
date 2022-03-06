@@ -42,7 +42,7 @@
 }
 
 .recharts-wrapper {
-  letter-spacing: normal;
+  letter-spacing: var(--ls-normal);
 }
 
 @media screen and (min-width: 1023px) {
@@ -69,7 +69,7 @@
 
   #analytics-container {
     margin: 1% auto;
-    max-width: 75%;
+    max-width: var(--w-75);
   }
 }
 

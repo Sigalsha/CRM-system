@@ -13,7 +13,7 @@
 
 #actions-container {
   flex: 10;
-  width: 98%;
+  width: var(--w-98);
   padding: 1% 1% 0 1%;
   background-color: var(--clr-primary-back);
 }
@@ -34,7 +34,7 @@
   text-transform: uppercase;
   font-weight: var(--fw-bold);
   letter-spacing: 0.15em;
-  font-size: var(--fs-basis-m1);
+  font-size: var(--fs-basis-m2);
   color: var(--clr-primary-text);
 }
 
@@ -44,7 +44,7 @@
   }
 
   .actions-header {
-    font-size: 1.2em;
+    font-size: var(--fs-basis-m2);
     margin: 0 1%;
   }
 }
@@ -78,7 +78,7 @@
   }
 
   .actions-header {
-    font-size: 1em;
+    font-size: var(--fs-basis);
   }
 
   #section {

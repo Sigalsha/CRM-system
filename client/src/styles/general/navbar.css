@@ -50,7 +50,7 @@
 
 @media screen and (max-width: 415px) {
   #navbar-container {
-    font-size: 0.9em;
+    font-size: var(--fs-basis-s1);
   }
 
   .nav-link {

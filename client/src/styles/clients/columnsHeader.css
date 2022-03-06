@@ -15,14 +15,14 @@
 
 .column-header {
   flex: 1;
-  font-size: 0.9em;
+  font-size: var(--fs-basis-s1);
   font-weight: var(--fw-bold);
   text-transform: capitalize;
 }
 
 @media screen and (min-width: 1023px) {
   .column-header {
-    font-size: 0.95em;
+    font-size: var(--fs-basis-s2);
   }
 }
 

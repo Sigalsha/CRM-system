@@ -23,8 +23,8 @@
   }
 
   .input-header {
-    font-size: 1.1em;
-    width: 30%;
+    font-size: var(--fs-basis-m1);
+    width: var(--w-30);
   }
 }
 
@@ -40,12 +40,12 @@
 
 @media screen and (max-width: 600px) {
   .client-input-header {
-    width: 40%;
+    width: var(--w-40);
   }
 }
 
 @media screen and (max-width: 415px) {
   .client-input-header {
-    width: 45%;
+    width: var(--w-45);
   }
 }

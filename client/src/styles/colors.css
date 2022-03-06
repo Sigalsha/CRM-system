@@ -1,17 +1,4 @@
 :root {
-  /*
-  dark: #070b1b;
-  deep-blue: #31415d;
-  primary-blue: #4f6b8d;
-  secondary-blue: #738ba4;
-  lightest-blue: #b1cfe7;
-  lighter-blue: #9ab4cc;
-  light-blue: #89a1b8;
-
-  
-  
-  */
-
   /* Layouts */
   --bp-mobile: 375px;
   --bp-desktop: 1440px;
@@ -19,15 +6,15 @@
   /* Colors */
   --clr-background: rgb(92, 101, 104);
   --clr-primary-back: rgb(236, 240, 241); /*#ecf0f1*/
+  --clr-secondary-back: rgb(115, 139, 164); /* #738ba4 */
   --clr-primary-text: rgb(0, 0, 0);
   --clr-secondary-text: rgb(255, 255, 255);
-  --clr-primary-yellow: #89a1b8; /**/
-  /* --clr-primary-yellow: rgb(247, 206, 62); */ /*#f7ce3e*/
+  --clr-primary-yellow: rgb(137, 161, 184); /* 89a1b8 */
+  --clr-btn-link: rgb(49, 65, 93); /* #31415d */
   --clr-border: rgb(211, 211, 211); /*lightgray*/
   --clr-tran: transparent;
   --clr-red: rgb(255, 0, 0);
-
-  /* --clr-link-back: rgba(247, 206, 62, 0.9); */
+  --clr-lightest-blue: rgb(177, 207, 231); /* #b1cfe7 */
   --clr-link-back: rgb(79, 107, 141); /*#4f6b8d*/
   --clr-link-back-hover: rgb(137, 161, 184); /*#89a1b8*/
   --clr-box-shadow: rgba(0, 0, 0, 0.6);
@@ -51,11 +38,16 @@
   /* Alert */
   --clr-alert: rgb(217, 83, 79); /*#d9534f*/
   --clr-alert-success: rgb(92, 184, 92); /*#5cb85c*/
+  /* Login */
+  --clr-auth-back: rgba(79, 107, 141, 0.8);
 
-  --clr-primary-pale: hsl(225, 100%, 94%);
-  --clr-primary-bright: hsl(245, 75%, 52%);
-  --clr-primary-hover: hsla(245, 75%, 52%, 0.5);
-  --clr-neutral-pale: rgb(245, 247, 255);
-  --clr-neutral-des: hsl(224, 23%, 55%);
-  --clr-neutral-dark: hsl(223, 47%, 23%);
+  /*
+  dark: #070b1b;
+  deep-blue: #31415d;
+  primary-blue: #4f6b8d;
+  secondary-blue: #738ba4;
+  lightest-blue: #b1cfe7;
+  lighter-blue: #9ab4cc;
+  light-blue: #89a1b8;
+  */
 }

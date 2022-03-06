@@ -46,7 +46,7 @@
   background-color: var(--clr-tran);
   color: var(--clr-alert);
   border: none;
-  font-size: 1.1em;
+  font-size: var(--fs-basis-m1);
 }
 
 .close-btn:hover {
@@ -56,13 +56,13 @@
 .alert-text {
   color: var(--clr-alert);
   margin: auto;
-  font-size: 1.8em;
-  letter-spacing: normal;
+  font-size: var(--fs-basis-m4);
+  letter-spacing: var(--ls-normal);
   line-height: 1.5;
 }
 
 .auth-text {
-  font-size: 2em;
+  font-size: var(--fs-basis-l2);
 }
 
 .alert-text span {
@@ -82,7 +82,7 @@
   }
 
   .close-btn {
-    font-size: 1.1em;
+    font-size: var(--fs-basis-m1);
   }
 
   .alert-text {
@@ -94,15 +94,15 @@
 
 @media screen and (max-width: 900px) {
   .close-btn {
-    font-size: 1em;
+    font-size: var(--fs-basis);
   }
 
   .alert-text {
-    font-size: 1.5em;
+    font-size: var(--fs-basis-m3);
   }
 
   .auth-text {
-    font-size: 1.7em;
+    font-size: var(--fs-basis-m5);
   }
 }
 
@@ -129,7 +129,7 @@
   }
 
   .auth-text {
-    font-size: 1.5em;
+    font-size: var(--fs-basis-m3);
   }
 }
 
@@ -140,7 +140,7 @@
   }
 
   .alert-text {
-    font-size: 1.2em;
+    font-size: var(--fs-basis-m2);
   }
 
   .auth-text {

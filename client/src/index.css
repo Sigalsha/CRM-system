@@ -1,7 +1,10 @@
+@import "./styles/colors.css";
+@import "./styles/typography.css";
+
 body {
   text-decoration: none;
-  font-family: "Fira Sans", sans-serif;
-  background-color: #ecf0f1;
+  font-family: var(--ff-primary);
+  background-color: var(--clr-primary-back);
   margin: 0;
-  letter-spacing: 0.05em;
+  letter-spacing: var(--ls-s1);
 }

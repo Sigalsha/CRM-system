@@ -11,6 +11,6 @@
   border-color: var(--clr-border);
   border-width: var(--bor-w-001);
   text-align: center;
-  background-color: transparent;
+  background-color: var(--clr-tran);
   width: 150px;
 }

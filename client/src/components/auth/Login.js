@@ -46,10 +46,7 @@ const Login = () => {
       navigate(from, { replace: true });
     }
 
-    if (error) {
-      setAlert(true);
-      setAlertText(error);
-    }
+    dispatchAlert();
   }, [dispatch, navigate, from, isAuthenticated, isLogged, error]);
 
   const handleInputChange = (event) => {
@@ -58,6 +55,16 @@ const Login = () => {
   };
 
   const toggleAlert = () => setAlert(!alert);
+
+  const dispatchAlert = () => {
+    if (error) {
+      setAlert(true);
+      setAlertText(error);
+      dispatch(clearErrors());
+      return false;
+    }
+    return true;
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -76,7 +83,8 @@ const Login = () => {
         setAlert,
         setAlertText,
         AUTH_ALERTS["login"]
-      )
+      ) ||
+      !dispatchAlert()
     ) {
       return;
     }

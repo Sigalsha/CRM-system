@@ -3,7 +3,7 @@
 
 .select-label {
   width: 30%;
-  font-size: 0.9em;
+  font-size: var(--fs-basis-s1);
 }
 
 .text-row {
@@ -14,7 +14,7 @@
   margin-bottom: 2%;
   margin-left: 15%;
   width: 60%;
-  font-size: 0.85em;
+  font-size: var(--fs-basis-s3);
 }
 
 .text-row:focus {
@@ -33,32 +33,32 @@
 
 @media screen and (max-width: 900px) {
   .select-label {
-    font-size: 0.85em;
+    font-size: var(--fs-basis-s3);
   }
 
   .text-row {
     width: 60%;
-    font-size: 0.8em;
+    font-size: var(--fs-basis-s4);
   }
 }
 
 @media screen and (max-width: 800px) {
   .select-label {
-    font-size: 0.95em;
+    font-size: var(--fs-basis-s2);
   }
 
   .text-row {
-    font-size: 0.9em;
+    font-size: var(--fs-basis-s1);
     margin-left: 5%;
   }
 }
 
 @media screen and (max-width: 700px) {
   .select-label {
-    font-size: 1.1em;
+    font-size: var(--fs-basis-m1);
   }
   .text-row {
-    font-size: 1em;
+    font-size: var(--fs-basis);
   }
 }
 
