@@ -11,7 +11,7 @@ const ClientService = require("./services/client.services");
 const ClientModel = require("./models/ClientModel");
 
 const PORT = process.env.PORT || 8100;
-const URI = process.env.ATLAS_URI;
+const URI = process.env.MONGODB_URI || process.env.ATLAS_URI;
 
 mongoose.connect(URI);
 const connection = mongoose.connection;

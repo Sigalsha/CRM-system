@@ -1,7 +1,7 @@
 const UserService = require("../services/user.services");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const JWT_SECRET = process.env.JWT_SECRET; // || config.get("jwtSecret")
+const JWT_SECRET = process.env.JWT_SECRET;
 
 exports.loginUser = async function (req, res, next) {
   const { email, password } = req.body;

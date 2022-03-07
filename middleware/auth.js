@@ -1,6 +1,5 @@
-const config = require("config");
 const jwt = require("jsonwebtoken");
-const JWT_SECRET = process.env.JWT_SECRET; // || config.get("jwtSecret")
+const JWT_SECRET = process.env.JWT_SECRET;
 
 function auth(req, res, next) {
   const token = req.header("x-auth-token");
