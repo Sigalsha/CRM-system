@@ -62,8 +62,6 @@ const UpdateClient = ({ currentClient, changeClient, emailTypes, owners }) => {
         mapList={owners}
         name="owner"
         onChange={handleInputChange}
-        // check what is for
-        /* onFocus={this.onFocus} */
       />
       <UpdateButton
         onClick={() =>

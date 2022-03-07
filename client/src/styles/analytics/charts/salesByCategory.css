@@ -1,16 +1,18 @@
 @import "../../colors.css";
+@import "../../sizes.css";
+@import "../../typography.css";
 
 .category-header {
-  display: flex;
-  flex-flow: row wrap;
-  align-items: center;
+  display: var(--flex);
+  flex-flow: var(--f-flow-rw);
+  align-items: var(--al-c);
 }
 
 .select-category {
   margin-left: 40px;
   border-color: var(--clr-border);
   border-width: var(--bor-w-001);
-  text-align: center;
+  text-align: var(--ta-c);
   background-color: var(--clr-tran);
   width: 150px;
 }

@@ -1,5 +1,10 @@
 @import "../colors.css";
 @import "../typography.css";
+@import "../sizes.css";
+
+:root {
+  --m-l-5: 5%;
+}
 
 .select-label {
   width: 30%;
@@ -9,11 +14,11 @@
 .text-row {
   border-color: var(--clr-border);
   border-width: var(--bor-w-001);
-  text-align: center;
+  text-align: var(--ta-c);
   background-color: var(--clr-tran);
   margin-bottom: 2%;
   margin-left: 15%;
-  width: 60%;
+  width: var(--w-60);
   font-size: var(--fs-basis-s3);
 }
 
@@ -23,7 +28,7 @@
 
 @media screen and (min-width: 1023px) {
   .select-label {
-    max-width: 50%;
+    max-width: var(--w-50);
   }
 
   .text-row {
@@ -37,7 +42,7 @@
   }
 
   .text-row {
-    width: 60%;
+    width: var(--w-60);
     font-size: var(--fs-basis-s4);
   }
 }
@@ -49,7 +54,7 @@
 
   .text-row {
     font-size: var(--fs-basis-s1);
-    margin-left: 5%;
+    margin-left: var(--m-l-5);
   }
 }
 
@@ -68,7 +73,7 @@
   }
 
   .text-row {
-    width: 70%;
-    margin-left: 5%;
+    width: var(--w-70);
+    margin-left: var(--m-l-5);
   }
 }

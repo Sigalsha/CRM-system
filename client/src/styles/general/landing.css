@@ -15,7 +15,7 @@
   flex: 10;
   width: var(--w-100);
   color: var(--clr-primary-text);
-  display: flex;
+  display: var(--flex);
   flex-direction: column;
   position: relative;
   overflow: hidden;
@@ -38,11 +38,11 @@
 }
 
 .landing-wrapper {
-  display: flex;
-  flex-flow: column wrap;
-  text-align: center;
-  align-items: center;
-  padding: 2%;
+  display: var(--flex);
+  flex-flow: var(--f-flow-cw);
+  text-align: var(--ta-c);
+  align-items: var(--al-c);
+  padding: var(--pd-2);
   z-index: 2;
   width: var(--w-100);
   margin: 2vh auto 10vh auto;
@@ -57,10 +57,10 @@
 
 .landing-sub-header {
   font-weight: var(--fw-lightest);
-  text-transform: capitalize;
+  text-transform: var(--tt-cap);
   font-family: var(--ff-primary);
   font-style: italic;
-  line-height: 2;
+  line-height: var(--lh-2);
   letter-spacing: var(--ls-s1);
 }
 
@@ -74,10 +74,10 @@
 
 .landing-links-wrapper {
   width: var(--w-100);
-  display: flex;
+  display: var(--flex);
   justify-content: space-around;
-  text-align: center;
-  align-items: center;
+  text-align: var(--ta-c);
+  align-items: var(--al-c);
   font-size: var(--fs-basis-m3);
   position: relative;
   z-index: 2;
@@ -85,12 +85,12 @@
 
 .link-square {
   flex: 1;
-  padding: 3%;
-  margin: 5%;
+  padding: var(--pd-3);
+  margin: var(--m-5);
   background-color: var(--clr-btn-link);
   border-radius: 10px;
   font-weight: var(--fw-medium);
-  text-transform: uppercase;
+  text-transform: var(--tt-up);
 }
 
 .landing-link {
@@ -103,7 +103,7 @@
 }
 
 .single-link {
-  text-align: center;
+  text-align: var(--ta-c);
   color: var(--clr-primary-text);
   letter-spacing: var(--ls-l);
 }
@@ -139,8 +139,8 @@
 
 @media screen and (max-width: 500px) {
   .landing-link {
-    margin: 5%;
-    padding: 4%;
+    margin: var(--m-5);
+    padding: var(--pd-4);
   }
 }
 
@@ -164,7 +164,7 @@
 
   .landing-link {
     width: var(--w-70);
-    padding: 5%;
+    padding: var(--pd-5);
   }
 }
 

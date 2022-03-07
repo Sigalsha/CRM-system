@@ -18,9 +18,8 @@
 #clients-container {
   flex: 10;
   width: var(--w-100);
-  /* height: var(--h-100); */
   margin-top: var(--m-top-10-px);
-  padding: 0 1%;
+  padding: var(--pd-0-1);
   background-color: var(--clr-primary-back);
 }
 

@@ -10,15 +10,15 @@
 #navbar-container {
   width: var(--w-100);
   font-size: var(--fs-basis);
-  display: flex;
-  text-align: center;
-  align-items: center;
+  display: var(--flex);
+  text-align: var(--ta-c);
+  align-items: var(--al-c);
   background-color: var(--clr-nav-back);
 }
 
 .nav-link {
   flex: 1;
-  padding: 2%;
+  padding: var(--pd-2);
   color: var(--clr-secondary-text);
 }
 

@@ -1,45 +1,46 @@
 @import "../typography.css";
 @import "../sizes.css";
+@import "../colors.css";
 
 .clients-filter-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
+  display: var(--flex);
+  align-items: var(--al-c);
+  justify-content: var(--jc-se);
   flex-wrap: wrap;
   margin: 3% 0;
   gap: 3%;
 }
 
 .filter-group {
-  display: flex;
-  align-items: center;
+  display: var(--flex);
+  align-items: var(--al-c);
   flex: 1;
 }
 
 @media screen and (max-width: 800px) {
   .clients-filter-wrapper {
-    align-items: center;
-    flex-flow: column wrap;
-    width: 50%;
+    align-items: var(--al-c);
+    flex-flow: var(--f-flow-cw);
+    width: var(--w-50);
     margin: 3% auto;
   }
 
   .filter-group {
     width: var(--w-100);
-    line-height: 2;
+    line-height: var(--lh-2);
   }
 }
 
 @media screen and (max-width: 600px) {
   .clients-filter-wrapper {
-    width: 90%;
+    width: var(--w-90);
   }
 }
 
 @media screen and (max-width: 415px) {
   .clients-filter-wrapper {
     margin: 1% auto;
-    width: 90%;
+    width: var(--w-90);
   }
 
   .filter-group {

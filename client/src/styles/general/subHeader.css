@@ -1,8 +1,9 @@
 @import "../sizes.css";
+@import "../typography.css";
 
 .input-header {
   width: var(--w-30);
-  line-height: 2;
+  line-height: var(--lh-2);
 }
 
 @media screen and (max-width: 700px) {

@@ -8,28 +8,29 @@
   --fs-badges-large-3: 30px;
   --fs-badges-sm: 513px;
   --m-top-15-px: 15px;
+  --pd-05: 0.5%;
+  --m-top-3: 3%;
 }
 
 .badges-wrapper {
-  /*   height: var(--h-100); */
   max-width: 98%;
-  display: flex;
-  justify-content: space-evenly;
-  flex-flow: row wrap;
-  margin-top: 1%;
+  display: var(--flex);
+  justify-content: var(--jc-se);
+  flex-flow: var(--f-flow-rw);
+  margin-top: var(--m-top-1);
   gap: 2%;
 }
 
 .badge {
-  text-align: center;
+  text-align: var(--ta-c);
   vertical-align: middle;
   width: var(--w-18-vw);
-  height: 15vh;
+  height: var(--h-15-vh);
   border: 1px solid var(--clr-tran);
   border-radius: 15px;
-  display: flex;
+  display: var(--flex);
   flex-flow: column;
-  align-items: center;
+  align-items: var(--al-c);
   padding: 1% 0.5% 0.5% 0.5%;
 }
 
@@ -46,9 +47,9 @@
 }
 
 .badge-header {
-  margin-top: 3%;
+  margin-top: var(--m-top-3);
   font-weight: var(--fw-bold);
-  text-transform: uppercase;
+  text-transform: var(--tt-up);
   white-space: normal;
   font-size: var(--fs-basis-s1);
 }
@@ -58,7 +59,7 @@
   width: 120px;
   background-color: var(--clr-border);
   color: var(--clr-primary-text);
-  text-align: center;
+  text-align: var(--ta-c);
   text-transform: none;
   font-weight: var(--fw-light);
   border-radius: 6px;
@@ -72,9 +73,9 @@
 }
 
 .badge-desc {
-  margin-top: 3%;
+  margin-top: var(--m-top-3);
   font-size: var(--fs-px-11);
-  text-align: center;
+  text-align: var(--ta-c);
   font-weight: var(--fw-light);
   white-space: normal;
   letter-spacing: var(--ls-normal);
@@ -92,12 +93,12 @@
   }
 
   .badge {
-    padding: 0.5%;
+    padding: var(--pd-05);
   }
 
   .badge-desc {
     font-size: var(--fs-px-12);
-    margin-top: 3%;
+    margin-top: var(--m-top-3);
   }
 }
 
@@ -108,7 +109,7 @@
   }
 
   .badge {
-    padding: 0.5%;
+    padding: var(--pd-05);
   }
 
   .badge-header {
@@ -122,7 +123,7 @@
 
 @media screen and (max-width: 800px) {
   .badge {
-    width: 30vw;
+    width: var(--w-30-vw);
     margin: 2% 0;
     padding: 1%;
   }
@@ -142,7 +143,7 @@
 
 @media screen and (max-width: 600px) {
   .badge {
-    width: 40vw;
+    width: var(--w-40-vw);
   }
 }
 
@@ -152,15 +153,15 @@
   }
 
   .badge {
-    width: 45vw;
+    width: var(--w-45-vw);
     height: 18vh;
     margin: 2% 0;
-    padding: 2%;
+    padding: var(--pd-2);
   }
 
   .badge-header {
     padding: 0 5%;
-    line-height: 2;
+    line-height: var(--lh-2);
   }
 
   .badge-icon {
@@ -176,7 +177,7 @@
     margin-right: var(--m-right-40);
     font-size: var(--fs-basis);
     margin-top: var(--m-top-20-px);
-    padding: 5px;
+    padding: var(--pd-5-px);
   }
 
   .tooltip-hover:hover .badge-tooltip {
@@ -195,18 +196,18 @@
 
 @media screen and (max-width: 400px) {
   .badge {
-    height: 15vh;
+    height: var(--h-15-vh);
   }
 
   .badge-header {
     font-size: var(--fs-basis-s4);
-    margin-top: 5%;
+    margin-top: var(--m-top-5);
   }
 
   .tooltip-hover .badge-tooltip {
     width: 100px;
     margin-left: var(--m-left-10-px);
-    padding: 5px;
+    padding: var(--pd-5-px);
     font-size: var(--fs-px-12);
   }
 

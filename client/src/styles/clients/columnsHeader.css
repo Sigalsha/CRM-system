@@ -4,20 +4,20 @@
 
 #columns-header-container {
   width: var(--w-100);
-  display: flex;
+  display: var(--flex);
   justify-content: space-between;
   text-align: left;
-  align-items: center;
+  align-items: var(--al-c);
   background-color: var(--clr-primary-yellow);
   box-shadow: 1.5px 1.5px var(--clr-box-shadow);
-  padding: var(--pd-10-px);
+  padding: var(--pd-1);
 }
 
 .column-header {
   flex: 1;
   font-size: var(--fs-basis-s1);
   font-weight: var(--fw-bold);
-  text-transform: capitalize;
+  text-transform: var(--tt-cap);
 }
 
 @media screen and (min-width: 1023px) {
@@ -28,7 +28,6 @@
 
 @media screen and (max-width: 700px) {
   #columns-header-container {
-    padding: 5px 2px;
     font-size: var(--fs-px-9);
     margin: 0 -1px;
   }
@@ -49,6 +48,10 @@
 }
 
 @media screen and (max-width: 415px) {
+  #columns-header-container {
+    padding: var(--pd-1-0);
+  }
+
   .column-header {
     font-size: var(--fs-px-9);
   }

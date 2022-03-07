@@ -1,23 +1,24 @@
 @import "../colors.css";
 @import "../sizes.css";
+@import "../typography.css";
 
 .datalist-wrapper {
   width: var(--w-25);
   border-color: var(--clr-border);
-  text-align: center;
-  line-height: 2;
+  text-align: var(--ta-c);
+  line-height: var(--lh-2);
 }
 
 .datalist-add-client {
   width: var(--w-70);
   background-color: var(--clr-tran);
   color: var(--clr-primary-text);
-  line-height: 2;
+  line-height: var(--lh-2);
 }
 
 .input-text {
   width: var(--w-100);
-  text-align: center;
+  text-align: var(--ta-c);
   background-color: var(--clr-tran);
   border-style: var(--bor-st-sol);
   border-width: var(--bor-w-001);
@@ -30,7 +31,7 @@
 
 .input-text-add-client {
   width: var(--w-100);
-  text-align: center;
+  text-align: var(--ta-c);
 }
 
 @media screen and (min-width: 1023px) {
@@ -65,7 +66,7 @@
 
 @media screen and (max-width: 415px) {
   .datalist-wrapper {
-    margin-right: auto;
+    margin-right: var(--m-r-auto);
     margin-left: 10px;
   }
   .datalist-add-client {

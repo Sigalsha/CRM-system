@@ -2,19 +2,23 @@
 @import "../typography.css";
 @import "../sizes.css";
 
+:root {
+  --w-login: 95%;
+}
+
 * {
   text-decoration: none;
 }
 
 .auth-wrapper {
   width: 35vw;
-  display: flex;
-  flex-flow: column wrap;
-  text-align: center;
-  margin: auto;
-  align-items: center;
+  display: var(--flex);
+  flex-flow: var(--f-flow-cw);
+  text-align: var(--ta-c);
+  margin: var(--m-auto);
+  align-items: var(--al-c);
   background-color: var(--clr-auth-back);
-  padding: 2%;
+  padding: var(--pd-2);
   z-index: 2;
   font-size: var(--fs-basis-s1);
   border-radius: 7px;
@@ -26,7 +30,7 @@
   background-size: contain;
   width: 8vw;
   height: 8vh;
-  margin-right: auto;
+  margin-right: var(--m-r-auto);
 }
 
 .auth-header {
@@ -39,18 +43,18 @@
 .auth-sub-header {
   font-size: var(--fs-basis-m1);
   font-weight: var(--fw-lightest);
-  text-transform: capitalize;
+  text-transform: var(--tt-cap);
   font-family: var(--ff-primary);
   font-style: italic;
-  line-height: 2;
+  line-height: var(--lh-2);
   letter-spacing: var(--ls-l);
 }
 
 .login-wrapper {
-  display: flex;
+  display: var(--flex);
   flex-flow: column;
-  gap: 5vh;
-  padding-top: 20%;
+  gap: var(--h-5-vh);
+  padding-top: var(--pt-20);
   width: var(--w-100);
 }
 
@@ -59,29 +63,29 @@
 }
 
 #auth-label {
-  width: 50%;
+  width: var(--w-50);
   padding-top: 2%;
   font-size: var(--fs-basis-m2);
 }
 
 #auth-input {
-  width: 95%;
+  width: var(--w-login);
   font-size: var(--fs-basis-s3);
 }
 
 .auth-btn {
   width: var(--w-100);
-  padding: 5%;
+  padding: var(--pd-5);
   background-color: var(--clr-btn-link);
   color: var(--clr-primary-text);
   font-size: var(--fs-basis);
-  text-align: center;
-  margin-top: 3vh;
+  text-align: var(--ta-c);
+  margin-top: var(--m-3-vh);
   border: 0;
-  border-radius: 5px;
+  border-radius: var(--br-5-px);
   letter-spacing: var(--ls-l);
   font-weight: var(--fw-medium);
-  text-transform: uppercase;
+  text-transform: var(--tt-up);
   font-size: var(--fs-basis-m1);
 }
 
@@ -90,21 +94,21 @@
 }
 
 .register-link-wrapper {
-  display: inline-flex;
-  align-items: center;
+  display: var(--d-in-flex);
+  align-items: var(--al-c);
   font-size: var(--fs-basis-m2);
 }
 
 .auth-link {
-  padding: 5%;
+  padding: var(--pd-5);
   margin: 5% 0 5% 5%;
   font-size: var(--fs-basis-s1);
-  border-radius: 5px;
+  border-radius: var(--br-5-px);
 }
 
 @media screen and (min-width: 1023px) {
   .auth-wrapper {
-    width: 30vw;
+    width: var(--w-30-vw);
   }
   .auth-header {
     font-size: var(--fs-basis-l1);
@@ -115,17 +119,17 @@
   }
 
   .auth-btn {
-    padding: 4%;
+    padding: var(--pd-4);
   }
 
   .auth-link {
-    padding: 4%;
+    padding: var(--pd-4);
   }
 }
 
 @media screen and (max-width: 880px) {
   .auth-wrapper {
-    width: 40vw;
+    width: var(--w-40-vw);
   }
   .login-wrapper {
     padding-top: 30%;
@@ -138,7 +142,7 @@
 
 @media screen and (max-width: 800px) {
   .auth-wrapper {
-    width: 40vw;
+    width: var(--w-40-vw);
   }
 
   .auth-header {
@@ -148,7 +152,7 @@
 
 @media screen and (max-width: 700px) {
   .auth-wrapper {
-    width: 45vw;
+    width: var(--w-45-vw);
   }
 }
 
@@ -158,8 +162,8 @@
   }
 
   .login-wrapper {
-    width: 95%;
-    padding-top: 20%;
+    width: var(--w-login);
+    padding-top: var(--pt-20);
   }
 
   .auth-header {
@@ -182,9 +186,9 @@
 @media screen and (max-width: 415px) {
   .auth-wrapper {
     margin: 15vh auto;
-    border-radius: 5px;
+    border-radius: var(--br-5-px);
     width: 80vw;
-    padding: 3%;
+    padding: var(--pd-3);
   }
 
   .auth-header {
@@ -197,7 +201,7 @@
   }
 
   #auth-label {
-    width: 50%;
+    width: var(--w-50);
   }
 
   #auth-input {

@@ -1,21 +1,22 @@
 @import "../../typography.css";
 @import "../../sizes.css";
+@import "../../colors.css";
 
 .pies-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-flow: column wrap;
+  display: var(--flex);
+  justify-content: var(--jc-c);
+  align-items: var(--al-c);
+  flex-flow: var(--f-flow-cw);
 }
 
 .pie-wrapper {
-  display: flex;
-  justify-content: center;
-  flex-flow: row wrap;
+  display: var(--flex);
+  justify-content: var(--jc-c);
+  flex-flow: var(--f-flow-rw);
 }
 
 .pie-header {
-  text-align: center;
+  text-align: var(--ta-c);
   margin-right: var(--m-right-20);
   font-size: 11px;
 }

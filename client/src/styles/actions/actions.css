@@ -31,7 +31,7 @@
 .actions-header {
   margin: 1%;
   padding: var(--pd-1);
-  text-transform: uppercase;
+  text-transform: var(--tt-up);
   font-weight: var(--fw-bold);
   letter-spacing: 0.15em;
   font-size: var(--fs-basis-m2);
@@ -40,7 +40,7 @@
 
 @media screen and (min-width: 1023px) {
   #section {
-    margin: 2%;
+    margin: var(--m-2);
   }
 
   .actions-header {

@@ -11,28 +11,28 @@
 }
 
 .register-wrapper {
-  display: flex;
-  flex-flow: column wrap;
-  gap: 5vh;
-  padding-top: 20%;
+  display: var(--flex);
+  flex-flow: var(--f-flow-cw);
+  gap: var(--h-5-vh);
+  padding-top: var(--pt-20);
 }
 
 .login-link-wrapper {
-  display: inline-flex;
-  align-items: center;
+  display: var(--d-in-flex);
+  align-items: var(--al-c);
   font-size: var(--fs-basis-m1);
 }
 
 @media screen and (max-width: 415px) {
   .auth-btn {
-    width: 90%;
-    margin-right: auto;
-    margin-left: auto;
+    width: var(--w-90);
+    margin-right: var(--m-r-auto);
+    margin-left: var(--m-left-au);
   }
 
   .login-link-wrapper {
-    width: 90%;
-    margin-right: auto;
-    margin-left: auto;
+    width: var(--w-90);
+    margin-right: var(--m-r-auto);
+    margin-left: var(--m-left-au);
   }
 }

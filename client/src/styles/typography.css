@@ -37,4 +37,15 @@
   --ls-s1: 0.05em;
   --ls-s2: 0.07em;
   --ls-l: 0.1em;
+
+  /* Line-Height */
+  --lh-2: 2;
+  --lh-15: 1.5;
+
+  /* Text-Align */
+  --ta-c: center;
+
+  /* Text-Transform */
+  --tt-up: uppercase;
+  --tt-cap: capitalize;
 }

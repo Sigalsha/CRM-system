@@ -1,5 +1,6 @@
 @import "../colors.css";
 @import "../sizes.css";
+@import "../typography.css";
 
 :root {
   --fs-req-small: 0.3em;
@@ -10,12 +11,7 @@
   font-size: var(--fs-req-small);
   margin-right: 5px;
   color: var(--clr-red);
-  /*  margin-top: var(--m-top-4); */
 }
-
-/* .client-input {
-  margin-top: 1%;
-} */
 
 @media screen and (max-width: 700px) {
   .main {

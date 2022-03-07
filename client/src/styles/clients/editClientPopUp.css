@@ -10,7 +10,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  margin: auto;
+  margin: var(--m-auto);
   background-color: var(--clr-back-wrapper);
 }
 
@@ -20,10 +20,10 @@
   top: var(--m-top-50);
   transform: translate(-50%, -50%);
   width: var(--w-50);
-  height: 40%;
-  padding: 3%;
-  display: flex;
-  flex-flow: column wrap;
+  height: var(--h-40);
+  padding: var(--pd-3);
+  display: var(--flex);
+  flex-flow: var(--f-flow-cw);
   text-align: left;
   background-color: var(--clr-back-container);
   opacity: 0.95;
@@ -35,7 +35,7 @@
   flex: 1;
   margin-left: var(--m-left-au);
   font-size: var(--fs-basis);
-  display: inline-flex;
+  display: inline-var(--flex);
   background-color: inherit;
   color: inherit;
   border: 0;
@@ -47,15 +47,15 @@
 
 form {
   flex: 5;
-  flex-flow: column wrap;
+  flex-flow: var(--f-flow-cw);
 }
 
 .popup-row {
   width: var(--w-100);
   background-color: var(--clr-tran);
   flex: 2;
-  display: flex;
-  align-items: center;
+  display: var(--flex);
+  align-items: var(--al-c);
 }
 
 .popup-row span {
@@ -63,14 +63,14 @@ form {
 }
 
 .popup-input {
-  width: 60%;
+  width: var(--w-60);
   background-color: var(--clr-tran);
   border-width: var(--bor-w-001);
   border-color: var(--clr-border-popup);
   color: var(--clr-lightest-blue);
   font-size: var(--fs-basis);
   padding-bottom: 1%;
-  margin-top: 1%;
+  margin-top: var(--m-top-1);
 }
 
 .popup-input:focus {
@@ -79,15 +79,15 @@ form {
 
 .update-btn {
   width: 91%;
-  margin-top: 5%;
+  margin-top: var(--m-top-5);
   background-color: var(--clr-secondary-back);
   color: var(--clr-primary-text);
   font-weight: var(--fw-bold);
-  text-align: center;
+  text-align: var(--ta-c);
   font-size: var(--fs-basis);
   padding: 1.5%;
   border-color: var(--clr-tran);
-  border-radius: 5px;
+  border-radius: var(--br-5-px);
   flex: 1;
 }
 
@@ -99,7 +99,7 @@ form {
   .popup-container {
     height: 50%;
     width: var(--w-45);
-    padding: 2%;
+    padding: var(--pd-2);
   }
 
   .input-header {
@@ -115,7 +115,7 @@ form {
   .popup-container {
     font-size: var(--fs-basis-m1);
     width: 55%;
-    height: 35%;
+    height: var(--h-35);
   }
 
   .popup-row span {
@@ -133,8 +133,8 @@ form {
 
 @media screen and (max-width: 600px) {
   .popup-container {
-    width: 60%;
-    height: 30%;
+    width: var(--w-60);
+    height: var(--h-30);
   }
 
   .input-header {
@@ -147,14 +147,14 @@ form {
 
   .update-btn {
     font-size: var(--fs-basis-s2);
-    width: 90%;
+    width: var(--w-90);
   }
 }
 
 @media screen and (max-width: 400px) {
   .popup-container {
-    width: 70%;
-    padding: 5%;
+    width: var(--w-70);
+    padding: var(--pd-5);
   }
 
   .popup-input {

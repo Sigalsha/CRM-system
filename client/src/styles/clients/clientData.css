@@ -5,10 +5,10 @@
 .row-container {
   height: var(--h-100);
   width: var(--w-100);
-  display: flex;
+  display: var(--flex);
   text-align: left;
   justify-content: space-around;
-  align-items: center;
+  align-items: var(--al-c);
   padding: var(--pd-1);
   border-width: 0px 0px 2px 0px;
   border-color: var(--clr-border);
@@ -22,10 +22,6 @@
 .rowItem {
   flex: 1;
   font-size: var(--fs-basis-s2);
-}
-
-.rowItem:nth-child(5) {
-  padding-left: 5%;
 }
 
 @media screen and (max-width: 415px) {

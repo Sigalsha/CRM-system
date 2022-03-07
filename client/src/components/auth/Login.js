@@ -98,7 +98,6 @@ const Login = () => {
   return (
     <div className="landing-container">
       <div className="auth-wrapper">
-        {/* <div className="crm-logo"></div> */}
         <p className="auth-header">{LANDING["header"]}</p>
         <p className="auth-sub-header">{LANDING["subHeader"]}</p>
         {alert && (

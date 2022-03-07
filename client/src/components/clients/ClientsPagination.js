@@ -17,15 +17,6 @@ const ClientsPagination = ({
     setCurrentPage(1);
   }, [isPageReset]);
 
-  /*   componentDidUpdate(prevProps) {
-    if (
-      props.isPageReset &&
-      props.isPageReset !== prevProps.isPageReset
-    ) {
-      setState({ currentPage: 1 });
-    }
-  } */
-
   const previousDisplay = (pageNum) => {
     displayByPage(-1, pageNum);
     setCurrentPage(pageNum);

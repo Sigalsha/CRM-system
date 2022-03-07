@@ -27,7 +27,7 @@ body {
 .app {
   height: 100vh;
   background-color: var(--clr-back);
-  display: flex;
+  display: var(--flex);
   flex-direction: column;
 }
 

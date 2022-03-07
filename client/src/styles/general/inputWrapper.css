@@ -3,8 +3,8 @@
 @import "../sizes.css";
 
 .input-wrapper {
-  display: inline-flex;
+  display: var(--d-in-flex);
   width: var(--w-100);
-  align-items: center;
-  line-height: 2;
+  align-items: var(--al-c);
+  line-height: var(--lh-2);
 }

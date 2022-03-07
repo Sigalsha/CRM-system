@@ -1,17 +1,18 @@
 @import "../colors.css";
 @import "../typography.css";
+@import "../sizes.css";
 
 .clients-pagination-wrapper {
-  display: flex;
-  justify-content: space-evenly;
+  display: var(--flex);
+  justify-content: var(--jc-se);
   margin: 3% 0;
   flex-wrap: wrap;
   font-size: var(--fs-basis-s1);
 }
 
 .page-arrow {
-  display: inline-flex;
-  align-items: center;
+  display: var(--d-in-flex);
+  align-items: var(--al-c);
   border: 0;
   font-size: var(--fs-basis);
 }
@@ -25,9 +26,9 @@
 }
 
 .page-numbers {
-  display: flex;
+  display: var(--flex);
   list-style-type: none;
-  justify-content: center;
+  justify-content: var(--jc-c);
   flex-wrap: wrap;
   margin: 5px 0;
 }
@@ -52,10 +53,6 @@
 }
 
 @media screen and (min-width: 1023px) {
-  /*   .clients-pagination-wrapper {
-    margin: 2% 0;
-  } */
-
   .page-number {
     padding: 0 0.3vw;
   }
@@ -114,7 +111,7 @@
 
 @media screen and (max-width: 415px) {
   .clients-pagination-wrapper {
-    margin: 5%;
+    margin: var(--m-5);
     font-size: var(--fs-basis-m1);
   }
 

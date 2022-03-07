@@ -3,7 +3,7 @@
 @import "../sizes.css";
 
 .table-loader-position {
-  text-align: center;
+  text-align: var(--ta-c);
   padding-top: var(--h-20-vh);
 }
 
@@ -11,7 +11,7 @@
   display: block;
   font-weight: var(--fw-bold);
   font-size: var(--fs-basis-l1);
-  text-align: center;
+  text-align: var(--ta-c);
   margin-top: var(--m-top-15);
 }
 

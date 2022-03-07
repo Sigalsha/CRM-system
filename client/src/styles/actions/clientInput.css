@@ -1,20 +1,21 @@
 @import "../typography.css";
 @import "../sizes.css";
+@import "../colors.css";
 
 .client-input-container {
-  display: flex;
+  display: var(--flex);
   text-align: left;
   justify-content: flex-start;
-  align-items: center;
-  padding: 0 1%;
-  margin: 0 1% 0 2%;
-  line-height: 2;
+  align-items: var(--al-c);
+  padding: var(--pd-0-1);
+  margin: var(--m-0-1-0-2);
+  line-height: var(--lh-2);
 }
 
 .client-input-header {
-  display: inline-flex;
+  display: var(--d-in-flex);
   width: var(--w-30);
-  align-items: center;
+  align-items: var(--al-c);
 }
 
 @media screen and (min-width: 1023px) {
