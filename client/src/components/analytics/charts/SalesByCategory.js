@@ -44,15 +44,15 @@ const SalesByCategory = (props) => {
   const generateAreaColor = () => {
     switch (category) {
       case "country":
-        return COLORS["brown"];
+        return COLORS["deepBlue"];
       case "owner":
-        return COLORS["yellow"];
+        return COLORS["primaryBlue"];
       case "emailType":
-        return COLORS["orange"];
+        return COLORS["secondaryBlue"];
       case "year":
-        return COLORS["lightgray"];
+        return COLORS["lightestBlue"];
       default:
-        return COLORS["lightgray"];
+        return COLORS["backgroundGray"];
     }
   };
 

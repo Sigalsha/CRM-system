@@ -34,12 +34,20 @@
   padding: 1% 0.5% 0.5% 0.5%;
 }
 
-.badge:nth-child(odd) {
+.badge:nth-child(1) {
   background-color: var(--clr-badges-odd);
 }
 
-.badge:nth-child(even) {
+.badge:nth-child(2) {
   background-color: var(--clr-badges-even);
+}
+
+.badge:nth-child(3) {
+  background-color: var(--clr-secondary-back);
+}
+
+.badge:nth-child(4) {
+  background-color: var(--clr-lighter-blue);
 }
 
 .badge-icon {

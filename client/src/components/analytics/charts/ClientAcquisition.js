@@ -9,7 +9,11 @@ import {
 import "../../../styles/analytics/analytics.css";
 import "../../../styles/analytics/charts/clientAcquisition.css";
 
-const colors = [COLORS["brown"], COLORS["yellow"], COLORS["orange"]];
+const colors = [
+  COLORS["deepBlue"],
+  COLORS["primaryBlue"],
+  COLORS["secondaryBlue"]
+];
 
 const RADIAN = Math.PI / 180;
 const renderCustomizedLabel = ({

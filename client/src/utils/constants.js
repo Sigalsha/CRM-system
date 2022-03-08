@@ -121,18 +121,12 @@ export const SALES_BY_CATEGORY = {
 };
 
 export const COLORS = {
-  /*   brown: "#795548",
-  yellow: "#f7ce3e",
-  orange: "#ff884b",
-  lightgray: "lightgray",
-  backgroundGray: "#f5f5f5",
-  cyan: "#00bfff" */
-  brown: "#31415d",
-  yellow: "#4f6b8d",
-  orange: "#738ba4",
-  lightgray: "#b1cfe7",
-  backgroundGray: "#f5f5f5",
-  cyan: "#89a1b8"
+  deepBlue: "#31415d", //brown
+  primaryBlue: "#4f6b8d", //yellow
+  secondaryBlue: "#738ba4", //orange
+  lightestBlue: "#b1cfe7", // lightgray
+  backgroundGray: "#f5f5f5", //same
+  lightBlue: "#89a1b8" // cyan
 };
 
 export const SELECT = {

@@ -31,7 +31,7 @@ const TopEmployees = ({ owners, getOwners }) => {
         <YAxis />
         <Tooltip />
         <Legend />
-        <Bar dataKey="sales" fill={COLORS["yellow"]} barSize={20}>
+        <Bar dataKey="sales" fill={COLORS["primaryBlue"]} barSize={20}>
           <LabelList
             dataKey="name"
             position="top"

@@ -20,9 +20,8 @@
   width: var(--w-100);
   text-align: var(--ta-c);
   background-color: var(--clr-tran);
-  border-style: var(--bor-st-sol);
-  border-width: var(--bor-w-001);
-  border-color: var(--clr-border);
+  border-width: 0 0 1px 0;
+  border-bottom-color: var(--clr-border);
 }
 
 .input-text:focus {

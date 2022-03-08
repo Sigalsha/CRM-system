@@ -19,16 +19,13 @@
   --clr-link-back-hover: rgb(137, 161, 184); /*#89a1b8*/
   --clr-box-shadow: rgba(0, 0, 0, 0.6);
 
-  /* Landing */
-  --clr-border-landing: rgb(0, 0, 0);
   /* Navbar */
   --clr-nav-hover: rgba(169, 169, 169, 0.2);
   --clr-nav-back: rgb(7, 11, 27);
   /* Badges */
-  /* --clr-badges-odd: rgba(255, 136, 75, 0.85); */
-  --clr-badges-odd: #4f6b8d;
-  /* --clr-badges-even: rgba(247, 206, 62, 0.85); */
-  --clr-badges-even: #89a1b8;
+  --clr-badges-odd: rgb(79, 107, 141); /* #4f6b8d */
+  --clr-lighter-blue: rgb(154, 180, 204); /* #9ab4cc */
+  --clr-badges-even: rgb(137, 161, 184); /*#89a1b8*/
   /* ClientsPagination */
   --clr-pagination-num: rgb(121, 85, 72);
   /* EditClientPopUp */

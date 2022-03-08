@@ -45,9 +45,9 @@ const SalesByMonth = ({ sales }) => {
         <Line
           type="monotone"
           dataKey="sales"
-          stroke={COLORS["orange"]}
+          stroke={COLORS["secondaryBlue"]}
           strokeWidth={2}
-          dot={{ fill: COLORS["lightgray"] }}
+          dot={{ fill: COLORS["lightestBlue"] }}
         />
       </LineChart>
     </div>
