@@ -50,7 +50,7 @@ export const getFilteredClients = (currentFilters) => (dispatch, getState) => {
 
 export const updateClient = (clientId, updatedClient) => async (dispatch) => {
   axios
-    .put(`${URL}${clientId}`, updatedClient)
+    .put(`${URL}/${clientId}`, updatedClient)
     .then((res) => {
       console.log("res from update client (put) backend in actions", res);
       dispatch({
@@ -73,7 +73,7 @@ export const updateClient = (clientId, updatedClient) => async (dispatch) => {
 
 export const addClient = (newClient) => async (dispatch) => {
   axios
-    .post(`${URL}add`, newClient)
+    .post(`${URL}/add`, newClient)
     .then((res) => {
       console.log("res from add new client (post) backend ", res);
       dispatch({

@@ -1,4 +1,4 @@
-export const URL = "http://localhost:8100/clients/";
+export const URL = "/clients";
 
 export const LANDING = {
   header: "CRM",
