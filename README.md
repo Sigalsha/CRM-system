@@ -1,4 +1,4 @@
-# <img src="client/public/favicon.ico" alt="crm-logo" height="24">  [CRM-react](https://crm-system-app.herokuapp.com/)
+# <img src="client/public/favicon.ico" alt="crm-logo" height="24" text-decoration="none">  [CRM-react](https://crm-system-app.herokuapp.com/)
 
 A full stack customer relationship management platform built with ReactJS and NodeJS.
 
