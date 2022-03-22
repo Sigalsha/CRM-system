@@ -4,7 +4,7 @@ A full stack customer relationship management platform built with ReactJS and No
 
 ## Clients
 Manage your clients data, including multiple filtering.
-
+ <img src="client/src/assets/clients-desktop.png" alt="clients-page" height="100" width="100" />
 ## Actions
 Perform actions regarding your clients, such as adding a new client, changing client's owner.
 
