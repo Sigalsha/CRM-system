@@ -18,4 +18,4 @@ View clients and sales stats
 # <img src="client/src/assets/analytics-desktop.png" alt="clients-page" height="200" width="400" />
 
 
-## For client-side only, please visit: https://sigalsha.github.io/CRM-react/
+For client-side only, please visit: https://sigalsha.github.io/CRM-react/
