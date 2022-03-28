@@ -13,23 +13,21 @@ import Input from "../general/Input";
 import "../../styles/actions/addClient.css";
 
 const AddClient = ({ owners, addNewClient }) => {
-  const [firstName, setFirstName] = useState("");
-  const [surname, setSurname] = useState("");
-  const [country, setCountry] = useState("");
-  const [owner, setOwner] = useState("");
   const [alert, setAlert] = useState(false);
   const [alertText, setAlertText] = useState("");
+  const [inputValues, setInputValues] = useState({
+    firstName: "",
+    surname: "",
+    country: "",
+    owner: ""
+  });
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setInputValues({ ...inputValues, [name]: value });
+  };
 
   // TODO - implement it
-  /*       handleInputChange = (event) => {
-        const {
-          target: { value, name }
-        } = event;
-
-        this.setState({
-          [name]: value
-        });
-      }; */
 
   const toggleAlert = () => setAlert(!alert);
 
@@ -53,28 +51,28 @@ const AddClient = ({ owners, addNewClient }) => {
 
     if (
       !validateInput(
-        firstName,
+        inputValues.firstName,
         "firstName",
         setAlert,
         setAlertText,
         ACTIONS_ALERTS["addClient"]
       ) ||
       !validateInput(
-        surname,
+        inputValues.surname,
         "surname",
         setAlert,
         setAlertText,
         ACTIONS_ALERTS["addClient"]
       ) ||
       !validateInput(
-        country,
+        inputValues.country,
         "country",
         setAlert,
         setAlertText,
         ACTIONS_ALERTS["addClient"]
       ) ||
       !validateInput(
-        owner,
+        inputValues.owner,
         "owner",
         setAlert,
         setAlertText,
@@ -83,6 +81,8 @@ const AddClient = ({ owners, addNewClient }) => {
     ) {
       return;
     }
+
+    const { firstName, surname, country, owner } = inputValues;
 
     if (!checkNewClientDetails({ firstName, surname, country, owner })) return;
 
@@ -93,10 +93,13 @@ const AddClient = ({ owners, addNewClient }) => {
     };
 
     addNewClient(newClient);
-    setFirstName("");
-    setSurname("");
-    setCountry("");
-    setOwner("");
+    setInputValues({
+      ...inputValues,
+      firstName: "",
+      surname: "",
+      country: "",
+      owner: ""
+    });
     resetInputs();
   };
 
@@ -110,8 +113,8 @@ const AddClient = ({ owners, addNewClient }) => {
           Input={
             <Input
               name="firstName"
-              value={firstName}
-              onChange={(e) => setFirstName(e.target.value)}
+              value={inputValues.firstName}
+              onChange={handleInputChange}
             />
           }
         />
@@ -121,8 +124,8 @@ const AddClient = ({ owners, addNewClient }) => {
           Input={
             <Input
               name="surname"
-              value={surname}
-              onChange={(e) => setSurname(e.target.value)}
+              value={inputValues.surname}
+              onChange={handleInputChange}
             />
           }
         />
@@ -132,8 +135,8 @@ const AddClient = ({ owners, addNewClient }) => {
           Input={
             <Input
               name="country"
-              value={country}
-              onChange={(e) => setCountry(e.target.value)}
+              value={inputValues.country}
+              onChange={handleInputChange}
             />
           }
         />
@@ -149,7 +152,7 @@ const AddClient = ({ owners, addNewClient }) => {
               id={owners}
               placeholder="owner"
               isAddClient={true}
-              onChange={(e) => setOwner(e.target.value)}
+              onChange={handleInputChange}
             />
           }
         />
