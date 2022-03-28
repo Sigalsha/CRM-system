@@ -83,8 +83,6 @@ const ClientsFilter = ({ countries, names, owners, isResetFilters }) => {
         setSold(value);
         break;
     }
-    // TODO - fix it
-    // setState({ [event.target.name]: event.target.value });
   };
 
   return (

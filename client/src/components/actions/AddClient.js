@@ -27,8 +27,6 @@ const AddClient = ({ owners, addNewClient }) => {
     setInputValues({ ...inputValues, [name]: value });
   };
 
-  // TODO - implement it
-
   const toggleAlert = () => setAlert(!alert);
 
   const checkNewClientDetails = (inputValues) => {
