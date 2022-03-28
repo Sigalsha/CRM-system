@@ -32,7 +32,6 @@ export const getClients = () => async (dispatch) => {
 export const getFilteredClients = (currentFilters) => (dispatch, getState) => {
   try {
     dispatch(setClientsLoading());
-    // should get clients state from reducer and filter it
 
     const filtered = filterByProperty(currentFilters, getState);
     console.log("filtered from clientsAction ", filtered);
@@ -42,8 +41,6 @@ export const getFilteredClients = (currentFilters) => (dispatch, getState) => {
       payload: filtered
     });
   } catch (err) {
-    // TODO - check if necessary
-    // dispatch(returnErrors(err));
     console.log("err from clients backend: ", err);
   }
 };

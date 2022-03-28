@@ -1,13 +1,6 @@
 const { check, validationResult } = require("express-validator");
 
 exports.updateClientValidator = [
-  /*   check("id")
-    .isEmpty()
-    .isAlphanumeric()
-    .withMessage("Client id can not be empty!")
-    .isLength({ min: 3 })
-    .withMessage("Minimum 3 characters required!"), */
-
   check("name")
     .exists()
     .not()
@@ -43,7 +36,7 @@ exports.updateClientValidator = [
       return res.status(422).json({ errors: errors.array() });
     }
     next();
-  },
+  }
 ];
 
 exports.addNewClientValidator = [
@@ -82,5 +75,5 @@ exports.addNewClientValidator = [
       return res.status(422).json({ errors: errors.array() });
     }
     next();
-  },
+  }
 ];

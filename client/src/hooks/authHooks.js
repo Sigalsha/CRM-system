@@ -7,7 +7,6 @@ export const useAuth = () => {
 
 export const useLogged = () => {
   return useSelector((state) => state.auth.isLogged);
-  //return isLogged;
 };
 
 export const useUsername = () => {

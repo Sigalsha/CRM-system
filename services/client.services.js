@@ -2,10 +2,8 @@ const Client = require("../models/ClientModel");
 const fs = require("fs");
 const Promise = require("bluebird");
 Promise.promisifyAll(fs);
-/* const fileData = fs.readFileSync("data.json");
-const clientsData = JSON.parse(fileData); */
 
-exports.saveInitialClients = async function() {
+exports.saveInitialClients = async function () {
   try {
     const fileData = await fs.readFileSync("data.json");
     const clients = await JSON.parse(fileData);
@@ -18,7 +16,7 @@ exports.saveInitialClients = async function() {
         emailType: client.emailType ? client.emailType : null,
         sold: client.sold,
         owner: client.owner,
-        country: client.country,
+        country: client.country
       });
 
       newClient.save((err, data) => {
@@ -39,7 +37,7 @@ exports.saveInitialClients = async function() {
   }
 };
 
-exports.getClients = async function(data) {
+exports.getClients = async function (data) {
   try {
     const clients = await Client.find(data);
     console.log("getting clients data from db", clients[0]);
@@ -49,20 +47,8 @@ exports.getClients = async function(data) {
   }
 };
 
-/* exports.getClient = async function({ name }) {
-  try {
-    const client = await Client.findOne({ name: name });
-    console.log("found client in db ", client);
-    return client;
-  } catch (err) {
-    return (err = "Error while trying to find client in db");
-  }
-}; */
-
-exports.updateClient = async function(updatedC) {
+exports.updateClient = async function (updatedC) {
   console.log("req params/body from ctrl - updateClient ", updatedC);
-
-  const updatedData = Object.fromEntries(Object.entries(updatedC).slice(1, 5));
 
   try {
     const clientToUpdate = await Client.findByIdAndUpdate(
@@ -72,7 +58,7 @@ exports.updateClient = async function(updatedC) {
         country: updatedC.country,
         owner: updatedC.owner,
         sold: updatedC.sold,
-        emailType: updatedC.emailType,
+        emailType: updatedC.emailType
       },
       { new: true },
       (data, err) => {
@@ -82,33 +68,14 @@ exports.updateClient = async function(updatedC) {
         console.log("clientToUpdate from db ", data);
       }
     );
-
     console.log("clientToUpdate from db ", clientToUpdate);
-
     return clientToUpdate;
-    // let clientToUpdate = await Client.findById(updatedC.id);
-
-    /*     clientToUpdate = {
-      name: updatedC.name ? updatedC.name : clientToUpdate.name,
-      country: updatedC.country ? updatedC.country : clientToUpdate.country,
-      owner: updatedC.owner ? updatedC.owner : clientToUpdate.owner,
-      sold: updatedC.sold ? updatedC.sold : clientToUpdate.sold,
-    }; */
-
-    // console.log("clientToUpdate after update, before saving: ", clientToUpdate);
-
-    /*   clientToUpdate.save().then((err) => {
-      if (err) {
-        return err;
-      }
-      return clientToUpdate;
-    }); */
   } catch (err) {
     return (err = "Error while updating client");
   }
 };
 
-exports.addNewClient = async function({ name, owner, country }) {
+exports.addNewClient = async function ({ name, owner, country }) {
   console.log("req params/body from ctrl - addNewClient", owner, name, country);
 
   try {
@@ -118,7 +85,7 @@ exports.addNewClient = async function({ name, owner, country }) {
       country,
       firstContact: new Date().toISOString(),
       sold: false,
-      emailType: null,
+      emailType: null
     });
 
     console.log("newClient in service", newClient);

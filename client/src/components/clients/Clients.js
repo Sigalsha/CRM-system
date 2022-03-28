@@ -99,7 +99,7 @@ const Clients = () => {
     let pageIndex = pageNum * itemsPerPage;
 
     // if specific page =>
-    // if prev page?
+    // if prev page
     if (pageDirection === -1) {
       if (pageNum === 1) {
         currentPageDisplay = [...clients].slice(0, itemsPerPage);
@@ -109,7 +109,7 @@ const Clients = () => {
         currentPageLimit -= itemsPerPage;
       }
 
-      // if next page?
+      // if next page
     } else {
       if (pageNum >= pageCount) {
         currentPageLimit = pageCount * itemsPerPage;

@@ -12,8 +12,6 @@ export const useError = () => {
       return "Sorry, client was not updated. Please try again";
     case "ADD_CLIENT_FAIL":
       return "Sorry, client was not added. Please try again";
-    /*     case "AUTH_ERROR":
-      return "Sorry, an error occurred. Please login"; */
     default:
       return;
   }

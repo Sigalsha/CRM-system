@@ -6,7 +6,6 @@ const api = require("./routes/api");
 const app = express();
 const path = require("path");
 const pug = require("pug");
-// import expressValidator from "express-validator";
 const ClientService = require("./services/client.services");
 const ClientModel = require("./models/ClientModel");
 
@@ -31,25 +30,9 @@ connection.once("open", () => {
 });
 
 app.use(cors());
-/* app.use(express.static("public"));
-app.use(express.static("node_modules")); */
 
 // body-parser middleware
 app.use(express.json());
-
-/* app.use(expressValidator); */
-
-/* app.use(bodyParser.urlencoded({ extended: false }));
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Content-Type, Authorization, Content-Length, X-Requested-With"
-  );
-
-  next();
-}); */
 
 // heroku
 if (process.env.NODE_ENV === "production") {
@@ -61,13 +44,6 @@ app.set("view engine", "pug");
 app.set("views", path.join(__dirname, "views"));
 
 app.use("/", api);
-
-/* app.use((req, res, next) => {
-  const err = new Error("Not found");
-  err.status = 404;
-  next(err);
-  res.render("404.pug", { title: "404: File Not Found" });
-}); */
 
 app.use((error, req, res, next) => {
   res.status(error.status || 500);

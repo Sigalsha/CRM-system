@@ -8,7 +8,6 @@ import "../../styles/actions/clientInput.css";
 const ClientInput = (props) => {
   const [clients, setClients] = useState(props.clients);
 
-  // check if working
   useEffect(() => {
     setClients(props.clients);
   }, [props.clients]);

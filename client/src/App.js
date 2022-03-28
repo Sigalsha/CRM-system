@@ -27,16 +27,6 @@ function App() {
 
   useEffect(() => {
     store.dispatch(loadUser());
-
-    /*  if (error) {
-      setError(error.msg.msg);
-      console.log(error.msg.msg);
-    }
-    if (!isAuthenticated) {
-      alert("user load fail");
-    } else {
-      alert("user is logged in");
-    } */
   }, []);
 
   return (
