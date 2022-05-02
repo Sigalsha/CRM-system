@@ -182,6 +182,7 @@ const Clients = () => {
               owners={owners}
               names={names}
               isResetFilters={isResetFilters}
+              updatedClient={updatedClient}
             />
           </div>
           <div className="clients-child">

@@ -5,7 +5,13 @@ import { EMAIL_TYPES, IS_SOLD } from "../../utils/constants";
 import Select from "../general/Select";
 import "../../styles/clients/clientsFilter.css";
 
-const ClientsFilter = ({ countries, names, owners, isResetFilters }) => {
+const ClientsFilter = ({
+  countries,
+  names,
+  owners,
+  isResetFilters,
+  updatedClient
+}) => {
   const [owner, setOwner] = useState("");
   const [sold, setSold] = useState("");
   const [name, setName] = useState("");
@@ -28,7 +34,7 @@ const ClientsFilter = ({ countries, names, owners, isResetFilters }) => {
     if (isResetFilters) {
       resetFilters();
     }
-  }, [isResetFilters]);
+  }, [isResetFilters, updatedClient]);
 
   const resetFilters = () => {
     setName("");
@@ -36,6 +42,13 @@ const ClientsFilter = ({ countries, names, owners, isResetFilters }) => {
     setEmailType("");
     setOwner("");
     setSold("");
+    setCurrentFilters({
+      name: "",
+      owner: "",
+      country: "",
+      emailType: "",
+      sold: ""
+    });
   };
 
   const updateSelectedFilter = (e) => {
