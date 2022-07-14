@@ -7,14 +7,14 @@ const clientSchema = new Schema({
     required: true,
     unique: true,
     trim: true,
-    minlength: 3,
+    minlength: 3
   },
   email: { type: String },
   firstContact: { type: String },
   emailType: { type: String },
   sold: { type: Boolean, required: true },
   owner: { type: String, required: true, minlength: 3 },
-  country: { type: String, required: true, minlength: 3 },
+  country: { type: String, required: true, minlength: 3 }
 });
 
 const Client = mongoose.model("Client", clientSchema);
