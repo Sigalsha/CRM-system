@@ -9,7 +9,7 @@ router.use("/clients", clients);
 
 router.get("/error", (error, req, res) => {
   res.status(500);
-  res.render("500.pug", { title: "500: Internal Server Error", error: error });
+  // res.render("500.pug", { title: "500: Internal Server Error", error: error });
 });
 
 // heroku issue
