@@ -40,19 +40,19 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // view engine setup
-// app.set("view engine", "pug");
-// app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "pug");
+app.set("views", path.join(__dirname, "views"));
 
 app.use("/", api);
 
 app.use((error, req, res, next) => {
   res.status(error.status || 500);
-  /* res.status === 500
+  res.status === 500
     ? res.render("500.pug", {
         title: "500: Internal Server Error",
         error: error
       })
-    : res.json({ error: error.message }); */
+    : res.json({ error: error.message });
 });
 
 app.listen(PORT, () => {
