@@ -9,13 +9,14 @@ router.use("/clients", clients);
 
 router.get("/error", (error, req, res) => {
   res.status(500);
-  // res.render("500.pug", { title: "500: Internal Server Error", error: error });
+  res.render("500.pug", { title: "500: Internal Server Error", error: error });
 });
 
 // heroku issue
-/* router.get("*", (req, res) => {
+router.get("*", (req, res) => {
   res.status(404);
-  res.render("404.pug", { title: "404: File Not Found" });
-}); */
+  res.redirect("/");
+  // res.render("404.pug", { title: "404: File Not Found" });
+});
 
 module.exports = router;
