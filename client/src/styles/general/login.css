@@ -91,6 +91,7 @@
 
 .auth-btn:hover {
   background-color: var(--clr-link-back-hover);
+  cursor: pointer;
 }
 
 .register-link-wrapper {
