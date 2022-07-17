@@ -3,9 +3,9 @@ const clients = require("./clients");
 const auth = require("./auth");
 const users = require("./users");
 
-router.use("/clients", clients);
 router.use("/auth", auth);
 router.use("/users", users);
+router.use("/clients", clients);
 
 router.get("/error", (error, req, res) => {
   res.status(500);

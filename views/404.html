@@ -1,69 +1,102 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="preconnect" href="https://fonts.gstatic.com" type="text/css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka+One" type="text/css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400" type="text/css"><style>body {
-  background-color: #ecf0f1;
-  color: #ff508e;
-  font-family: "Noto Sans JP", sans-serif;
-}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" type="text/css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Fredoka+One"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400"
+      type="text/css"
+    />
+    <style>
+      body {
+        background-color: #ecf0f1;
+        color: #ff508e;
+        font-family: "Noto Sans JP", sans-serif;
+      }
 
-#notFoundContainer {
-  position: relative;
-  height: 80vh;
-}
+      #notFoundContainer {
+        position: relative;
+        height: 80vh;
+      }
 
-.notFound {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  justify-content: center;
-  flex-flow: column wrap;
-  align-items: center;
-  max-width: 710px;
-  width: 100%;
-  text-align: center;
-  padding: 0px 15px;
-  line-height: 1.4;
-}
+      .notFound {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        justify-content: center;
+        flex-flow: column wrap;
+        align-items: center;
+        max-width: 710px;
+        width: 100%;
+        text-align: center;
+        padding: 0px 15px;
+        line-height: 1.4;
+      }
 
-.mainHeader {
-  font-family: "Fredoka One", cursive;
-  font-size: 168px;
-  margin: 0px;
-  color: #f7ce3e;
-  text-transform: uppercase;
-}
+      .mainHeader {
+        font-family: "Fredoka One", cursive;
+        font-size: 168px;
+        margin: 0px;
+        color: #f7ce3e;
+        text-transform: uppercase;
+      }
 
-.subHeader {
-  font-size: 28px;
-  text-transform: uppercase;
-  color: darkgrey;
-  margin: 0 0 20px 0;
-}
+      .subHeader {
+        font-size: 28px;
+        text-transform: uppercase;
+        color: darkgrey;
+        margin: 0 0 20px 0;
+      }
 
-.notFound a {
-  display: inline-block;
-  font-size: 24px;
-  text-decoration: none;
-  color: #795548;
-  margin-top: 25px;
-  border: 1px solid #795548;
-  border-radius: 15px;
-  padding: 15px;
-}
+      .notFound a {
+        display: inline-block;
+        font-size: 24px;
+        text-decoration: none;
+        color: #795548;
+        margin-top: 25px;
+        border: 1px solid #795548;
+        border-radius: 15px;
+        padding: 15px;
+      }
 
-@media screen and (max-width: 700px) {
-  .mainHeader {
-    font-size: 120px;
-  }
+      @media screen and (max-width: 700px) {
+        .mainHeader {
+          font-size: 120px;
+        }
 
-  .subHeader {
-    font-size: 1.3em;
-    margin: 0 20px 20px 20px;
-  }
+        .subHeader {
+          font-size: 1.3em;
+          margin: 0 20px 20px 20px;
+        }
 
-  .notFound a {
-    font-size: 1.2em;
-  }
-}
-</style><title>NaN</title></head><body><div id="notFoundContainer"><div class="notFound"><h1 class="mainHeader">404</h1><h2 class="subHeader">Oops, The Page you are looking for can't be found!</h2>
-<a href="/"><i class="far fa-angle-left" aria-hidden="true"> </i><span class="arrow">Homepage</span></a></div></div></body></html>
+        .notFound a {
+          font-size: 1.2em;
+        }
+      }
+    </style>
+    <title>CRM-System</title>
+  </head>
+  <body>
+    <div id="notFoundContainer">
+      <div class="notFound">
+        <h1 class="mainHeader">404</h1>
+        <h2 class="subHeader">
+          Oops, The Page you are looking for can't be found!
+        </h2>
+        <a href="/"
+          ><i class="far fa-angle-left" aria-hidden="true"> </i
+          ><span class="arrow">Homepage</span></a
+        >
+      </div>
+    </div>
+  </body>
+</html>
